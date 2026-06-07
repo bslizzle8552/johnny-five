@@ -1,0 +1,54 @@
+{
+  "character": "Number 5 layered PNG rig",
+  "status": "usable layered prototype assets available, but not a complete final rig art kit",
+  "coordinateSystem": {
+    "stageWidth": 1024,
+    "stageHeight": 576,
+    "floorY": 462,
+    "groundPointDescription": "five.groundX and five.groundY are the bottom-center tread contact anchor, not the image top-left.",
+    "rigWidth": 300,
+    "rigHeight": 450,
+    "groundLocalX": 150,
+    "groundLocalY": 404,
+    "baseWidth": 238,
+    "treadContactLeft": -92,
+    "treadContactRight": 103
+  },
+  "charger": {
+    "dockTargetX": 226,
+    "dockTargetY": 462,
+    "padWidth": 192,
+    "alignmentRule": "Docking succeeds when five.groundX equals charger.dockTargetX and five.groundY equals charger.dockTargetY."
+  },
+  "parts": [
+    { "id": "right-tread-belt-loop", "file": "right-tread-belt-loop.png", "dimensions": [126, 86], "offset": [156, 296], "pivot": [63, 70], "z": 1 },
+    { "id": "left-tread-belt-loop", "file": "left-tread-belt-loop.png", "dimensions": [118, 78], "offset": [35, 303], "pivot": [59, 64], "z": 2 },
+    { "id": "right-tread-housing", "file": "right-tread-housing.png", "dimensions": [126, 111], "offset": [152, 289], "pivot": [63, 92], "z": 3 },
+    { "id": "left-tread-housing", "file": "left-tread-housing.png", "dimensions": [96, 102], "offset": [35, 296], "pivot": [50, 88], "z": 4 },
+    { "id": "chassis-base", "file": "chassis-base.png", "dimensions": [155, 123], "offset": [65, 255], "pivot": [78, 116], "z": 6 },
+    { "id": "torso", "file": "torso.png", "dimensions": [129, 122], "offset": [86, 168], "pivot": [64, 116], "z": 8 },
+    { "id": "neck-head-mount", "file": "neck-head-mount.png", "dimensions": [59, 103], "offset": [124, 124], "pivot": [30, 99], "z": 9 },
+    { "id": "left-upper-arm", "file": "left-upper-arm.png", "dimensions": [38, 67], "offset": [69, 214], "pivot": [30, 7], "z": 10 },
+    { "id": "left-lower-arm", "file": "left-lower-arm.png", "dimensions": [57, 62], "offset": [27, 209], "pivot": [48, 35], "z": 11 },
+    { "id": "left-gripper-claw", "file": "left-gripper-claw.png", "dimensions": [38, 45], "offset": [12, 207], "pivot": [27, 30], "z": 12 },
+    { "id": "right-upper-arm", "file": "right-upper-arm.png", "dimensions": [48, 84], "offset": [191, 211], "pivot": [13, 10], "z": 10 },
+    { "id": "right-lower-arm", "file": "right-lower-arm.png", "dimensions": [45, 73], "offset": [168, 257], "pivot": [27, 14], "z": 11 },
+    { "id": "right-gripper-claw", "file": "right-gripper-claw.png", "dimensions": [34, 54], "offset": [172, 286], "pivot": [15, 7], "z": 12 },
+    { "id": "red-shoulder-toolbox", "file": "red-shoulder-toolbox.png", "dimensions": [89, 101], "offset": [190, 147], "pivot": [18, 73], "z": 13 },
+    { "id": "small-sensors-antenna", "file": "small-sensors-antenna.png", "dimensions": [142, 35], "offset": [63, 53], "pivot": [71, 31], "z": 14 },
+    { "id": "head-camera-bar", "file": "head-camera-bar.png", "dimensions": [161, 101], "offset": [60, 51], "pivot": [82, 84], "z": 15 },
+    { "id": "left-eye-housing", "file": "left-eye-housing.png", "dimensions": [57, 58], "offset": [69, 86], "pivot": [29, 30], "z": 16 },
+    { "id": "right-eye-housing", "file": "right-eye-housing.png", "dimensions": [63, 63], "offset": [128, 73], "pivot": [32, 32], "z": 17 },
+    { "id": "left-lens", "file": "left-lens.png", "dimensions": [20, 14], "offset": [86, 101], "pivot": [10, 7], "z": 18 },
+    { "id": "right-lens", "file": "right-lens.png", "dimensions": [22, 15], "offset": [147, 89], "pivot": [11, 8], "z": 18 },
+    { "id": "left-eye-highlight-glow", "file": "left-eye-highlight-glow.png", "dimensions": [39, 26], "offset": [73, 91], "pivot": [20, 13], "z": 19 },
+    { "id": "right-eye-highlight-glow", "file": "right-eye-highlight-glow.png", "dimensions": [42, 28], "offset": [133, 79], "pivot": [21, 14], "z": 19 },
+    { "id": "amber-indicator-lights", "file": "amber-indicator-lights.png", "dimensions": [66, 73], "offset": [97, 211], "pivot": [33, 36], "z": 20 }
+  ],
+  "requiredStillMissingForFinalArt": [
+    { "id": "left-shoulder-joint", "recommendedDimensions": [34, 34], "recommendedPivot": [17, 17], "recommendedZ": 10 },
+    { "id": "right-shoulder-joint", "recommendedDimensions": [34, 34], "recommendedPivot": [17, 17], "recommendedZ": 10 },
+    { "id": "left-tread-belt-loop-frames", "recommendedDimensions": [126, 86], "recommendedPivot": [63, 70], "recommendedZ": 1, "note": "Current prototype uses one looped real PNG tread texture, not a multi-frame belt sequence." },
+    { "id": "right-tread-belt-loop-frames", "recommendedDimensions": [126, 86], "recommendedPivot": [63, 70], "recommendedZ": 1, "note": "Current prototype uses one looped real PNG tread texture, not a multi-frame belt sequence." }
+  ]
+}
