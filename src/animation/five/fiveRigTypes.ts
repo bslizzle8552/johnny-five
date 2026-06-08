@@ -2,6 +2,7 @@ import type { CSSProperties } from 'react';
 
 export type FiveAnimationState =
   | 'Idle'
+  | 'Walk'
   | 'LookAround'
   | 'Roll'
   | 'TurnLeft'
@@ -12,7 +13,7 @@ export type FiveAnimationState =
   | 'Sleep'
   | 'Wake';
 
-export type FiveMotionMode = 'still' | 'roll' | 'slowRoll' | 'turnLeft' | 'turnRight' | 'align' | 'dock' | 'settle';
+export type FiveMotionMode = 'still' | 'walk' | 'roll' | 'slowRoll' | 'turnLeft' | 'turnRight' | 'align' | 'dock' | 'settle';
 
 export type FiveFacing = -1 | 1;
 
@@ -90,12 +91,9 @@ export type FiveSceneMoment = {
     x: number;
     y: number;
   };
-  speech?: string;
-  speechDelayMs?: number;
 };
 
 export type FiveControllerState = {
   moment: FiveSceneMoment;
-  speech: string | null;
   isBlinking: boolean;
 };

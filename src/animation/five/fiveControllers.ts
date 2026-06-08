@@ -4,7 +4,6 @@ import type { FiveControllerState } from './fiveRigTypes';
 
 export function useFiveController(): FiveControllerState {
   const [momentIndex, setMomentIndex] = useState(0);
-  const [speech, setSpeech] = useState<string | null>(null);
   const [isBlinking, setIsBlinking] = useState(false);
   const moment = fiveTimeline[momentIndex];
 
@@ -15,16 +14,6 @@ export function useFiveController(): FiveControllerState {
 
     return () => window.clearTimeout(timer);
   }, [moment.durationMs, momentIndex]);
-
-  useEffect(() => {
-    setSpeech(null);
-    if (!moment.speech) {
-      return undefined;
-    }
-
-    const timer = window.setTimeout(() => setSpeech(moment.speech ?? null), moment.speechDelayMs ?? 6000);
-    return () => window.clearTimeout(timer);
-  }, [moment]);
 
   useEffect(() => {
     if (moment.state === 'Sleep') {
@@ -41,5 +30,5 @@ export function useFiveController(): FiveControllerState {
     return () => window.clearInterval(blinkInterval);
   }, [moment.state]);
 
-  return useMemo(() => ({ moment, speech, isBlinking }), [isBlinking, moment, speech]);
+  return useMemo(() => ({ moment, isBlinking }), [isBlinking, moment]);
 }

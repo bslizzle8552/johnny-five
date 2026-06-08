@@ -5,11 +5,10 @@ import { FivePart } from './FivePart';
 
 type FiveRigProps = {
   moment: FiveSceneMoment;
-  speech: string | null;
   isBlinking: boolean;
 };
 
-export function FiveRig({ moment, speech, isBlinking }: FiveRigProps) {
+export function FiveRig({ moment, isBlinking }: FiveRigProps) {
   return (
     <div
       className={[
@@ -26,7 +25,6 @@ export function FiveRig({ moment, speech, isBlinking }: FiveRigProps) {
           <FivePart key={part.id} part={part} />
         ))}
       </div>
-      {speech ? <p className="speech-bubble">{speech}</p> : null}
     </div>
   );
 }
