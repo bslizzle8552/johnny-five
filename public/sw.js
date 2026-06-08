@@ -1,5 +1,6 @@
 const CACHE_NAME = 'johnny-five-companion-v2';
-const CORE_ASSETS = ['/', '/index.html', '/manifest.webmanifest'];
+const SCOPE = self.registration.scope;
+const CORE_ASSETS = [SCOPE, `${SCOPE}index.html`, `${SCOPE}manifest.webmanifest`];
 
 self.addEventListener('install', (event) => {
   event.waitUntil(caches.open(CACHE_NAME).then((cache) => cache.addAll(CORE_ASSETS)));
