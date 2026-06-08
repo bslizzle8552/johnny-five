@@ -163,7 +163,11 @@ function getBoneLimits(boneName: string): BoneLimits {
   }
 
   if (/toe/i.test(boneName)) {
-    return lockedLimits;
+    return {
+      x: { min: -10, max: 18 },
+      y: { min: 0, max: 0 },
+      z: { min: 0, max: 0 },
+    };
   }
 
   if (/head/i.test(boneName)) {
@@ -422,6 +426,10 @@ function easeInOut(value: number) {
   return clamped * clamped * (3 - 2 * clamped);
 }
 
+function easeWindow(value: number, start: number, end: number) {
+  return easeInOut((value - start) / (end - start));
+}
+
 function seededNoise(value: number) {
   return THREE.MathUtils.euclideanModulo(Math.sin(value * 12.9898) * 43758.5453, 1);
 }
@@ -469,36 +477,49 @@ function walkPose(stridePhase: number, walkWeight: number, waveWeight: number) {
   const leftStance = cycle < 0.5;
   const halfPhase = leftStance ? cycle / 0.5 : (cycle - 0.5) / 0.5;
   const contact = easeInOut(halfPhase);
+  const compression = Math.sin(contact * Math.PI) * walkWeight;
+  const heelSettle = (1 - easeWindow(halfPhase, 0.04, 0.22)) * walkWeight;
+  const toePush = easeWindow(halfPhase, 0.58, 0.82) * (1 - easeWindow(halfPhase, 0.9, 1)) * walkWeight;
+  const swingLift = Math.sin(halfPhase * Math.PI) * walkWeight;
+  const swingRecovery = easeWindow(halfPhase, 0.52, 0.9) * walkWeight;
   const swing = Math.sin(halfPhase * Math.PI) * walkWeight;
   const swingReach = (contact - 0.5) * 2 * walkWeight;
   const stanceDrift = (0.5 - contact) * 2 * walkWeight;
   const bodyOverStance = (leftStance ? -1 : 1) * Math.sin(contact * Math.PI) * walkWeight;
-  const stanceHip = stanceDrift * 13;
-  const swingHip = swingReach * 21;
-  const swingKnee = (16 + swing * 34) * walkWeight;
-  const stanceKnee = Math.max(0, Math.sin(contact * Math.PI)) * 5 * walkWeight;
-  const stanceFoot = (-stanceDrift * 5 + 2.5) * walkWeight;
-  const swingFoot = (swingKnee * 0.45 - swing * 9 - swingReach * 2) * walkWeight;
+  const stanceHip = stanceDrift * 12 - compression * 1.8 + toePush * 3.2;
+  const swingHip = swingReach * 19 - swingLift * 1.8;
+  const swingKnee = 14 * walkWeight + swingLift * 42 + swingRecovery * 6;
+  const stanceKnee = compression * 8 + toePush * 4 + heelSettle * 2;
+  const stanceFoot = -stanceDrift * 6 - heelSettle * 6 + compression * 2.5 + toePush * 12;
+  const swingFoot = swingKnee * 0.38 - swingLift * 12 - swingReach * 3 - swingRecovery * 6;
+  const stanceToe = toePush * 15 - heelSettle * 3;
+  const swingToe = -swingLift * 5 + swingRecovery * 4;
+  const stanceAnkleRoll = bodyOverStance * -1.6;
+  const swingAnkleRoll = bodyOverStance * 0.9;
   const waveArc = Math.sin(stridePhase * 1.35) * waveWeight;
 
-  addRotation(pose, 'Spine01', { x: swing * 0.8, y: bodyOverStance * 1.2, z: bodyOverStance * 2.5 });
-  addRotation(pose, 'Spine02', { z: bodyOverStance * 1.2 });
+  addRotation(pose, 'Spine01', { x: swing * 0.8 - compression * 0.7, y: bodyOverStance * 1.2, z: bodyOverStance * 2.5 });
+  addRotation(pose, 'Spine02', { x: compression * 0.45, z: bodyOverStance * 1.2 });
   addRotation(pose, 'Head', { y: bodyOverStance * -1.3, z: -bodyOverStance * 1.5 });
 
   if (leftStance) {
     addRotation(pose, 'L_Thigh', { x: stanceHip, z: -2.2 * walkWeight });
     addRotation(pose, 'L_Calf', { x: -stanceKnee });
-    addRotation(pose, 'L_Foot', { x: stanceFoot });
+    addRotation(pose, 'L_Foot', { x: stanceFoot, y: -stanceAnkleRoll * 0.35, z: stanceAnkleRoll });
+    addRotation(pose, 'L_ToeBase', { x: stanceToe });
     addRotation(pose, 'R_Thigh', { x: swingHip, z: 2.6 * walkWeight });
     addRotation(pose, 'R_Calf', { x: -swingKnee });
-    addRotation(pose, 'R_Foot', { x: swingFoot });
+    addRotation(pose, 'R_Foot', { x: swingFoot, y: swingAnkleRoll * 0.3, z: swingAnkleRoll });
+    addRotation(pose, 'R_ToeBase', { x: swingToe });
   } else {
     addRotation(pose, 'R_Thigh', { x: stanceHip, z: 2.2 * walkWeight });
     addRotation(pose, 'R_Calf', { x: -stanceKnee });
-    addRotation(pose, 'R_Foot', { x: stanceFoot });
+    addRotation(pose, 'R_Foot', { x: stanceFoot, y: -stanceAnkleRoll * 0.35, z: -stanceAnkleRoll });
+    addRotation(pose, 'R_ToeBase', { x: stanceToe });
     addRotation(pose, 'L_Thigh', { x: swingHip, z: -2.6 * walkWeight });
     addRotation(pose, 'L_Calf', { x: -swingKnee });
-    addRotation(pose, 'L_Foot', { x: swingFoot });
+    addRotation(pose, 'L_Foot', { x: swingFoot, y: swingAnkleRoll * 0.3, z: -swingAnkleRoll });
+    addRotation(pose, 'L_ToeBase', { x: swingToe });
   }
 
   addRotation(pose, 'L_Upperarm', { x: (leftStance ? -swing : swing) * 9, z: (leftStance ? -1 : 1) * swing * 4 });
@@ -1343,8 +1364,8 @@ export function TripoPuppeteerLab() {
     <main className="tripo-puppeteer johnny-rig-only">
       <section className="tripo-stage" aria-label="Johnny full puppet rig walking stage">
         <div className="tripo-canvas" ref={mountRef} />
-        <button className="johnny-replay-walk" type="button" onClick={playSequence}>
-          Replay walk
+        <button className="johnny-replay-walk" type="button" onClick={playSequence} aria-label="Replay walk sequence">
+          Replay walk sequence
         </button>
         <div className="tripo-status" aria-live="polite">
           {status}
