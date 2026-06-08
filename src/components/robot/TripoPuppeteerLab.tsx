@@ -1343,6 +1343,9 @@ export function TripoPuppeteerLab() {
     <main className="tripo-puppeteer johnny-rig-only">
       <section className="tripo-stage" aria-label="Johnny full puppet rig walking stage">
         <div className="tripo-canvas" ref={mountRef} />
+        <button className="johnny-replay-walk" type="button" onClick={playSequence}>
+          Replay walk
+        </button>
         <div className="tripo-status" aria-live="polite">
           {status}
         </div>
