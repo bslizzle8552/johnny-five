@@ -1,9 +1,7 @@
-import { FiveStage } from './components/five/FiveStage';
+import { TripoPuppeteerLab } from './components/robot/TripoPuppeteerLab';
 
 export function App() {
   return (
-    <main className="app" aria-label="Johnny locomotion lab">
-      <FiveStage />
-    </main>
+    <TripoPuppeteerLab />
   );
 }

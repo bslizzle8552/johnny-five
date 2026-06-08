@@ -4,7 +4,6 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader, type GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { validateMotionFrame, type MotionJudgement } from './motionValidators';
 import { withBasePath } from './assetPaths';
-import { createWorkshopScene, workshopAnchors } from './workshopScene';
 
 type BoneMap = Record<string, THREE.Bone>;
 type Axis = 'x' | 'y' | 'z';
@@ -91,12 +90,12 @@ const standingPose: PoseRotations = {
 };
 
 const testerBoneBlocklist = /^(Root|Hip)$|Twist|ToeBase/i;
-const floorPropHome = workshopAnchors.floorPropHome;
-const chairSeatTarget = workshopAnchors.chairSeatTarget;
-const chairApproachTarget = workshopAnchors.chairApproachTarget;
-const chairYaw = workshopAnchors.chairYaw;
-const propStandTarget = workshopAnchors.propStandTarget;
-const propReachYaw = workshopAnchors.propReachYaw;
+const floorPropHome = { x: 0.42, y: 0.055, z: 0.26 };
+const chairSeatTarget = { x: -0.58, z: -0.56 };
+const chairApproachTarget = { x: -0.56, z: -0.2 };
+const chairYaw = -72;
+const propStandTarget = { x: 0.12, z: 0.34 };
+const propReachYaw = -126;
 
 function disposeObject(object: THREE.Object3D) {
   object.traverse((child) => {
@@ -399,11 +398,7 @@ function getInitialYaw() {
 }
 
 function shouldAutoplaySequence() {
-  if (typeof window === 'undefined') {
-    return false;
-  }
-
-  return new URLSearchParams(window.location.search).get('play') === '1';
+  return true;
 }
 
 function shouldAutoTestBones() {
@@ -470,29 +465,45 @@ function mergePose(basePose: PoseRotations, overlayPose: Record<string, Partial<
 
 function walkPose(stridePhase: number, walkWeight: number, waveWeight: number) {
   const pose = mergePose(standingPose, {});
-  const strideWave = Math.sin(stridePhase);
-  const counterStrideWave = Math.sin(stridePhase + Math.PI);
-  const stride = Math.sign(strideWave) * Math.pow(Math.abs(strideWave), 0.82) * walkWeight;
-  const counterStride = Math.sign(counterStrideWave) * Math.pow(Math.abs(counterStrideWave), 0.82) * walkWeight;
-  const lift = Math.pow(Math.max(0, Math.sin(stridePhase)), 1.8) * walkWeight;
-  const counterLift = Math.pow(Math.max(0, Math.sin(stridePhase + Math.PI)), 1.8) * walkWeight;
+  const cycle = THREE.MathUtils.euclideanModulo(stridePhase / (Math.PI * 2), 1);
+  const leftStance = cycle < 0.5;
+  const halfPhase = leftStance ? cycle / 0.5 : (cycle - 0.5) / 0.5;
+  const contact = easeInOut(halfPhase);
+  const swing = Math.sin(halfPhase * Math.PI) * walkWeight;
+  const swingReach = (contact - 0.5) * 2 * walkWeight;
+  const stanceDrift = (0.5 - contact) * 2 * walkWeight;
+  const bodyOverStance = (leftStance ? -1 : 1) * Math.sin(contact * Math.PI) * walkWeight;
+  const stanceHip = stanceDrift * 13;
+  const swingHip = swingReach * 21;
+  const swingKnee = (16 + swing * 34) * walkWeight;
+  const stanceKnee = Math.max(0, Math.sin(contact * Math.PI)) * 5 * walkWeight;
+  const stanceFoot = (-stanceDrift * 5 + 2.5) * walkWeight;
+  const swingFoot = (swingKnee * 0.45 - swing * 9 - swingReach * 2) * walkWeight;
   const waveArc = Math.sin(stridePhase * 1.35) * waveWeight;
-  const leftKnee = lift * 24 + Math.max(0, -stride) * 10;
-  const rightKnee = counterLift * 24 + Math.max(0, -counterStride) * 10;
-  const leftFootPlant = Math.max(0, -strideWave) * walkWeight;
-  const rightFootPlant = Math.max(0, -counterStrideWave) * walkWeight;
 
-  addRotation(pose, 'Spine01', { x: Math.abs(strideWave) * 0.7 * walkWeight, z: strideWave * 1.2 * walkWeight });
-  addRotation(pose, 'L_Thigh', { x: stride * 19, z: 1.2 * walkWeight });
-  addRotation(pose, 'L_Calf', { x: -leftKnee });
-  addRotation(pose, 'L_Foot', { x: leftKnee * 0.42 - stride * 4 - lift * 3 + leftFootPlant * 3 });
-  addRotation(pose, 'R_Thigh', { x: counterStride * 19, z: -1.2 * walkWeight });
-  addRotation(pose, 'R_Calf', { x: -rightKnee });
-  addRotation(pose, 'R_Foot', { x: rightKnee * 0.42 - counterStride * 4 - counterLift * 3 + rightFootPlant * 3 });
+  addRotation(pose, 'Spine01', { x: swing * 0.8, y: bodyOverStance * 1.2, z: bodyOverStance * 2.5 });
+  addRotation(pose, 'Spine02', { z: bodyOverStance * 1.2 });
+  addRotation(pose, 'Head', { y: bodyOverStance * -1.3, z: -bodyOverStance * 1.5 });
 
-  addRotation(pose, 'L_Upperarm', { x: -stride * 10, z: stride * 4 });
-  addRotation(pose, 'R_Upperarm', { x: -counterStride * 10, z: -counterStride * 4 });
-  addRotation(pose, 'L_Forearm', { x: Math.max(0, stride) * 8 });
+  if (leftStance) {
+    addRotation(pose, 'L_Thigh', { x: stanceHip, z: -2.2 * walkWeight });
+    addRotation(pose, 'L_Calf', { x: -stanceKnee });
+    addRotation(pose, 'L_Foot', { x: stanceFoot });
+    addRotation(pose, 'R_Thigh', { x: swingHip, z: 2.6 * walkWeight });
+    addRotation(pose, 'R_Calf', { x: -swingKnee });
+    addRotation(pose, 'R_Foot', { x: swingFoot });
+  } else {
+    addRotation(pose, 'R_Thigh', { x: stanceHip, z: 2.2 * walkWeight });
+    addRotation(pose, 'R_Calf', { x: -stanceKnee });
+    addRotation(pose, 'R_Foot', { x: stanceFoot });
+    addRotation(pose, 'L_Thigh', { x: swingHip, z: -2.6 * walkWeight });
+    addRotation(pose, 'L_Calf', { x: -swingKnee });
+    addRotation(pose, 'L_Foot', { x: swingFoot });
+  }
+
+  addRotation(pose, 'L_Upperarm', { x: (leftStance ? -swing : swing) * 9, z: (leftStance ? -1 : 1) * swing * 4 });
+  addRotation(pose, 'R_Upperarm', { x: (leftStance ? swing : -swing) * 9, z: (leftStance ? -1 : 1) * swing * 4 });
+  addRotation(pose, 'L_Forearm', { x: Math.max(0, leftStance ? swing : -swing) * 5 });
 
   if (waveWeight > 0) {
     addRotation(pose, 'R_Clavicle', { z: -18 * waveWeight });
@@ -867,14 +878,10 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
 export function TripoPuppeteerLab() {
   const mountRef = useRef<HTMLDivElement | null>(null);
   const modelRef = useRef<THREE.Object3D | null>(null);
-  const floorPropRef = useRef<THREE.Object3D | null>(null);
   const skeletonHelperRef = useRef<THREE.SkeletonHelper | null>(null);
   const bonesRef = useRef<BoneMap>({});
   const baseRotationsRef = useRef(new Map<string, THREE.Quaternion>());
   const basePositionRef = useRef(new THREE.Vector3());
-  const handWorldRef = useRef(new THREE.Vector3());
-  const propTargetRef = useRef(new THREE.Vector3());
-  const propFloorRef = useRef(new THREE.Vector3(floorPropHome.x, floorPropHome.y, floorPropHome.z));
   const judgementLastUpdateRef = useRef(0);
   const poseRef = useRef<PoseRotations>({});
   const probeRef = useRef<ProbeState | null>(null);
@@ -977,10 +984,14 @@ export function TripoPuppeteerLab() {
     fillLight.position.set(-2.7, 1.6, 1.4);
     scene.add(fillLight);
 
-    const workshop = createWorkshopScene();
-    scene.add(workshop.group);
-    const floorProp = workshop.floorProp;
-    floorPropRef.current = floorProp;
+    const ground = new THREE.Mesh(
+      new THREE.PlaneGeometry(6, 6),
+      new THREE.ShadowMaterial({ color: 0x1f1d1a, opacity: 0.16 }),
+    );
+    ground.rotation.x = -Math.PI / 2;
+    ground.position.y = -0.006;
+    ground.receiveShadow = true;
+    scene.add(ground);
 
     const resize = () => {
       const rect = mount.getBoundingClientRect();
@@ -1077,22 +1088,6 @@ export function TripoPuppeteerLab() {
           rotateBone(baseRotationsRef.current, bone, rotation, probeOffset);
         });
 
-        if (floorPropRef.current) {
-          if (activeProp.held && bonesRef.current.R_Hand) {
-            model.updateMatrixWorld(true);
-            bonesRef.current.R_Hand.getWorldPosition(handWorldRef.current);
-            propTargetRef.current.copy(handWorldRef.current);
-            propTargetRef.current.y -= 0.035;
-            propTargetRef.current.x += Math.sin(elapsedTime * 1.4) * 0.006;
-            propTargetRef.current.z += Math.cos(elapsedTime * 1.2) * 0.006;
-            floorPropRef.current.position.copy(propFloorRef.current).lerp(propTargetRef.current, activeProp.grab ?? 1);
-          } else {
-            floorPropRef.current.position.set(activeProp.x, activeProp.y, activeProp.z);
-          }
-          floorPropRef.current.rotation.y = elapsedTime * (activeProp.held ? 0.32 : 0.8);
-          floorPropRef.current.rotation.x = activeProp.held ? Math.sin(elapsedTime * 3.4) * 0.09 : 0;
-        }
-
         if (elapsedTime - judgementLastUpdateRef.current > 0.28) {
           judgementLastUpdateRef.current = elapsedTime;
           model.updateMatrixWorld(true);
@@ -1102,7 +1097,7 @@ export function TripoPuppeteerLab() {
             bones: bonesRef.current,
             modelYaw: activeYaw,
             prop: activeProp,
-            propPosition: floorPropRef.current?.position ?? null,
+            propPosition: null,
             chairYaw,
             propReachYaw,
           }));
@@ -1201,12 +1196,16 @@ export function TripoPuppeteerLab() {
         scene.remove(modelRef.current);
         disposeObject(modelRef.current);
       }
-      scene.remove(workshop.group);
-      workshop.dispose();
+      scene.remove(ground);
+      ground.geometry.dispose();
+      if (Array.isArray(ground.material)) {
+        ground.material.forEach((material) => material.dispose());
+      } else {
+        ground.material.dispose();
+      }
       renderer.dispose();
       renderer.domElement.remove();
       modelRef.current = null;
-      floorPropRef.current = null;
       skeletonHelperRef.current = null;
       bonesRef.current = {};
       baseRotationsRef.current = new Map();
@@ -1341,8 +1340,8 @@ export function TripoPuppeteerLab() {
   const selectedProfile = selectedBone ? boneProfiles[selectedBone] : undefined;
 
   return (
-    <main className="tripo-puppeteer bone-lab">
-      <section className="tripo-stage" aria-label="Digital puppeteer bone test stage">
+    <main className="tripo-puppeteer johnny-rig-only">
+      <section className="tripo-stage" aria-label="Johnny full puppet rig walking stage">
         <div className="tripo-canvas" ref={mountRef} />
         <div className="tripo-status" aria-live="polite">
           {status}

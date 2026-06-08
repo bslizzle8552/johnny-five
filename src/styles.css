@@ -458,6 +458,20 @@ input {
   color: #211f1b;
 }
 
+.tripo-puppeteer.johnny-rig-only {
+  grid-template-columns: 1fr;
+  background: #f0eee8;
+}
+
+.tripo-puppeteer.johnny-rig-only .tripo-stage {
+  background: #f0eee8;
+}
+
+.tripo-puppeteer.johnny-rig-only .tripo-controls,
+.tripo-puppeteer.johnny-rig-only .tripo-status {
+  display: none;
+}
+
 .tripo-stage {
   position: relative;
   min-width: 0;
