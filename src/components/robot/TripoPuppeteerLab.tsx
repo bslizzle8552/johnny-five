@@ -479,20 +479,20 @@ function walkPose(stridePhase: number, walkWeight: number, waveWeight: number) {
   const contact = easeInOut(halfPhase);
   const compression = Math.sin(contact * Math.PI) * walkWeight;
   const heelSettle = (1 - easeWindow(halfPhase, 0.04, 0.22)) * walkWeight;
-  const toePush = easeWindow(halfPhase, 0.58, 0.82) * (1 - easeWindow(halfPhase, 0.9, 1)) * walkWeight;
+  const toePush = easeWindow(halfPhase, 0.56, 0.76) * (1 - easeWindow(halfPhase, 0.8, 0.94)) * walkWeight;
   const swingLift = Math.sin(halfPhase * Math.PI) * walkWeight;
   const swingRecovery = easeWindow(halfPhase, 0.52, 0.9) * walkWeight;
   const swing = Math.sin(halfPhase * Math.PI) * walkWeight;
   const swingReach = (contact - 0.5) * 2 * walkWeight;
   const stanceDrift = (0.5 - contact) * 2 * walkWeight;
   const bodyOverStance = (leftStance ? -1 : 1) * Math.sin(contact * Math.PI) * walkWeight;
-  const stanceHip = stanceDrift * 12 - compression * 1.8 + toePush * 3.2;
+  const stanceHip = stanceDrift * 12 - compression * 1.8 + toePush * 1.8;
   const swingHip = swingReach * 19 - swingLift * 1.8;
   const swingKnee = 14 * walkWeight + swingLift * 42 + swingRecovery * 6;
   const stanceKnee = compression * 8 + toePush * 4 + heelSettle * 2;
-  const stanceFoot = -stanceDrift * 6 - heelSettle * 6 + compression * 2.5 + toePush * 12;
+  const stanceFoot = -stanceDrift * 5 - heelSettle * 5 + compression * 2 + toePush * 3.5;
   const swingFoot = swingKnee * 0.38 - swingLift * 12 - swingReach * 3 - swingRecovery * 6;
-  const stanceToe = toePush * 15 - heelSettle * 3;
+  const stanceToe = toePush * 5 - heelSettle * 2;
   const swingToe = -swingLift * 5 + swingRecovery * 4;
   const stanceAnkleRoll = bodyOverStance * -1.6;
   const swingAnkleRoll = bodyOverStance * 0.9;
@@ -581,6 +581,55 @@ function softTurnPose(elapsedSeconds: number, turnWeight: number, side = 1) {
   addRotation(pose, 'R_Calf', { x: -Math.max(0, step) * 12 * turnWeight });
   addRotation(pose, 'L_Foot', { x: -step * 4 * turnWeight });
   addRotation(pose, 'R_Foot', { x: step * 4 * turnWeight });
+  return clampPose(pose);
+}
+
+function turnStepPose(progress: number, side = 1, waveWeight = 0) {
+  const pose = mergePose(standingPose, {});
+  const stepCount = 4;
+  const scaled = THREE.MathUtils.clamp(progress, 0, 0.999) * stepCount;
+  const stepIndex = Math.floor(scaled);
+  const stepPhase = scaled - stepIndex;
+  const lift = Math.sin(stepPhase * Math.PI);
+  const place = easeInOut(stepPhase);
+  const leftSteps = stepIndex % 2 === 0;
+  const stepYaw = side * (8 + place * 9);
+  const supportYaw = side * -4;
+  const torsoCounter = side * (1 - Math.abs(0.5 - stepPhase) * 2);
+  const waveArc = Math.sin(progress * Math.PI * 5.4) * waveWeight;
+
+  addRotation(pose, 'Spine01', { x: -lift * 0.8, y: side * 2.4, z: -torsoCounter * 2.4 });
+  addRotation(pose, 'Spine02', { y: side * 1.4, z: -torsoCounter * 1.2 });
+  addRotation(pose, 'Head', { y: side * 8, z: torsoCounter * 1.4 });
+
+  if (leftSteps) {
+    addRotation(pose, 'L_Thigh', { x: -2 + lift * 8, y: stepYaw, z: -side * 4 });
+    addRotation(pose, 'L_Calf', { x: -8 - lift * 20 });
+    addRotation(pose, 'L_Foot', { x: -lift * 5, y: stepYaw * 0.3, z: -side * 2 });
+    addRotation(pose, 'L_ToeBase', { x: -lift * 2 });
+    addRotation(pose, 'R_Thigh', { x: -1, y: supportYaw, z: side * 2.5 });
+    addRotation(pose, 'R_Calf', { x: -3 });
+    addRotation(pose, 'R_Foot', { x: 1.5, y: supportYaw * 0.35, z: side * 1.2 });
+  } else {
+    addRotation(pose, 'R_Thigh', { x: -2 + lift * 8, y: stepYaw, z: side * 4 });
+    addRotation(pose, 'R_Calf', { x: -8 - lift * 20 });
+    addRotation(pose, 'R_Foot', { x: -lift * 5, y: stepYaw * 0.3, z: side * 2 });
+    addRotation(pose, 'R_ToeBase', { x: -lift * 2 });
+    addRotation(pose, 'L_Thigh', { x: -1, y: supportYaw, z: -side * 2.5 });
+    addRotation(pose, 'L_Calf', { x: -3 });
+    addRotation(pose, 'L_Foot', { x: 1.5, y: supportYaw * 0.35, z: -side * 1.2 });
+  }
+
+  addRotation(pose, 'L_Upperarm', { x: (leftSteps ? -lift : lift) * 5, z: -62 - side * torsoCounter * 2 });
+  addRotation(pose, 'R_Upperarm', { x: (leftSteps ? lift : -lift) * 5, z: 62 - side * torsoCounter * 2 });
+
+  if (waveWeight > 0) {
+    addRotation(pose, 'R_Clavicle', { z: -14 * waveWeight });
+    addRotation(pose, 'R_Upperarm', { x: -42 * waveWeight, z: -78 * waveWeight });
+    addRotation(pose, 'R_Forearm', { x: 58 * waveWeight });
+    addRotation(pose, 'R_Hand', { x: waveArc * 12, y: waveArc * 5, z: waveArc * 24 });
+  }
+
   return clampPose(pose);
 }
 
@@ -876,13 +925,14 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
   }
 
   if (t < 7.65) {
-    const progress = easeInOut((t - 6.4) / 1.25);
+    const rawProgress = (t - 6.4) / 1.25;
+    const progress = steppedProgress(rawProgress, 4);
 
     return {
-      label: 'Sequence: turning around',
+      label: 'Sequence: stepping through turn',
       modelYaw: THREE.MathUtils.lerp(defaultModelYaw, defaultModelYaw + 180, progress),
       z: 0.35,
-      rotations: walkPose(stridePhase, 0, 1 - progress),
+      rotations: turnStepPose(rawProgress, 1, 1 - progress),
     };
   }
 
