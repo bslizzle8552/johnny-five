@@ -1,4 +1,4 @@
-const CACHE_NAME = 'johnny-five-companion-v1';
+const CACHE_NAME = 'johnny-five-companion-v2';
 const CORE_ASSETS = ['/', '/index.html', '/manifest.webmanifest'];
 
 self.addEventListener('install', (event) => {

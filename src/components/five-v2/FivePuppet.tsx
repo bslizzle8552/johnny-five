@@ -1,15 +1,19 @@
 import { fiveV2PartManifest } from '../../five-v2/fiveRigManifest';
 import { fiveV2RigBounds } from '../../five-v2/fivePivots';
 import { useFiveV2Pose } from '../../five-v2/fiveControllers';
+import type { FiveBodyCommand } from '../../five-v2/fiveBodyModel';
+import { applyFiveBodyCommandsToPose } from '../../five-v2/fivePoseCommandAdapter';
 import type { FiveV2Mode } from '../../five-v2/fiveRigTypes';
 import { FivePart } from './FivePart';
 
 type FivePuppetProps = {
   mode: FiveV2Mode;
+  commands: FiveBodyCommand[];
 };
 
-export function FivePuppet({ mode }: FivePuppetProps) {
-  const pose = useFiveV2Pose(mode);
+export function FivePuppet({ mode, commands }: FivePuppetProps) {
+  const basePose = useFiveV2Pose(mode);
+  const pose = applyFiveBodyCommandsToPose(basePose, commands);
   const rootStyle = {
     left: `${pose.root.groundX}px`,
     top: `${pose.root.groundY}px`,

@@ -1,0 +1,147 @@
+{
+  "version": "0.1",
+  "source": "Tripo humanoid robot exports",
+  "runtimeTarget": "React + Three.js / React Three Fiber",
+  "originalExportsPath": "/robot/original_tripo_exports/",
+  "processedPath": "/robot/processed/",
+  "inspectionStatus": "optimized GLBs ready for browser viewer",
+  "conversion": {
+    "tool": "FBX2glTF",
+    "version": "0.9.7",
+    "format": "binary glTF (.glb)",
+    "notes": "Original Tripo files were left untouched. Converted GLBs are uncompressed and may need optimization before final runtime use."
+  },
+  "models": [
+    {
+      "id": "t_pose_basic_robot",
+      "label": "T-pose basic robot",
+      "type": "static-glb-reference",
+      "path": "/robot/original_tripo_exports/t-pose basic robot.glb",
+      "notes": "Tripo GLB with one mesh, no skin, and no animations."
+    }
+  ],
+  "animations": [
+    {
+      "id": "afraid",
+      "label": "Afraid",
+      "sourcePath": "/robot/original_tripo_exports/28281943-3e78-4495-a411-71c325a06071_fbx_afraid.fbx",
+      "processedPath": "/robot/processed/afraid.glb",
+      "sourceType": "fbx",
+      "status": "optimized",
+      "detectedContent": [
+        "mesh",
+        "rig",
+        "skin",
+        "texture",
+        "animation"
+      ],
+      "clips": [
+        "Armature.001|stand-afraid-f_SphereSkin.059|Base Layer_remap",
+        "Armature|Armature.001|stand-afraid-f_SphereSkin.059|Base Layer_remap"
+      ],
+      "optimizedPath": "/robot/processed/afraid_optimized.glb"
+    },
+    {
+      "id": "turn_scared_dance_idle",
+      "label": "Turn / Scared / Dance / Idle",
+      "sourcePath": "/robot/original_tripo_exports/78d8819f-3c86-47ee-a059-6b2f61e823f9_fbx_turn_scared_02_dance_05_idle.fbx",
+      "processedPath": "/robot/processed/turn_scared_dance_idle.glb",
+      "sourceType": "fbx",
+      "status": "optimized",
+      "detectedContent": [
+        "mesh",
+        "rig",
+        "skin",
+        "texture",
+        "animation"
+      ],
+      "clips": [
+        "Armature.001|orc-turn-cw180_remap",
+        "Armature.002|stand-scared-m_SphereSkin.061|Base Layer_remap",
+        "Armature.003|taunt-dance-loop_SphereSkin.040|Base Layer_remap",
+        "Armature.004|idle_251105_remap",
+        "Armature|Armature.001|orc-turn-cw180_remap",
+        "Armature|Armature.002|stand-scared-m_SphereSkin.061|Base Layer_remap",
+        "Armature|Armature.003|taunt-dance-loop_SphereSkin.040|Base Layer_remap",
+        "Armature|Armature.004|idle_251105_remap"
+      ],
+      "optimizedPath": "/robot/processed/turn_scared_dance_idle_optimized.glb"
+    },
+    {
+      "id": "greet_01",
+      "label": "Greet 01",
+      "sourcePath": "/robot/original_tripo_exports/ac36077d-05d7-4e15-95de-1a4576f358dd_fbx_greet_01.fbx",
+      "processedPath": "/robot/quarantine/failed-skeleton-greet-01/greet_01.glb",
+      "sourceType": "fbx",
+      "status": "quarantined_failed_skeleton",
+      "detectedContent": [
+        "mesh",
+        "rig",
+        "skin",
+        "texture",
+        "animation"
+      ],
+      "clips": [
+        "Armature.001|move_greet_m_SphereSkin.013|Base Layer_remap",
+        "Armature|Armature.001|move_greet_m_SphereSkin.013|Base Layer_remap"
+      ],
+      "optimizedPath": "/robot/quarantine/failed-skeleton-greet-01/greet_01_optimized.glb",
+      "excludedFromViewer": true,
+      "notes": "Original FBX remains untouched in original_tripo_exports for audit. Converted GLBs moved out of processed/ so they cannot be mistaken for runtime-ready files.",
+      "failureReason": "Failed Johnny export: skeleton and mesh did not line up correctly, producing a mismatched gray character."
+    },
+    {
+      "id": "walking",
+      "label": "Walking",
+      "sourcePath": "/robot/original_tripo_exports/Walking.fbx",
+      "processedPath": "/robot/processed/walking.glb",
+      "sourceType": "fbx",
+      "status": "optimized",
+      "detectedContent": [
+        "mesh",
+        "rig",
+        "skin",
+        "texture",
+        "animation"
+      ],
+      "clips": [
+        "Armature.001|sit_seeya_m_SphereSkin.011|Base Layer_remap",
+        "Armature.002|walk_normal_m_remap",
+        "Armature.003|listener-agree-f_SphereSkin.017|Base Layer_remap",
+        "Armature.004|stand-afraid-f_SphereSkin.059|Base Layer_remap",
+        "Armature|Armature.001|sit_seeya_m_SphereSkin.011|Base Layer_remap",
+        "Armature|Armature.002|walk_normal_m_remap",
+        "Armature|Armature.003|listener-agree-f_SphereSkin.017|Base Layer_remap",
+        "Armature|Armature.004|stand-afraid-f_SphereSkin.059|Base Layer_remap"
+      ],
+      "optimizedPath": "/robot/processed/walking_optimized.glb"
+    }
+  ],
+  "optimization": {
+    "tool": "gltf-transform optimize",
+    "version": "4.4.0",
+    "settings": {
+      "compress": false,
+      "textureCompress": false,
+      "textureSize": 1024,
+      "simplify": true,
+      "simplifyRatio": 0.45,
+      "simplifyError": 0.0002
+    },
+    "notes": "Optimized files avoid Draco/Meshopt runtime decoders for the first viewer pass."
+  },
+  "viewer": {
+    "activeActions": [
+      "idle",
+      "walking",
+      "scared",
+      "turn",
+      "dance",
+      "afraid"
+    ],
+    "excludedSources": [
+      "greet_01"
+    ],
+    "notes": "Viewer randomization intentionally excludes greet_01 because it is a failed-skeleton Johnny export."
+  }
+}

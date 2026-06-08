@@ -1,7 +1,7 @@
-import { FiveV2AssetReview } from './components/five-v2/FiveV2AssetReview';
+import { TripoPuppeteerLab } from './components/robot/TripoPuppeteerLab';
 
 export function App() {
   return (
-    <FiveV2AssetReview />
+    <TripoPuppeteerLab />
   );
 }
