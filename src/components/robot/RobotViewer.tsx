@@ -2,6 +2,7 @@ import { useEffect, useMemo, useRef, useState } from 'react';
 import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader, type GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
+import { withBasePath } from './assetPaths';
 
 type RobotAnimationEntry = {
   id: string;
@@ -86,7 +87,7 @@ export function RobotViewer() {
   useEffect(() => {
     let cancelled = false;
 
-    fetch('/robot/manifest.json')
+    fetch(withBasePath('/robot/manifest.json'))
       .then((response) => {
         if (!response.ok) {
           throw new Error(`Manifest request failed with ${response.status}`);
@@ -224,7 +225,7 @@ export function RobotViewer() {
     const entry = entriesById.get(activeAction.sourceId);
     const scene = sceneRef.current;
     const loader = loaderRef.current;
-    const path = entry?.optimizedPath;
+    const path = entry?.optimizedPath ? withBasePath(entry.optimizedPath) : undefined;
     const clipName = entry ? pickClip(entry, activeAction.clipIncludes) : undefined;
 
     if (!scene || !loader || !path || !clipName) {

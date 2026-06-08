@@ -1,4 +1,4 @@
-const CACHE_NAME = 'johnny-five-companion-v2';
+const CACHE_NAME = 'johnny-five-companion-v3';
 const SCOPE = self.registration.scope;
 const CORE_ASSETS = [SCOPE, `${SCOPE}index.html`, `${SCOPE}manifest.webmanifest`];
 

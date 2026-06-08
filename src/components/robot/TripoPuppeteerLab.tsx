@@ -3,6 +3,7 @@ import * as THREE from 'three';
 import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader, type GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { validateMotionFrame, type MotionJudgement } from './motionValidators';
+import { withBasePath } from './assetPaths';
 import { createWorkshopScene, workshopAnchors } from './workshopScene';
 
 type BoneMap = Record<string, THREE.Bone>;
@@ -55,7 +56,7 @@ type SequenceFrame = {
   rotations: PoseRotations;
 };
 
-const tripoSourcePath = '/robot/processed/walking_optimized.glb';
+const tripoSourcePath = withBasePath('/robot/processed/walking_optimized.glb');
 const defaultModelYaw = -90;
 const probeAmplitude = 32;
 const probeSpeed = 3.4;
