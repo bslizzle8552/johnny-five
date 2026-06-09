@@ -448,6 +448,19 @@ function steppedProgress(progress: number, stepCount: number) {
   return (stepIndex + plantedEase) / stepCount;
 }
 
+function plantedStepProgress(progress: number, stepCount: number) {
+  const bounded = THREE.MathUtils.clamp(progress, 0, 1);
+  if (bounded >= 1) {
+    return 1;
+  }
+
+  const scaled = bounded * stepCount;
+  const stepIndex = Math.floor(scaled);
+  const stepPhase = scaled - stepIndex;
+  const transfer = easeWindow(stepPhase, 0.36, 0.82);
+  return (stepIndex + transfer) / stepCount;
+}
+
 function addRotation(pose: PoseRotations, boneName: string, rotation: Partial<BoneRotation>) {
   const current = pose[boneName] ?? emptyRotation;
   pose[boneName] = {
@@ -675,7 +688,7 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
   if (cycle < 12.6) {
     const rawProgress = (cycle - 7.4) / 5.2;
     const stepCount = 4;
-    const progress = steppedProgress(rawProgress, stepCount);
+    const progress = plantedStepProgress(rawProgress, stepCount);
     const pose = walkPose(rawProgress * stepCount * Math.PI, 0.62);
     addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.7) * 7 });
     addRotation(pose, 'Spine01', { z: Math.sin(elapsedSeconds * 6.4) * 1.4 });
@@ -787,7 +800,7 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
   if (cycle < 33.5) {
     const rawProgress = (cycle - 27.1) / 6.4;
     const stepCount = 5;
-    const progress = steppedProgress(rawProgress, stepCount);
+    const progress = plantedStepProgress(rawProgress, stepCount);
     const pose = walkPose(rawProgress * stepCount * Math.PI, 0.66);
     addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.82) * 5 });
 
@@ -804,7 +817,7 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
   if (cycle < 36) {
     const rawProgress = (cycle - 33.5) / 2.5;
     const stepCount = 2;
-    const progress = steppedProgress(rawProgress, stepCount);
+    const progress = plantedStepProgress(rawProgress, stepCount);
     const pose = walkPose(rawProgress * stepCount * Math.PI, 0.45);
     addRotation(pose, 'Head', { y: 10 });
 
@@ -873,7 +886,7 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
   }
 
   const rawProgress = (cycle - 46.1) / 9.9;
-  const progress = steppedProgress(rawProgress, 6);
+  const progress = plantedStepProgress(rawProgress, 6);
   const pose = walkPose(rawProgress * 6 * Math.PI, 0.48);
   addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.7) * 8 });
 
@@ -901,7 +914,7 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
   }
 
   if (t < 5.2) {
-    const progress = easeInOut((t - 1.4) / 3.8);
+    const progress = plantedStepProgress((t - 1.4) / 3.8, 8);
 
     return {
       label: 'Sequence: walking toward camera',
@@ -932,7 +945,7 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
     };
   }
 
-  const progress = easeInOut((t - 7.65) / (sequenceDuration - 7.65));
+  const progress = plantedStepProgress((t - 7.65) / (sequenceDuration - 7.65), 10);
 
   return {
     label: 'Sequence: walking away',
