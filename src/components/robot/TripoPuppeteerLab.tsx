@@ -76,14 +76,14 @@ const defaultLimits: BoneLimits = {
 };
 
 const standingPose: PoseRotations = {
-  L_Clavicle: { x: 0, y: -1, z: -8 },
-  L_Upperarm: { x: -8, y: -2, z: -62 },
-  L_Forearm: { x: 24, y: 0, z: 2 },
-  L_Hand: { x: 1, y: 0, z: -4 },
-  R_Clavicle: { x: 0, y: 1, z: 8 },
-  R_Upperarm: { x: -8, y: 2, z: 62 },
-  R_Forearm: { x: 24, y: 0, z: -2 },
-  R_Hand: { x: 1, y: 0, z: 4 },
+  L_Clavicle: { x: 0, y: -1, z: -12 },
+  L_Upperarm: { x: -18, y: -2, z: -88 },
+  L_Forearm: { x: 34, y: 0, z: 1 },
+  L_Hand: { x: 2, y: 0, z: -2 },
+  R_Clavicle: { x: 0, y: 1, z: 12 },
+  R_Upperarm: { x: -18, y: 2, z: 88 },
+  R_Forearm: { x: 34, y: 0, z: -1 },
+  R_Hand: { x: 2, y: 0, z: 2 },
   Spine01: { x: -2, y: 0, z: 0 },
   Spine02: { x: 1, y: 0, z: 0 },
   Head: { x: 1, y: 0, z: 0 },
@@ -494,43 +494,43 @@ function walkPose(stridePhase: number, walkWeight: number) {
   const swingFoot = swingKnee * 0.38 - swingLift * 12 - swingReach * 3 - swingRecovery * 6;
   const stanceToe = toePush * 5 - heelSettle * 2;
   const swingToe = -swingLift * 5 + swingRecovery * 4;
-  const stanceAnkleRoll = bodyOverStance * -1.6;
-  const swingAnkleRoll = bodyOverStance * 0.9;
+  const stanceAnkleRoll = bodyOverStance * -1.1;
+  const swingAnkleRoll = bodyOverStance * 0.6;
   const armSwing = Math.sin(stridePhase) * walkWeight;
-  const armLift = Math.max(0, swing) * walkWeight;
+  const armBend = Math.max(0, swing) * walkWeight;
 
-  addRotation(pose, 'Spine01', { x: swing * 0.8 - compression * 0.7, y: bodyOverStance * 1.2, z: bodyOverStance * 2.5 });
-  addRotation(pose, 'Spine02', { x: compression * 0.45, z: bodyOverStance * 1.2 });
-  addRotation(pose, 'Head', { y: bodyOverStance * -1.3, z: -bodyOverStance * 1.5 });
+  addRotation(pose, 'Spine01', { x: swing * 0.55 - compression * 0.55, y: bodyOverStance * 0.55, z: bodyOverStance * 0.75 });
+  addRotation(pose, 'Spine02', { x: compression * 0.35, z: bodyOverStance * 0.35 });
+  addRotation(pose, 'Head', { y: bodyOverStance * -0.8, z: -bodyOverStance * 0.45 });
 
   if (leftStance) {
-    addRotation(pose, 'L_Thigh', { x: stanceHip, z: -2.2 * walkWeight });
+    addRotation(pose, 'L_Thigh', { x: stanceHip, z: -0.8 * walkWeight });
     addRotation(pose, 'L_Calf', { x: -stanceKnee });
     addRotation(pose, 'L_Foot', { x: stanceFoot, y: -stanceAnkleRoll * 0.35, z: stanceAnkleRoll });
     addRotation(pose, 'L_ToeBase', { x: stanceToe });
-    addRotation(pose, 'R_Thigh', { x: swingHip, z: 2.6 * walkWeight });
+    addRotation(pose, 'R_Thigh', { x: swingHip, z: 1 * walkWeight });
     addRotation(pose, 'R_Calf', { x: -swingKnee });
     addRotation(pose, 'R_Foot', { x: swingFoot, y: swingAnkleRoll * 0.3, z: swingAnkleRoll });
     addRotation(pose, 'R_ToeBase', { x: swingToe });
   } else {
-    addRotation(pose, 'R_Thigh', { x: stanceHip, z: 2.2 * walkWeight });
+    addRotation(pose, 'R_Thigh', { x: stanceHip, z: 0.8 * walkWeight });
     addRotation(pose, 'R_Calf', { x: -stanceKnee });
     addRotation(pose, 'R_Foot', { x: stanceFoot, y: -stanceAnkleRoll * 0.35, z: -stanceAnkleRoll });
     addRotation(pose, 'R_ToeBase', { x: stanceToe });
-    addRotation(pose, 'L_Thigh', { x: swingHip, z: -2.6 * walkWeight });
+    addRotation(pose, 'L_Thigh', { x: swingHip, z: -1 * walkWeight });
     addRotation(pose, 'L_Calf', { x: -swingKnee });
     addRotation(pose, 'L_Foot', { x: swingFoot, y: swingAnkleRoll * 0.3, z: -swingAnkleRoll });
     addRotation(pose, 'L_ToeBase', { x: swingToe });
   }
 
-  addRotation(pose, 'L_Clavicle', { z: -armSwing * 1.8 });
-  addRotation(pose, 'R_Clavicle', { z: -armSwing * 1.8 });
-  addRotation(pose, 'L_Upperarm', { x: -armSwing * 13 - armLift * 1.4, y: -armSwing * 1.5, z: -armSwing * 4 });
-  addRotation(pose, 'R_Upperarm', { x: armSwing * 13 - armLift * 1.4, y: -armSwing * 1.5, z: -armSwing * 4 });
-  addRotation(pose, 'L_Forearm', { x: 9 + Math.max(0, -armSwing) * 11 + armLift * 3, z: armSwing * 2.2 });
-  addRotation(pose, 'R_Forearm', { x: 9 + Math.max(0, armSwing) * 11 + armLift * 3, z: armSwing * -2.2 });
-  addRotation(pose, 'L_Hand', { x: armSwing * -2, y: armSwing * 2.5, z: armSwing * -5 });
-  addRotation(pose, 'R_Hand', { x: armSwing * 2, y: armSwing * 2.5, z: armSwing * -5 });
+  addRotation(pose, 'L_Clavicle', { z: -armSwing * 0.25 });
+  addRotation(pose, 'R_Clavicle', { z: -armSwing * 0.25 });
+  addRotation(pose, 'L_Upperarm', { x: -armSwing * 8 - armBend, y: -armSwing * 0.35, z: -armSwing * 0.25 });
+  addRotation(pose, 'R_Upperarm', { x: armSwing * 8 - armBend, y: -armSwing * 0.35, z: -armSwing * 0.25 });
+  addRotation(pose, 'L_Forearm', { x: 5 + Math.max(0, -armSwing) * 6 + armBend * 2, z: armSwing * 0.7 });
+  addRotation(pose, 'R_Forearm', { x: 5 + Math.max(0, armSwing) * 6 + armBend * 2, z: armSwing * -0.7 });
+  addRotation(pose, 'L_Hand', { x: armSwing * -0.7, y: armSwing * 0.5, z: armSwing * -1.2 });
+  addRotation(pose, 'R_Hand', { x: armSwing * 0.7, y: armSwing * 0.5, z: armSwing * -1.2 });
 
   return clampPose(pose);
 }
@@ -545,16 +545,16 @@ function livingIdlePose(elapsedSeconds: number, attention = 0) {
   return clampPose(mergePose(standingPose, {
     Head: { x: 1 + breathe * 1.2, y: lookSlow * 18 + lookFast * 4, z: lookSlow * 2.4 },
     NeckTwist01: { y: lookSlow * 9, z: lookFast * 1.5 },
-    Spine01: { x: -2 + breathe * 0.9, y: lookSlow * 1.8, z: weightShift * 2.3 },
-    Spine02: { x: 1 + breathe * 0.55, z: weightShift * 1.5 },
-    L_Upperarm: { x: handFidget * 1.8, z: weightShift * 2 },
-    L_Forearm: { x: 4 + Math.max(0, handFidget) * 4 },
-    L_Hand: { z: handFidget * 5 },
-    R_Upperarm: { x: -handFidget * 1.4, z: -weightShift * 1.6 },
-    R_Forearm: { x: 3 + Math.max(0, -handFidget) * 4 },
-    R_Hand: { z: Math.sin(elapsedSeconds * 2.1 + 2.2) * 5 },
-    L_Thigh: { x: weightShift * 1.2, z: weightShift * 1.5 },
-    R_Thigh: { x: -weightShift * 1.2, z: -weightShift * 1.5 },
+    Spine01: { x: -2 + breathe * 0.7, y: lookSlow * 1.2, z: weightShift * 0.8 },
+    Spine02: { x: 1 + breathe * 0.45, z: weightShift * 0.5 },
+    L_Upperarm: { x: handFidget * 0.8, z: weightShift * 0.7 },
+    L_Forearm: { x: 3 + Math.max(0, handFidget) * 2 },
+    L_Hand: { z: handFidget * 1.4 },
+    R_Upperarm: { x: -handFidget * 0.7, z: -weightShift * 0.6 },
+    R_Forearm: { x: 3 + Math.max(0, -handFidget) * 2 },
+    R_Hand: { z: Math.sin(elapsedSeconds * 2.1 + 2.2) * 1.4 },
+    L_Thigh: { x: weightShift * 0.8, z: weightShift * 0.45 },
+    R_Thigh: { x: -weightShift * 0.8, z: -weightShift * 0.45 },
   }));
 }
 
@@ -596,36 +596,36 @@ function turnStepPose(progress: number, side = 1) {
   const supportYaw = side * -4;
   const torsoCounter = side * (1 - Math.abs(0.5 - stepPhase) * 2);
 
-  addRotation(pose, 'Spine01', { x: -lift * 0.8, y: side * 2.4, z: -torsoCounter * 2.4 });
-  addRotation(pose, 'Spine02', { y: side * 1.4, z: -torsoCounter * 1.2 });
-  addRotation(pose, 'Head', { y: side * 8, z: torsoCounter * 1.4 });
+  addRotation(pose, 'Spine01', { x: -lift * 0.7, y: side * 1.4, z: -torsoCounter * 0.8 });
+  addRotation(pose, 'Spine02', { y: side * 0.8, z: -torsoCounter * 0.4 });
+  addRotation(pose, 'Head', { y: side * 7, z: torsoCounter * 0.45 });
 
   if (leftSteps) {
-    addRotation(pose, 'L_Thigh', { x: -2 + lift * 8, y: stepYaw, z: -side * 4 });
+    addRotation(pose, 'L_Thigh', { x: -2 + lift * 8, y: stepYaw, z: -side * 1.4 });
     addRotation(pose, 'L_Calf', { x: -8 - lift * 20 });
     addRotation(pose, 'L_Foot', { x: -lift * 5, y: stepYaw * 0.3, z: -side * 2 });
     addRotation(pose, 'L_ToeBase', { x: -lift * 2 });
-    addRotation(pose, 'R_Thigh', { x: -1, y: supportYaw, z: side * 2.5 });
+    addRotation(pose, 'R_Thigh', { x: -1, y: supportYaw, z: side * 0.9 });
     addRotation(pose, 'R_Calf', { x: -3 });
     addRotation(pose, 'R_Foot', { x: 1.5, y: supportYaw * 0.35, z: side * 1.2 });
   } else {
-    addRotation(pose, 'R_Thigh', { x: -2 + lift * 8, y: stepYaw, z: side * 4 });
+    addRotation(pose, 'R_Thigh', { x: -2 + lift * 8, y: stepYaw, z: side * 1.4 });
     addRotation(pose, 'R_Calf', { x: -8 - lift * 20 });
     addRotation(pose, 'R_Foot', { x: -lift * 5, y: stepYaw * 0.3, z: side * 2 });
     addRotation(pose, 'R_ToeBase', { x: -lift * 2 });
-    addRotation(pose, 'L_Thigh', { x: -1, y: supportYaw, z: -side * 2.5 });
+    addRotation(pose, 'L_Thigh', { x: -1, y: supportYaw, z: -side * 0.9 });
     addRotation(pose, 'L_Calf', { x: -3 });
     addRotation(pose, 'L_Foot', { x: 1.5, y: supportYaw * 0.35, z: -side * 1.2 });
   }
 
-  addRotation(pose, 'L_Clavicle', { z: torsoCounter * -1.8 });
-  addRotation(pose, 'R_Clavicle', { z: torsoCounter * -1.8 });
-  addRotation(pose, 'L_Upperarm', { x: (leftSteps ? -lift : lift) * 8, y: side * -1.8, z: -side * torsoCounter * 3 });
-  addRotation(pose, 'R_Upperarm', { x: (leftSteps ? lift : -lift) * 8, y: side * -1.8, z: -side * torsoCounter * 3 });
-  addRotation(pose, 'L_Forearm', { x: 8 + (leftSteps ? lift : 1 - lift) * 8, z: side * torsoCounter * 2 });
-  addRotation(pose, 'R_Forearm', { x: 8 + (leftSteps ? 1 - lift : lift) * 8, z: side * -torsoCounter * 2 });
-  addRotation(pose, 'L_Hand', { y: side * torsoCounter * 2.5, z: side * -torsoCounter * 4 });
-  addRotation(pose, 'R_Hand', { y: side * torsoCounter * 2.5, z: side * -torsoCounter * 4 });
+  addRotation(pose, 'L_Clavicle', { z: torsoCounter * -0.7 });
+  addRotation(pose, 'R_Clavicle', { z: torsoCounter * -0.7 });
+  addRotation(pose, 'L_Upperarm', { x: (leftSteps ? -lift : lift) * 5, y: side * -0.8, z: -side * torsoCounter * 0.8 });
+  addRotation(pose, 'R_Upperarm', { x: (leftSteps ? lift : -lift) * 5, y: side * -0.8, z: -side * torsoCounter * 0.8 });
+  addRotation(pose, 'L_Forearm', { x: 5 + (leftSteps ? lift : 1 - lift) * 5, z: side * torsoCounter * 0.6 });
+  addRotation(pose, 'R_Forearm', { x: 5 + (leftSteps ? 1 - lift : lift) * 5, z: side * -torsoCounter * 0.6 });
+  addRotation(pose, 'L_Hand', { y: side * torsoCounter * 0.5, z: side * -torsoCounter * 1 });
+  addRotation(pose, 'R_Hand', { y: side * torsoCounter * 0.5, z: side * -torsoCounter * 1 });
 
   return clampPose(pose);
 }
