@@ -1,0 +1,5473 @@
+{
+  "reports": [
+    {
+      "file": "public\\robot\\reference_motion\\Dance.glb",
+      "format": "glb",
+      "nodeCount": 43,
+      "animations": [
+        {
+          "index": 0,
+          "name": "NlaTrack",
+          "duration": 2.875,
+          "keyframes": 69,
+          "root": {
+            "translation": null,
+            "rotation": [
+              {
+                "min": -90,
+                "max": -90,
+                "delta": 0
+              },
+              {
+                "min": 0,
+                "max": 0,
+                "delta": 0
+              },
+              {
+                "min": 44.264,
+                "max": 128.537,
+                "delta": 84.273
+              }
+            ]
+          },
+          "bones": {
+            "L_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": -34.741,
+                  "max": 31.559,
+                  "delta": 66.3
+                },
+                {
+                  "min": -56.803,
+                  "max": 38.26,
+                  "delta": 95.063
+                },
+                {
+                  "min": -82.632,
+                  "max": -44.239,
+                  "delta": 38.393
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -8.5,
+                  "y": 22.3,
+                  "z": -82
+                },
+                "quarter": {
+                  "x": 28.4,
+                  "y": -46.3,
+                  "z": -58.9
+                },
+                "half": {
+                  "x": -21.4,
+                  "y": 12,
+                  "z": -74.6
+                },
+                "threeQuarter": {
+                  "x": -17.2,
+                  "y": -10.8,
+                  "z": -71.2
+                },
+                "end": {
+                  "x": -10.1,
+                  "y": 14,
+                  "z": -73.8
+                }
+              }
+            },
+            "L_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 45.885,
+                  "max": 67.708,
+                  "delta": 21.823
+                },
+                {
+                  "min": -0.519,
+                  "max": 1.376,
+                  "delta": 1.895
+                },
+                {
+                  "min": 3.012,
+                  "max": 4.486,
+                  "delta": 1.474
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 64.1,
+                  "y": 1,
+                  "z": 4.4
+                },
+                "quarter": {
+                  "x": 50.8,
+                  "y": -0.1,
+                  "z": 3.9
+                },
+                "half": {
+                  "x": 51.7,
+                  "y": -0.1,
+                  "z": 3.9
+                },
+                "threeQuarter": {
+                  "x": 56.6,
+                  "y": 0.6,
+                  "z": 3.8
+                },
+                "end": {
+                  "x": 61.9,
+                  "y": 0.8,
+                  "z": 4.3
+                }
+              }
+            },
+            "L_Hand": {
+              "rotationRange": [
+                {
+                  "min": -2.37,
+                  "max": 10.156,
+                  "delta": 12.526
+                },
+                {
+                  "min": -21.955,
+                  "max": 2.602,
+                  "delta": 24.557
+                },
+                {
+                  "min": -3.446,
+                  "max": 15.933,
+                  "delta": 19.378
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 0.8,
+                  "y": -18.1,
+                  "z": -1.2
+                },
+                "quarter": {
+                  "x": 10,
+                  "y": -17.4,
+                  "z": 6.1
+                },
+                "half": {
+                  "x": -0.9,
+                  "y": -9.4,
+                  "z": 6.8
+                },
+                "threeQuarter": {
+                  "x": 3.7,
+                  "y": -1.3,
+                  "z": 15.1
+                },
+                "end": {
+                  "x": 3.1,
+                  "y": -13.3,
+                  "z": 3.8
+                }
+              }
+            },
+            "R_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": -16.297,
+                  "max": 39.855,
+                  "delta": 56.152
+                },
+                {
+                  "min": -23.923,
+                  "max": 75.65,
+                  "delta": 99.573
+                },
+                {
+                  "min": 53.392,
+                  "max": 94.074,
+                  "delta": 40.682
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -10.7,
+                  "y": -12.8,
+                  "z": 83.3
+                },
+                "quarter": {
+                  "x": -1.4,
+                  "y": 49,
+                  "z": 93.2
+                },
+                "half": {
+                  "x": 0.9,
+                  "y": 2.2,
+                  "z": 78.8
+                },
+                "threeQuarter": {
+                  "x": 25.2,
+                  "y": 33.4,
+                  "z": 84.8
+                },
+                "end": {
+                  "x": -13.9,
+                  "y": -5.1,
+                  "z": 77.3
+                }
+              }
+            },
+            "R_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 52.067,
+                  "max": 79.833,
+                  "delta": 27.766
+                },
+                {
+                  "min": 2.765,
+                  "max": 11.799,
+                  "delta": 9.035
+                },
+                {
+                  "min": 16.448,
+                  "max": 20.952,
+                  "delta": 4.504
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 57.4,
+                  "y": 4.3,
+                  "z": 17.6
+                },
+                "quarter": {
+                  "x": 52.8,
+                  "y": 3,
+                  "z": 16.6
+                },
+                "half": {
+                  "x": 59.7,
+                  "y": 5,
+                  "z": 18.1
+                },
+                "threeQuarter": {
+                  "x": 64,
+                  "y": 6.4,
+                  "z": 18.9
+                },
+                "end": {
+                  "x": 60.5,
+                  "y": 5.3,
+                  "z": 18.2
+                }
+              }
+            },
+            "R_Hand": {
+              "rotationRange": [
+                {
+                  "min": -1.815,
+                  "max": 6.073,
+                  "delta": 7.889
+                },
+                {
+                  "min": 1.397,
+                  "max": 38.85,
+                  "delta": 37.453
+                },
+                {
+                  "min": -7.39,
+                  "max": 5.849,
+                  "delta": 13.24
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 0.7,
+                  "y": 36,
+                  "z": 0.7
+                },
+                "quarter": {
+                  "x": 4,
+                  "y": 26.3,
+                  "z": 3.6
+                },
+                "half": {
+                  "x": -0.4,
+                  "y": 10.5,
+                  "z": -2.4
+                },
+                "threeQuarter": {
+                  "x": 1.8,
+                  "y": 6,
+                  "z": -0.5
+                },
+                "end": {
+                  "x": 0,
+                  "y": 38.9,
+                  "z": 4.3
+                }
+              }
+            },
+            "L_Foot": {
+              "rotationRange": [
+                {
+                  "min": 94.137,
+                  "max": 126.846,
+                  "delta": 32.71
+                },
+                {
+                  "min": -11.949,
+                  "max": 8.118,
+                  "delta": 20.068
+                },
+                {
+                  "min": -16.612,
+                  "max": 32.404,
+                  "delta": 49.016
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 125.3,
+                  "y": 2.8,
+                  "z": 19
+                },
+                "quarter": {
+                  "x": 123.4,
+                  "y": 2.2,
+                  "z": 12.7
+                },
+                "half": {
+                  "x": 108.3,
+                  "y": -5.1,
+                  "z": -14.1
+                },
+                "threeQuarter": {
+                  "x": 107.1,
+                  "y": -3.1,
+                  "z": -4.6
+                },
+                "end": {
+                  "x": 124.6,
+                  "y": -0.7,
+                  "z": 17.9
+                }
+              }
+            },
+            "R_Foot": {
+              "rotationRange": [
+                {
+                  "min": 89.481,
+                  "max": 118.637,
+                  "delta": 29.156
+                },
+                {
+                  "min": -19.151,
+                  "max": -0.394,
+                  "delta": 18.757
+                },
+                {
+                  "min": -42.784,
+                  "max": -5.592,
+                  "delta": 37.191
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 103.9,
+                  "y": -13.5,
+                  "z": -6.8
+                },
+                "quarter": {
+                  "x": 89.6,
+                  "y": -4.6,
+                  "z": -12.8
+                },
+                "half": {
+                  "x": 110.7,
+                  "y": -16.6,
+                  "z": -36.6
+                },
+                "threeQuarter": {
+                  "x": 117.9,
+                  "y": -10.2,
+                  "z": -27.8
+                },
+                "end": {
+                  "x": 102.3,
+                  "y": -12.3,
+                  "z": -5.6
+                }
+              }
+            },
+            "L_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 1.776,
+                  "max": 3.07,
+                  "delta": 1.294
+                },
+                {
+                  "min": -1.579,
+                  "max": -0.909,
+                  "delta": 0.67
+                },
+                {
+                  "min": -0.498,
+                  "max": 0.509,
+                  "delta": 1.008
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 2.4,
+                  "y": -1.1,
+                  "z": -0.2
+                },
+                "quarter": {
+                  "x": 2.2,
+                  "y": -1.2,
+                  "z": -0.1
+                },
+                "half": {
+                  "x": 2.4,
+                  "y": -1.3,
+                  "z": 0.1
+                },
+                "threeQuarter": {
+                  "x": 1.9,
+                  "y": -1,
+                  "z": -0.4
+                },
+                "end": {
+                  "x": 2.4,
+                  "y": -1.3,
+                  "z": 0.1
+                }
+              }
+            },
+            "R_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 2.276,
+                  "max": 3.466,
+                  "delta": 1.19
+                },
+                {
+                  "min": 0.537,
+                  "max": 0.895,
+                  "delta": 0.359
+                },
+                {
+                  "min": -3.286,
+                  "max": -2.269,
+                  "delta": 1.016
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 2.4,
+                  "y": 0.5,
+                  "z": -2.3
+                },
+                "quarter": {
+                  "x": 2.5,
+                  "y": 0.8,
+                  "z": -3.1
+                },
+                "half": {
+                  "x": 2.5,
+                  "y": 0.7,
+                  "z": -2.7
+                },
+                "threeQuarter": {
+                  "x": 3.3,
+                  "y": 0.6,
+                  "z": -2.7
+                },
+                "end": {
+                  "x": 2.3,
+                  "y": 0.6,
+                  "z": -2.5
+                }
+              }
+            }
+          },
+          "inferredType": "idle",
+          "recipe": {
+            "type": "idle",
+            "duration": 2.875,
+            "footPushOffs": {
+              "left": {
+                "count": 2,
+                "events": [
+                  {
+                    "time": 1.375,
+                    "value": 2.6
+                  },
+                  {
+                    "time": 2.5,
+                    "value": 2.7
+                  }
+                ],
+                "averageInterval": 1.125
+              },
+              "right": {
+                "count": 3,
+                "events": [
+                  {
+                    "time": 1.083,
+                    "value": 3.3
+                  },
+                  {
+                    "time": 1.708,
+                    "value": 3.1
+                  },
+                  {
+                    "time": 2.208,
+                    "value": 3.5
+                  }
+                ],
+                "averageInterval": 0.563
+              }
+            },
+            "guidance": {
+              "armRestSamples": {
+                "leftUpperarm": {
+                  "x": -8.5,
+                  "y": 22.3,
+                  "z": -82
+                },
+                "leftForearm": {
+                  "x": 64.1,
+                  "y": 1,
+                  "z": 4.4
+                },
+                "rightUpperarm": {
+                  "x": -10.7,
+                  "y": -12.8,
+                  "z": 83.3
+                },
+                "rightForearm": {
+                  "x": 57.4,
+                  "y": 4.3,
+                  "z": 17.6
+                }
+              },
+              "keepIdleMotionSmall": true
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "public\\robot\\reference_motion\\Lead Jab.fbx",
+      "format": "fbx",
+      "nodeCount": 65,
+      "animations": [
+        {
+          "index": 0,
+          "name": "mixamo.com",
+          "duration": 1.833,
+          "keyframes": 56,
+          "root": {
+            "translation": [
+              {
+                "min": -2.224,
+                "max": 16.01,
+                "delta": 18.234
+              },
+              {
+                "min": 79.137,
+                "max": 95.599,
+                "delta": 16.462
+              },
+              {
+                "min": -4.261,
+                "max": 69.581,
+                "delta": 73.842
+              }
+            ],
+            "rotation": [
+              {
+                "min": -14.818,
+                "max": -0.989,
+                "delta": 13.829
+              },
+              {
+                "min": -67.954,
+                "max": -45.211,
+                "delta": 22.743
+              },
+              {
+                "min": -17.528,
+                "max": 2.926,
+                "delta": 20.454
+              }
+            ]
+          },
+          "bones": {
+            "L_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": 2.75,
+                  "max": 79.42,
+                  "delta": 76.67
+                },
+                {
+                  "min": -64.445,
+                  "max": 0.932,
+                  "delta": 65.376
+                },
+                {
+                  "min": -6.107,
+                  "max": 51.885,
+                  "delta": 57.992
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 67.7,
+                  "y": -21.8,
+                  "z": 50.6
+                },
+                "quarter": {
+                  "x": 13.7,
+                  "y": -64.4,
+                  "z": 20.8
+                },
+                "half": {
+                  "x": 77.7,
+                  "y": -27.5,
+                  "z": 41
+                },
+                "threeQuarter": {
+                  "x": 72.6,
+                  "y": -16.7,
+                  "z": 43.1
+                },
+                "end": {
+                  "x": 67.6,
+                  "y": -21.8,
+                  "z": 50.6
+                }
+              }
+            },
+            "L_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": 47.047,
+                  "max": 135.083,
+                  "delta": 88.036
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 106.4
+                },
+                "quarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 47
+                },
+                "half": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 127.8
+                },
+                "threeQuarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 113.3
+                },
+                "end": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 106.4
+                }
+              }
+            },
+            "L_Hand": {
+              "rotationRange": [
+                {
+                  "min": -10.607,
+                  "max": 17.41,
+                  "delta": 28.017
+                },
+                {
+                  "min": -16.605,
+                  "max": 23.552,
+                  "delta": 40.157
+                },
+                {
+                  "min": -18.752,
+                  "max": 9.344,
+                  "delta": 28.096
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 15.8,
+                  "y": 4.1,
+                  "z": 6.9
+                },
+                "quarter": {
+                  "x": 7.7,
+                  "y": 7.9,
+                  "z": -18.8
+                },
+                "half": {
+                  "x": 12.2,
+                  "y": -7,
+                  "z": 7.4
+                },
+                "threeQuarter": {
+                  "x": 15.9,
+                  "y": -0.6,
+                  "z": 7.1
+                },
+                "end": {
+                  "x": 15.8,
+                  "y": 4,
+                  "z": 6.9
+                }
+              }
+            },
+            "R_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": 49.572,
+                  "max": 66.894,
+                  "delta": 17.323
+                },
+                {
+                  "min": -42.157,
+                  "max": -22.273,
+                  "delta": 19.884
+                },
+                {
+                  "min": -73.78,
+                  "max": -51.616,
+                  "delta": 22.165
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 60.1,
+                  "y": -22.8,
+                  "z": -59.1
+                },
+                "quarter": {
+                  "x": 62.7,
+                  "y": -42.2,
+                  "z": -70.5
+                },
+                "half": {
+                  "x": 58.3,
+                  "y": -29.7,
+                  "z": -63.3
+                },
+                "threeQuarter": {
+                  "x": 65.6,
+                  "y": -25.8,
+                  "z": -54.4
+                },
+                "end": {
+                  "x": 60.1,
+                  "y": -22.7,
+                  "z": -59.1
+                }
+              }
+            },
+            "R_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": -115.872,
+                  "max": -105.791,
+                  "delta": 10.08
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -106
+                },
+                "quarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -111.7
+                },
+                "half": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -115.8
+                },
+                "threeQuarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -109
+                },
+                "end": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -106
+                }
+              }
+            },
+            "R_Hand": {
+              "rotationRange": [
+                {
+                  "min": 0.862,
+                  "max": 11.271,
+                  "delta": 10.41
+                },
+                {
+                  "min": 1.192,
+                  "max": 8.371,
+                  "delta": 7.179
+                },
+                {
+                  "min": -19.641,
+                  "max": -13.286,
+                  "delta": 6.356
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 8.4,
+                  "y": 5.6,
+                  "z": -18.6
+                },
+                "quarter": {
+                  "x": 8.3,
+                  "y": 2,
+                  "z": -17.4
+                },
+                "half": {
+                  "x": 8,
+                  "y": 2.7,
+                  "z": -15.5
+                },
+                "threeQuarter": {
+                  "x": 10,
+                  "y": 2.2,
+                  "z": -15.9
+                },
+                "end": {
+                  "x": 8.4,
+                  "y": 5.6,
+                  "z": -18.6
+                }
+              }
+            },
+            "L_Foot": {
+              "rotationRange": [
+                {
+                  "min": 54.342,
+                  "max": 86.43,
+                  "delta": 32.088
+                },
+                {
+                  "min": -8.418,
+                  "max": 8.69,
+                  "delta": 17.108
+                },
+                {
+                  "min": -37.532,
+                  "max": -10.43,
+                  "delta": 27.102
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 77.3,
+                  "y": -5.1,
+                  "z": -15.1
+                },
+                "quarter": {
+                  "x": 82.9,
+                  "y": -2.6,
+                  "z": -30.9
+                },
+                "half": {
+                  "x": 62,
+                  "y": 1.4,
+                  "z": -28
+                },
+                "threeQuarter": {
+                  "x": 72.7,
+                  "y": -8.4,
+                  "z": -20.5
+                },
+                "end": {
+                  "x": 77.3,
+                  "y": -5.1,
+                  "z": -15.1
+                }
+              }
+            },
+            "R_Foot": {
+              "rotationRange": [
+                {
+                  "min": 44.537,
+                  "max": 80.283,
+                  "delta": 35.746
+                },
+                {
+                  "min": -1.49,
+                  "max": 22.982,
+                  "delta": 24.472
+                },
+                {
+                  "min": 2.622,
+                  "max": 16.176,
+                  "delta": 13.554
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 78.8,
+                  "y": 19.2,
+                  "z": 8.7
+                },
+                "quarter": {
+                  "x": 50.6,
+                  "y": 7,
+                  "z": 3.1
+                },
+                "half": {
+                  "x": 64.3,
+                  "y": 18.2,
+                  "z": 5.5
+                },
+                "threeQuarter": {
+                  "x": 78.3,
+                  "y": 20.2,
+                  "z": 7.2
+                },
+                "end": {
+                  "x": 78.8,
+                  "y": 19.2,
+                  "z": 8.7
+                }
+              }
+            },
+            "L_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 39.179,
+                  "max": 52.745,
+                  "delta": 13.566
+                },
+                {
+                  "min": -7.999,
+                  "max": 0.043,
+                  "delta": 8.043
+                },
+                {
+                  "min": 0,
+                  "max": 0.657,
+                  "delta": 0.657
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 40.8,
+                  "y": 0,
+                  "z": 0
+                },
+                "quarter": {
+                  "x": 48,
+                  "y": 0,
+                  "z": 0
+                },
+                "half": {
+                  "x": 39.9,
+                  "y": 0,
+                  "z": 0
+                },
+                "threeQuarter": {
+                  "x": 39.8,
+                  "y": 0,
+                  "z": 0
+                },
+                "end": {
+                  "x": 40.8,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            },
+            "R_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 37.79,
+                  "max": 59.666,
+                  "delta": 21.876
+                },
+                {
+                  "min": 0,
+                  "max": 2.941,
+                  "delta": 2.941
+                },
+                {
+                  "min": -0.094,
+                  "max": 0,
+                  "delta": 0.094
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 39.2,
+                  "y": 0,
+                  "z": 0
+                },
+                "quarter": {
+                  "x": 51.7,
+                  "y": 0,
+                  "z": 0
+                },
+                "half": {
+                  "x": 45,
+                  "y": 0,
+                  "z": 0
+                },
+                "threeQuarter": {
+                  "x": 39.4,
+                  "y": 0,
+                  "z": 0
+                },
+                "end": {
+                  "x": 39.2,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            }
+          },
+          "inferredType": "walk",
+          "recipe": {
+            "type": "walk",
+            "duration": 1.833,
+            "footPushOffs": {
+              "left": {
+                "count": 2,
+                "events": [
+                  {
+                    "time": 0.1,
+                    "value": 49.4
+                  },
+                  {
+                    "time": 0.6,
+                    "value": 51.1
+                  }
+                ],
+                "averageInterval": 0.5
+              },
+              "right": {
+                "count": 1,
+                "events": [
+                  {
+                    "time": 0.5,
+                    "value": 52.5
+                  }
+                ],
+                "averageInterval": 0
+              }
+            },
+            "guidance": {
+              "estimatedStepSeconds": 0.25,
+              "estimatedSteps": 3,
+              "lowerBody": {
+                "footPitchDelta": {
+                  "left": 32.088,
+                  "right": 35.746
+                },
+                "toeCurlDelta": {
+                  "left": 13.566,
+                  "right": 21.876
+                }
+              },
+              "upperBody": {
+                "upperArmSwingDelta": {
+                  "left": 76.67,
+                  "right": 17.323
+                },
+                "forearmFlexDelta": {
+                  "left": 0,
+                  "right": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "public\\robot\\reference_motion\\Long Step Forward.fbx",
+      "format": "fbx",
+      "nodeCount": 65,
+      "animations": [
+        {
+          "index": 0,
+          "name": "mixamo.com",
+          "duration": 1,
+          "keyframes": 31,
+          "root": {
+            "translation": [
+              {
+                "min": -5.36,
+                "max": 5.034,
+                "delta": 10.395
+              },
+              {
+                "min": 71.554,
+                "max": 89.187,
+                "delta": 17.633
+              },
+              {
+                "min": 0.628,
+                "max": 114.34,
+                "delta": 113.712
+              }
+            ],
+            "rotation": [
+              {
+                "min": -13.716,
+                "max": -4.218,
+                "delta": 9.498
+              },
+              {
+                "min": -46.394,
+                "max": -36.37,
+                "delta": 10.023
+              },
+              {
+                "min": -2.963,
+                "max": 4.098,
+                "delta": 7.061
+              }
+            ]
+          },
+          "bones": {
+            "L_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": 64.671,
+                  "max": 73.619,
+                  "delta": 8.948
+                },
+                {
+                  "min": -27.914,
+                  "max": -14.245,
+                  "delta": 13.669
+                },
+                {
+                  "min": 35.111,
+                  "max": 55.161,
+                  "delta": 20.05
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 67.6,
+                  "y": -21.9,
+                  "z": 50.6
+                },
+                "quarter": {
+                  "x": 68.5,
+                  "y": -19.9,
+                  "z": 38.6
+                },
+                "half": {
+                  "x": 67.4,
+                  "y": -16.3,
+                  "z": 44.2
+                },
+                "threeQuarter": {
+                  "x": 65.1,
+                  "y": -18.4,
+                  "z": 40
+                },
+                "end": {
+                  "x": 67.6,
+                  "y": -21.9,
+                  "z": 50.6
+                }
+              }
+            },
+            "L_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": 103.515,
+                  "max": 113.954,
+                  "delta": 10.439
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 106.6
+                },
+                "quarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 106.8
+                },
+                "half": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 113.9
+                },
+                "threeQuarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 109.8
+                },
+                "end": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 106.6
+                }
+              }
+            },
+            "L_Hand": {
+              "rotationRange": [
+                {
+                  "min": 14.509,
+                  "max": 21.827,
+                  "delta": 7.318
+                },
+                {
+                  "min": 1.046,
+                  "max": 7.421,
+                  "delta": 6.375
+                },
+                {
+                  "min": 5.706,
+                  "max": 11.896,
+                  "delta": 6.19
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 15.8,
+                  "y": 4,
+                  "z": 6.9
+                },
+                "quarter": {
+                  "x": 16.3,
+                  "y": 7.4,
+                  "z": 10.6
+                },
+                "half": {
+                  "x": 17.9,
+                  "y": 1.2,
+                  "z": 6
+                },
+                "threeQuarter": {
+                  "x": 19.5,
+                  "y": 5.3,
+                  "z": 9.2
+                },
+                "end": {
+                  "x": 15.8,
+                  "y": 4,
+                  "z": 6.9
+                }
+              }
+            },
+            "R_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": 46.649,
+                  "max": 65.224,
+                  "delta": 18.575
+                },
+                {
+                  "min": -27.716,
+                  "max": -7.725,
+                  "delta": 19.991
+                },
+                {
+                  "min": -74.496,
+                  "max": -56.542,
+                  "delta": 17.954
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 60.1,
+                  "y": -22.7,
+                  "z": -59
+                },
+                "quarter": {
+                  "x": 47.4,
+                  "y": -23.4,
+                  "z": -65.1
+                },
+                "half": {
+                  "x": 52.4,
+                  "y": -8.7,
+                  "z": -72.1
+                },
+                "threeQuarter": {
+                  "x": 61.4,
+                  "y": -15.7,
+                  "z": -57.5
+                },
+                "end": {
+                  "x": 60.1,
+                  "y": -22.7,
+                  "z": -59.1
+                }
+              }
+            },
+            "R_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": -106.25,
+                  "max": -85.523,
+                  "delta": 20.727
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -106.2
+                },
+                "quarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -90.3
+                },
+                "half": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -88.5
+                },
+                "threeQuarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -100.3
+                },
+                "end": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -106.2
+                }
+              }
+            },
+            "R_Hand": {
+              "rotationRange": [
+                {
+                  "min": 7.674,
+                  "max": 14.286,
+                  "delta": 6.613
+                },
+                {
+                  "min": 1.684,
+                  "max": 13.722,
+                  "delta": 12.038
+                },
+                {
+                  "min": -22.312,
+                  "max": -16.744,
+                  "delta": 5.568
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 8.4,
+                  "y": 5.6,
+                  "z": -18.6
+                },
+                "quarter": {
+                  "x": 14.3,
+                  "y": 5.9,
+                  "z": -20.4
+                },
+                "half": {
+                  "x": 10.9,
+                  "y": 13.1,
+                  "z": -16.7
+                },
+                "threeQuarter": {
+                  "x": 9.2,
+                  "y": 4,
+                  "z": -21.7
+                },
+                "end": {
+                  "x": 8.4,
+                  "y": 5.6,
+                  "z": -18.6
+                }
+              }
+            },
+            "L_Foot": {
+              "rotationRange": [
+                {
+                  "min": 45.61,
+                  "max": 84.638,
+                  "delta": 39.028
+                },
+                {
+                  "min": -5.631,
+                  "max": 12.658,
+                  "delta": 18.288
+                },
+                {
+                  "min": -38.196,
+                  "max": -13.599,
+                  "delta": 24.596
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 77.3,
+                  "y": -5.1,
+                  "z": -15.1
+                },
+                "quarter": {
+                  "x": 57.5,
+                  "y": 10.8,
+                  "z": -29.7
+                },
+                "half": {
+                  "x": 64.5,
+                  "y": 5.8,
+                  "z": -27.3
+                },
+                "threeQuarter": {
+                  "x": 66.3,
+                  "y": -2,
+                  "z": -24.4
+                },
+                "end": {
+                  "x": 77.3,
+                  "y": -5.1,
+                  "z": -15.1
+                }
+              }
+            },
+            "R_Foot": {
+              "rotationRange": [
+                {
+                  "min": 30.159,
+                  "max": 78.78,
+                  "delta": 48.621
+                },
+                {
+                  "min": -18.733,
+                  "max": 27.281,
+                  "delta": 46.014
+                },
+                {
+                  "min": -8.963,
+                  "max": 12.935,
+                  "delta": 21.898
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 78.7,
+                  "y": 19.2,
+                  "z": 8.7
+                },
+                "quarter": {
+                  "x": 39.4,
+                  "y": 15.1,
+                  "z": 9
+                },
+                "half": {
+                  "x": 37.8,
+                  "y": -14.2,
+                  "z": 10.5
+                },
+                "threeQuarter": {
+                  "x": 40.4,
+                  "y": 17.6,
+                  "z": 12.9
+                },
+                "end": {
+                  "x": 78.8,
+                  "y": 19.2,
+                  "z": 8.7
+                }
+              }
+            },
+            "L_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 37.025,
+                  "max": 72.201,
+                  "delta": 35.176
+                },
+                {
+                  "min": -0.008,
+                  "max": 0.536,
+                  "delta": 0.544
+                },
+                {
+                  "min": -0.032,
+                  "max": 0,
+                  "delta": 0.033
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 40.8,
+                  "y": 0,
+                  "z": 0
+                },
+                "quarter": {
+                  "x": 37.9,
+                  "y": 0,
+                  "z": 0
+                },
+                "half": {
+                  "x": 39.2,
+                  "y": 0,
+                  "z": 0
+                },
+                "threeQuarter": {
+                  "x": 40.5,
+                  "y": 0,
+                  "z": 0
+                },
+                "end": {
+                  "x": 40.8,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            },
+            "R_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 39.188,
+                  "max": 85.395,
+                  "delta": 46.207
+                },
+                {
+                  "min": 0,
+                  "max": 9.267,
+                  "delta": 9.267
+                },
+                {
+                  "min": -1.081,
+                  "max": 0,
+                  "delta": 1.081
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 39.2,
+                  "y": 0,
+                  "z": 0
+                },
+                "quarter": {
+                  "x": 84.2,
+                  "y": 8.4,
+                  "z": -0.8
+                },
+                "half": {
+                  "x": 66.6,
+                  "y": 6.9,
+                  "z": -0.7
+                },
+                "threeQuarter": {
+                  "x": 45.3,
+                  "y": 0,
+                  "z": 0
+                },
+                "end": {
+                  "x": 39.2,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            }
+          },
+          "inferredType": "walk",
+          "recipe": {
+            "type": "walk",
+            "duration": 1,
+            "footPushOffs": {
+              "left": {
+                "count": 1,
+                "events": [
+                  {
+                    "time": 0.133,
+                    "value": 72.2
+                  }
+                ],
+                "averageInterval": 0
+              },
+              "right": {
+                "count": 1,
+                "events": [
+                  {
+                    "time": 0.3,
+                    "value": 85.4
+                  }
+                ],
+                "averageInterval": 0
+              }
+            },
+            "guidance": {
+              "estimatedStepSeconds": 0.167,
+              "estimatedSteps": 2,
+              "lowerBody": {
+                "footPitchDelta": {
+                  "left": 39.028,
+                  "right": 48.621
+                },
+                "toeCurlDelta": {
+                  "left": 35.176,
+                  "right": 46.207
+                }
+              },
+              "upperBody": {
+                "upperArmSwingDelta": {
+                  "left": 8.948,
+                  "right": 18.575
+                },
+                "forearmFlexDelta": {
+                  "left": 0,
+                  "right": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "public\\robot\\reference_motion\\Sayin_whats_up.glb",
+      "format": "glb",
+      "nodeCount": 43,
+      "animations": [
+        {
+          "index": 0,
+          "name": "NlaTrack",
+          "duration": 9.083,
+          "keyframes": 218,
+          "root": {
+            "translation": null,
+            "rotation": [
+              {
+                "min": -90,
+                "max": -90,
+                "delta": 0
+              },
+              {
+                "min": 0,
+                "max": 0,
+                "delta": 0
+              },
+              {
+                "min": 22.971,
+                "max": 113.811,
+                "delta": 90.84
+              }
+            ]
+          },
+          "bones": {
+            "L_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": -21.578,
+                  "max": 70.393,
+                  "delta": 91.971
+                },
+                {
+                  "min": -74.267,
+                  "max": 17.815,
+                  "delta": 92.082
+                },
+                {
+                  "min": -96.262,
+                  "max": -39.585,
+                  "delta": 56.677
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -20,
+                  "y": 11.7,
+                  "z": -80.6
+                },
+                "quarter": {
+                  "x": -10,
+                  "y": 7,
+                  "z": -83.7
+                },
+                "half": {
+                  "x": 18.7,
+                  "y": -13.7,
+                  "z": -76.3
+                },
+                "threeQuarter": {
+                  "x": 16.4,
+                  "y": 15,
+                  "z": -93.3
+                },
+                "end": {
+                  "x": -17,
+                  "y": 12.1,
+                  "z": -82.6
+                }
+              }
+            },
+            "L_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 0.238,
+                  "max": 48.699,
+                  "delta": 48.46
+                },
+                {
+                  "min": -15.069,
+                  "max": 0.34,
+                  "delta": 15.41
+                },
+                {
+                  "min": -35.401,
+                  "max": -0.24,
+                  "delta": 35.161
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 17.8,
+                  "y": -1.5,
+                  "z": -13.6
+                },
+                "quarter": {
+                  "x": 15.9,
+                  "y": -1.1,
+                  "z": -12.2
+                },
+                "half": {
+                  "x": 35.4,
+                  "y": -7.6,
+                  "z": -26.5
+                },
+                "threeQuarter": {
+                  "x": 4.2,
+                  "y": 0.3,
+                  "z": -3.3
+                },
+                "end": {
+                  "x": 19.1,
+                  "y": -1.8,
+                  "z": -14.6
+                }
+              }
+            },
+            "L_Hand": {
+              "rotationRange": [
+                {
+                  "min": -21.151,
+                  "max": -2.481,
+                  "delta": 18.67
+                },
+                {
+                  "min": -17.941,
+                  "max": 47.85,
+                  "delta": 65.79
+                },
+                {
+                  "min": -3.697,
+                  "max": 21.274,
+                  "delta": 24.971
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -7.7,
+                  "y": 1.5,
+                  "z": 5.5
+                },
+                "quarter": {
+                  "x": -7.6,
+                  "y": 2.2,
+                  "z": 4.4
+                },
+                "half": {
+                  "x": -12,
+                  "y": 12.5,
+                  "z": 6.6
+                },
+                "threeQuarter": {
+                  "x": -9.7,
+                  "y": 15.3,
+                  "z": 6.4
+                },
+                "end": {
+                  "x": -8.7,
+                  "y": 1.1,
+                  "z": 4.5
+                }
+              }
+            },
+            "R_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": -18.965,
+                  "max": 3.215,
+                  "delta": 22.18
+                },
+                {
+                  "min": -21.05,
+                  "max": 52.16,
+                  "delta": 73.21
+                },
+                {
+                  "min": 49.478,
+                  "max": 95.825,
+                  "delta": 46.348
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -12.7,
+                  "y": -14.4,
+                  "z": 88.1
+                },
+                "quarter": {
+                  "x": -11.5,
+                  "y": -7.8,
+                  "z": 83.9
+                },
+                "half": {
+                  "x": -12.1,
+                  "y": 5.8,
+                  "z": 75.8
+                },
+                "threeQuarter": {
+                  "x": -3.1,
+                  "y": -5.1,
+                  "z": 76.3
+                },
+                "end": {
+                  "x": -13.3,
+                  "y": -13.5,
+                  "z": 87.2
+                }
+              }
+            },
+            "R_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 1.06,
+                  "max": 30.755,
+                  "delta": 29.694
+                },
+                {
+                  "min": -1.729,
+                  "max": 1.298,
+                  "delta": 3.027
+                },
+                {
+                  "min": 0.502,
+                  "max": 12.768,
+                  "delta": 12.266
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 22.7,
+                  "y": -0.2,
+                  "z": 9.6
+                },
+                "quarter": {
+                  "x": 22.4,
+                  "y": -0.2,
+                  "z": 9.5
+                },
+                "half": {
+                  "x": 18.8,
+                  "y": -0.7,
+                  "z": 8
+                },
+                "threeQuarter": {
+                  "x": 20.4,
+                  "y": -0.5,
+                  "z": 8.6
+                },
+                "end": {
+                  "x": 22.1,
+                  "y": -0.3,
+                  "z": 9.3
+                }
+              }
+            },
+            "R_Hand": {
+              "rotationRange": [
+                {
+                  "min": -12.461,
+                  "max": 3.117,
+                  "delta": 15.578
+                },
+                {
+                  "min": -33.461,
+                  "max": 12.151,
+                  "delta": 45.613
+                },
+                {
+                  "min": -21.364,
+                  "max": 4.64,
+                  "delta": 26.003
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -4.2,
+                  "y": 2.6,
+                  "z": -5
+                },
+                "quarter": {
+                  "x": -1.9,
+                  "y": 0.8,
+                  "z": -10.2
+                },
+                "half": {
+                  "x": 1,
+                  "y": -24.3,
+                  "z": -8.6
+                },
+                "threeQuarter": {
+                  "x": -3.4,
+                  "y": 4,
+                  "z": -8
+                },
+                "end": {
+                  "x": -4.8,
+                  "y": 3.1,
+                  "z": -5.5
+                }
+              }
+            },
+            "L_Foot": {
+              "rotationRange": [
+                {
+                  "min": 78.665,
+                  "max": 103.156,
+                  "delta": 24.491
+                },
+                {
+                  "min": -11.639,
+                  "max": 7.35,
+                  "delta": 18.989
+                },
+                {
+                  "min": 18.251,
+                  "max": 52.391,
+                  "delta": 34.14
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 89.6,
+                  "y": 2.8,
+                  "z": 29.4
+                },
+                "quarter": {
+                  "x": 97.8,
+                  "y": 3.9,
+                  "z": 25
+                },
+                "half": {
+                  "x": 99.7,
+                  "y": 3.1,
+                  "z": 31.4
+                },
+                "threeQuarter": {
+                  "x": 98,
+                  "y": -7.3,
+                  "z": 23.1
+                },
+                "end": {
+                  "x": 92.4,
+                  "y": 2.9,
+                  "z": 29.9
+                }
+              }
+            },
+            "R_Foot": {
+              "rotationRange": [
+                {
+                  "min": 72.741,
+                  "max": 98.973,
+                  "delta": 26.232
+                },
+                {
+                  "min": -5.091,
+                  "max": 6.786,
+                  "delta": 11.877
+                },
+                {
+                  "min": -53.476,
+                  "max": 22.322,
+                  "delta": 75.798
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 76.8,
+                  "y": 4.1,
+                  "z": -7.2
+                },
+                "quarter": {
+                  "x": 89.3,
+                  "y": 0,
+                  "z": -16.8
+                },
+                "half": {
+                  "x": 85.1,
+                  "y": 3.3,
+                  "z": -24.7
+                },
+                "threeQuarter": {
+                  "x": 93.3,
+                  "y": -1.6,
+                  "z": -49.5
+                },
+                "end": {
+                  "x": 80.6,
+                  "y": 2.7,
+                  "z": -6.9
+                }
+              }
+            },
+            "L_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 3.003,
+                  "max": 20.343,
+                  "delta": 17.34
+                },
+                {
+                  "min": -7.003,
+                  "max": -0.097,
+                  "delta": 6.906
+                },
+                {
+                  "min": -5.012,
+                  "max": 2.266,
+                  "delta": 7.278
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 3.2,
+                  "y": -1.1,
+                  "z": -2.5
+                },
+                "quarter": {
+                  "x": 4.9,
+                  "y": -1.7,
+                  "z": -1.1
+                },
+                "half": {
+                  "x": 3.6,
+                  "y": -1.4,
+                  "z": -0.1
+                },
+                "threeQuarter": {
+                  "x": 6.2,
+                  "y": -2.3,
+                  "z": -3.3
+                },
+                "end": {
+                  "x": 3.8,
+                  "y": -1.2,
+                  "z": -2.8
+                }
+              }
+            },
+            "R_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 3.295,
+                  "max": 8.424,
+                  "delta": 5.129
+                },
+                {
+                  "min": -0.229,
+                  "max": 2.241,
+                  "delta": 2.47
+                },
+                {
+                  "min": -1.58,
+                  "max": 9.813,
+                  "delta": 11.393
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 4.2,
+                  "y": 0.3,
+                  "z": 2.7
+                },
+                "quarter": {
+                  "x": 4.1,
+                  "y": 0,
+                  "z": 3.2
+                },
+                "half": {
+                  "x": 4.2,
+                  "y": 0.5,
+                  "z": 1.2
+                },
+                "threeQuarter": {
+                  "x": 3.4,
+                  "y": 1.6,
+                  "z": 6
+                },
+                "end": {
+                  "x": 4.2,
+                  "y": 0.3,
+                  "z": 2.9
+                }
+              }
+            }
+          },
+          "inferredType": "walk",
+          "recipe": {
+            "type": "walk",
+            "duration": 9.083,
+            "footPushOffs": {
+              "left": {
+                "count": 1,
+                "events": [
+                  {
+                    "time": 5.083,
+                    "value": 20.3
+                  }
+                ],
+                "averageInterval": 0
+              },
+              "right": {
+                "count": 2,
+                "events": [
+                  {
+                    "time": 4.167,
+                    "value": 8.4
+                  },
+                  {
+                    "time": 7.5,
+                    "value": 6.8
+                  }
+                ],
+                "averageInterval": 3.333
+              }
+            },
+            "guidance": {
+              "estimatedStepSeconds": 1.667,
+              "estimatedSteps": 3,
+              "lowerBody": {
+                "footPitchDelta": {
+                  "left": 24.491,
+                  "right": 26.232
+                },
+                "toeCurlDelta": {
+                  "left": 17.34,
+                  "right": 5.129
+                }
+              },
+              "upperBody": {
+                "upperArmSwingDelta": {
+                  "left": 91.971,
+                  "right": 22.18
+                },
+                "forearmFlexDelta": {
+                  "left": 48.46,
+                  "right": 29.694
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "public\\robot\\reference_motion\\Standard Walk.fbx",
+      "format": "fbx",
+      "nodeCount": 65,
+      "animations": [
+        {
+          "index": 0,
+          "name": "mixamo.com",
+          "duration": 1.167,
+          "keyframes": 36,
+          "root": {
+            "translation": [
+              {
+                "min": -0.065,
+                "max": 4.182,
+                "delta": 4.246
+              },
+              {
+                "min": 97.537,
+                "max": 102.873,
+                "delta": 5.336
+              },
+              {
+                "min": 1.363,
+                "max": 183.837,
+                "delta": 182.474
+              }
+            ],
+            "rotation": [
+              {
+                "min": -3.046,
+                "max": 1.631,
+                "delta": 4.677
+              },
+              {
+                "min": -4.92,
+                "max": 12,
+                "delta": 16.92
+              },
+              {
+                "min": -1.022,
+                "max": 4.638,
+                "delta": 5.66
+              }
+            ]
+          },
+          "bones": {
+            "L_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": 39.938,
+                  "max": 66.546,
+                  "delta": 26.607
+                },
+                {
+                  "min": 9.631,
+                  "max": 21.039,
+                  "delta": 11.409
+                },
+                {
+                  "min": -16.439,
+                  "max": 39.321,
+                  "delta": 55.76
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 57.7,
+                  "y": 19.6,
+                  "z": 8.7
+                },
+                "quarter": {
+                  "x": 66.5,
+                  "y": 10.6,
+                  "z": -16.4
+                },
+                "half": {
+                  "x": 52.9,
+                  "y": 20.8,
+                  "z": 20.5
+                },
+                "threeQuarter": {
+                  "x": 41.5,
+                  "y": 16.5,
+                  "z": 35.8
+                },
+                "end": {
+                  "x": 57.7,
+                  "y": 19.6,
+                  "z": 8.7
+                }
+              }
+            },
+            "L_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": 4.581,
+                  "max": 26.115,
+                  "delta": 21.534
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 8.3
+                },
+                "quarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 5.7
+                },
+                "half": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 14.6
+                },
+                "threeQuarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 26.1
+                },
+                "end": {
+                  "x": 0,
+                  "y": 0,
+                  "z": 8.3
+                }
+              }
+            },
+            "L_Hand": {
+              "rotationRange": [
+                {
+                  "min": -15.434,
+                  "max": 3.067,
+                  "delta": 18.502
+                },
+                {
+                  "min": -8.044,
+                  "max": 25.629,
+                  "delta": 33.673
+                },
+                {
+                  "min": -4.31,
+                  "max": 12.067,
+                  "delta": 16.377
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -4.9,
+                  "y": 9.6,
+                  "z": 4.7
+                },
+                "quarter": {
+                  "x": 2.3,
+                  "y": 25.6,
+                  "z": -4.2
+                },
+                "half": {
+                  "x": -10.9,
+                  "y": -2.2,
+                  "z": 9.4
+                },
+                "threeQuarter": {
+                  "x": -14.5,
+                  "y": -8,
+                  "z": 10.5
+                },
+                "end": {
+                  "x": -4.9,
+                  "y": 9.6,
+                  "z": 4.7
+                }
+              }
+            },
+            "R_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": 45.775,
+                  "max": 62.171,
+                  "delta": 16.396
+                },
+                {
+                  "min": -21.116,
+                  "max": -6.858,
+                  "delta": 14.258
+                },
+                {
+                  "min": -29.108,
+                  "max": 10.989,
+                  "delta": 40.097
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 56.8,
+                  "y": -16.3,
+                  "z": -12
+                },
+                "quarter": {
+                  "x": 47,
+                  "y": -20.4,
+                  "z": -26.8
+                },
+                "half": {
+                  "x": 60.7,
+                  "y": -15.1,
+                  "z": -0.8
+                },
+                "threeQuarter": {
+                  "x": 59.8,
+                  "y": -7.5,
+                  "z": 9.8
+                },
+                "end": {
+                  "x": 56.8,
+                  "y": -16.3,
+                  "z": -12
+                }
+              }
+            },
+            "R_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": 0,
+                  "max": 0,
+                  "delta": 0
+                },
+                {
+                  "min": -28.432,
+                  "max": -7.007,
+                  "delta": 21.425
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -15.5
+                },
+                "quarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -23.7
+                },
+                "half": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -10.4
+                },
+                "threeQuarter": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -7.3
+                },
+                "end": {
+                  "x": 0,
+                  "y": 0,
+                  "z": -15.5
+                }
+              }
+            },
+            "R_Hand": {
+              "rotationRange": [
+                {
+                  "min": -4.852,
+                  "max": 5.286,
+                  "delta": 10.139
+                },
+                {
+                  "min": -21.715,
+                  "max": 5.841,
+                  "delta": 27.557
+                },
+                {
+                  "min": -12.525,
+                  "max": 4.988,
+                  "delta": 17.513
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -4,
+                  "y": 0.7,
+                  "z": -5.5
+                },
+                "quarter": {
+                  "x": -3.6,
+                  "y": 1.9,
+                  "z": -12
+                },
+                "half": {
+                  "x": 2.7,
+                  "y": -8.4,
+                  "z": -2.3
+                },
+                "threeQuarter": {
+                  "x": 3.3,
+                  "y": -21.7,
+                  "z": 4.1
+                },
+                "end": {
+                  "x": -4,
+                  "y": 0.7,
+                  "z": -5.5
+                }
+              }
+            },
+            "L_Foot": {
+              "rotationRange": [
+                {
+                  "min": 32.574,
+                  "max": 72.457,
+                  "delta": 39.883
+                },
+                {
+                  "min": -6.128,
+                  "max": 4.699,
+                  "delta": 10.827
+                },
+                {
+                  "min": -8.786,
+                  "max": 3.562,
+                  "delta": 12.348
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 55,
+                  "y": -2.6,
+                  "z": -1.9
+                },
+                "quarter": {
+                  "x": 42.9,
+                  "y": 3.2,
+                  "z": 3.1
+                },
+                "half": {
+                  "x": 63,
+                  "y": 4.7,
+                  "z": 2.9
+                },
+                "threeQuarter": {
+                  "x": 56.4,
+                  "y": 0.4,
+                  "z": -3.9
+                },
+                "end": {
+                  "x": 55,
+                  "y": -2.6,
+                  "z": -1.9
+                }
+              }
+            },
+            "R_Foot": {
+              "rotationRange": [
+                {
+                  "min": 26.365,
+                  "max": 75.639,
+                  "delta": 49.274
+                },
+                {
+                  "min": -5.358,
+                  "max": 12.455,
+                  "delta": 17.813
+                },
+                {
+                  "min": -3.578,
+                  "max": 4.503,
+                  "delta": 8.081
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 63.8,
+                  "y": -3,
+                  "z": -2.3
+                },
+                "quarter": {
+                  "x": 39.2,
+                  "y": 1.4,
+                  "z": 2.9
+                },
+                "half": {
+                  "x": 55.6,
+                  "y": 3.6,
+                  "z": 2.5
+                },
+                "threeQuarter": {
+                  "x": 52.4,
+                  "y": -0.6,
+                  "z": -1
+                },
+                "end": {
+                  "x": 63.8,
+                  "y": -3,
+                  "z": -2.3
+                }
+              }
+            },
+            "L_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 35.231,
+                  "max": 75.626,
+                  "delta": 40.395
+                },
+                {
+                  "min": 0,
+                  "max": 4.203,
+                  "delta": 4.203
+                },
+                {
+                  "min": -0.286,
+                  "max": 0,
+                  "delta": 0.286
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 39.5,
+                  "y": 0,
+                  "z": 0
+                },
+                "quarter": {
+                  "x": 43.3,
+                  "y": 0,
+                  "z": 0
+                },
+                "half": {
+                  "x": 42,
+                  "y": 0,
+                  "z": 0
+                },
+                "threeQuarter": {
+                  "x": 69.5,
+                  "y": 2.3,
+                  "z": -0.1
+                },
+                "end": {
+                  "x": 39.5,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            },
+            "R_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 41.27,
+                  "max": 85.853,
+                  "delta": 44.583
+                },
+                {
+                  "min": 0,
+                  "max": 4.913,
+                  "delta": 4.913
+                },
+                {
+                  "min": -0.261,
+                  "max": 0,
+                  "delta": 0.261
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 42.3,
+                  "y": 0,
+                  "z": 0
+                },
+                "quarter": {
+                  "x": 85.9,
+                  "y": 0.8,
+                  "z": -0.1
+                },
+                "half": {
+                  "x": 44,
+                  "y": 0,
+                  "z": 0
+                },
+                "threeQuarter": {
+                  "x": 47.1,
+                  "y": 0,
+                  "z": 0
+                },
+                "end": {
+                  "x": 42.3,
+                  "y": 0,
+                  "z": 0
+                }
+              }
+            }
+          },
+          "inferredType": "walk",
+          "recipe": {
+            "type": "walk",
+            "duration": 1.167,
+            "footPushOffs": {
+              "left": {
+                "count": 1,
+                "events": [
+                  {
+                    "time": 0.9,
+                    "value": 75.6
+                  }
+                ],
+                "averageInterval": 0
+              },
+              "right": {
+                "count": 1,
+                "events": [
+                  {
+                    "time": 0.3,
+                    "value": 85.9
+                  }
+                ],
+                "averageInterval": 0
+              }
+            },
+            "guidance": {
+              "estimatedStepSeconds": 0.6,
+              "estimatedSteps": 2,
+              "lowerBody": {
+                "footPitchDelta": {
+                  "left": 39.883,
+                  "right": 49.274
+                },
+                "toeCurlDelta": {
+                  "left": 40.395,
+                  "right": 44.583
+                }
+              },
+              "upperBody": {
+                "upperArmSwingDelta": {
+                  "left": 26.607,
+                  "right": 16.396
+                },
+                "forearmFlexDelta": {
+                  "left": 0,
+                  "right": 0
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "public\\robot\\reference_motion\\Walking Turn 180.fbx",
+      "format": "fbx",
+      "nodeCount": 65,
+      "animations": [
+        {
+          "index": 0,
+          "name": "mixamo.com",
+          "duration": 1,
+          "keyframes": 31,
+          "root": {
+            "translation": [
+              {
+                "min": -0.093,
+                "max": 3.567,
+                "delta": 3.66
+              },
+              {
+                "min": 94.609,
+                "max": 102.066,
+                "delta": 7.457
+              },
+              {
+                "min": -11.424,
+                "max": 28.545,
+                "delta": 39.968
+              }
+            ],
+            "rotation": [
+              {
+                "min": 0.892,
+                "max": 178.239,
+                "delta": 177.347
+              },
+              {
+                "min": -87.111,
+                "max": 2.733,
+                "delta": 89.844
+              },
+              {
+                "min": -2.295,
+                "max": 177.705,
+                "delta": 180
+              }
+            ]
+          },
+          "bones": {
+            "L_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": 45.923,
+                  "max": 49.072,
+                  "delta": 3.149
+                },
+                {
+                  "min": -3.387,
+                  "max": 2.26,
+                  "delta": 5.647
+                },
+                {
+                  "min": -3.176,
+                  "max": 24.429,
+                  "delta": 27.605
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 48.8,
+                  "y": 0.1,
+                  "z": 8.5
+                },
+                "quarter": {
+                  "x": 48,
+                  "y": -3.3,
+                  "z": 1.5
+                },
+                "half": {
+                  "x": 48.1,
+                  "y": 0.8,
+                  "z": 9.7
+                },
+                "threeQuarter": {
+                  "x": 47.4,
+                  "y": 1.5,
+                  "z": 21.4
+                },
+                "end": {
+                  "x": 48.8,
+                  "y": 0.1,
+                  "z": 8.5
+                }
+              }
+            },
+            "L_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 3.012,
+                  "max": 10.807,
+                  "delta": 7.795
+                },
+                {
+                  "min": 12.199,
+                  "max": 22.066,
+                  "delta": 9.867
+                },
+                {
+                  "min": 7.115,
+                  "max": 39.602,
+                  "delta": 32.488
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 4.6,
+                  "y": 20.8,
+                  "z": 30.4
+                },
+                "quarter": {
+                  "x": 10.5,
+                  "y": 12.2,
+                  "z": 8.5
+                },
+                "half": {
+                  "x": 8.3,
+                  "y": 21.5,
+                  "z": 23
+                },
+                "threeQuarter": {
+                  "x": 4.6,
+                  "y": 17.3,
+                  "z": 39.6
+                },
+                "end": {
+                  "x": 4.6,
+                  "y": 20.8,
+                  "z": 30.4
+                }
+              }
+            },
+            "L_Hand": {
+              "rotationRange": [
+                {
+                  "min": -19.434,
+                  "max": -4.412,
+                  "delta": 15.023
+                },
+                {
+                  "min": 14.718,
+                  "max": 25.894,
+                  "delta": 11.176
+                },
+                {
+                  "min": -6.867,
+                  "max": 15.287,
+                  "delta": 22.154
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -14.4,
+                  "y": 16.6,
+                  "z": 13.5
+                },
+                "quarter": {
+                  "x": -14.6,
+                  "y": 15.3,
+                  "z": -1.5
+                },
+                "half": {
+                  "x": -4.6,
+                  "y": 24.4,
+                  "z": -4
+                },
+                "threeQuarter": {
+                  "x": -18.7,
+                  "y": 16.5,
+                  "z": 13.9
+                },
+                "end": {
+                  "x": -14.4,
+                  "y": 16.6,
+                  "z": 13.5
+                }
+              }
+            },
+            "R_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": 38.294,
+                  "max": 60.039,
+                  "delta": 21.745
+                },
+                {
+                  "min": -1.087,
+                  "max": 12.558,
+                  "delta": 13.645
+                },
+                {
+                  "min": -0.723,
+                  "max": 25.555,
+                  "delta": 26.278
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 51.9,
+                  "y": 6,
+                  "z": 4.2
+                },
+                "quarter": {
+                  "x": 58.8,
+                  "y": -0.7,
+                  "z": -0.7
+                },
+                "half": {
+                  "x": 46.1,
+                  "y": 7.3,
+                  "z": 8.2
+                },
+                "threeQuarter": {
+                  "x": 39.7,
+                  "y": 11.6,
+                  "z": 24.6
+                },
+                "end": {
+                  "x": 51.9,
+                  "y": 6,
+                  "z": 4.2
+                }
+              }
+            },
+            "R_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 4.044,
+                  "max": 10.339,
+                  "delta": 6.295
+                },
+                {
+                  "min": -22.059,
+                  "max": -10.305,
+                  "delta": 11.754
+                },
+                {
+                  "min": -55.309,
+                  "max": -10.259,
+                  "delta": 45.05
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 10.2,
+                  "y": -16,
+                  "z": -22.4
+                },
+                "quarter": {
+                  "x": 5.7,
+                  "y": -17.1,
+                  "z": -40.7
+                },
+                "half": {
+                  "x": 8,
+                  "y": -15.7,
+                  "z": -30.8
+                },
+                "threeQuarter": {
+                  "x": 10.3,
+                  "y": -13.2,
+                  "z": -10.8
+                },
+                "end": {
+                  "x": 10.2,
+                  "y": -16,
+                  "z": -22.4
+                }
+              }
+            },
+            "R_Hand": {
+              "rotationRange": [
+                {
+                  "min": -32.369,
+                  "max": 4.259,
+                  "delta": 36.627
+                },
+                {
+                  "min": -27.732,
+                  "max": -3.143,
+                  "delta": 24.589
+                },
+                {
+                  "min": -16.047,
+                  "max": 2.324,
+                  "delta": 18.37
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -7.8,
+                  "y": -21.7,
+                  "z": -6.4
+                },
+                "quarter": {
+                  "x": -32.4,
+                  "y": -9.9,
+                  "z": -13.2
+                },
+                "half": {
+                  "x": -16.1,
+                  "y": -16.3,
+                  "z": -9.5
+                },
+                "threeQuarter": {
+                  "x": 3.4,
+                  "y": -23.4,
+                  "z": 1
+                },
+                "end": {
+                  "x": -7.8,
+                  "y": -21.7,
+                  "z": -6.4
+                }
+              }
+            },
+            "L_Foot": {
+              "rotationRange": [
+                {
+                  "min": 31.77,
+                  "max": 60.811,
+                  "delta": 29.041
+                },
+                {
+                  "min": -17.841,
+                  "max": -1.214,
+                  "delta": 16.628
+                },
+                {
+                  "min": -16.769,
+                  "max": -0.464,
+                  "delta": 16.306
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 55.7,
+                  "y": -1.2,
+                  "z": -0.5
+                },
+                "quarter": {
+                  "x": 60.7,
+                  "y": -4.9,
+                  "z": -3
+                },
+                "half": {
+                  "x": 57,
+                  "y": -10.3,
+                  "z": -7.3
+                },
+                "threeQuarter": {
+                  "x": 35.3,
+                  "y": -14.2,
+                  "z": -14.8
+                },
+                "end": {
+                  "x": 55.7,
+                  "y": -1.2,
+                  "z": -0.5
+                }
+              }
+            },
+            "R_Foot": {
+              "rotationRange": [
+                {
+                  "min": 47.723,
+                  "max": 71.253,
+                  "delta": 23.53
+                },
+                {
+                  "min": -12.136,
+                  "max": 4.963,
+                  "delta": 17.099
+                },
+                {
+                  "min": -6.854,
+                  "max": 3.689,
+                  "delta": 10.543
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 64.4,
+                  "y": -3.7,
+                  "z": -2.3
+                },
+                "quarter": {
+                  "x": 71.3,
+                  "y": -10.7,
+                  "z": -6
+                },
+                "half": {
+                  "x": 56.8,
+                  "y": -1.1,
+                  "z": -1
+                },
+                "threeQuarter": {
+                  "x": 52.4,
+                  "y": 5,
+                  "z": 3.7
+                },
+                "end": {
+                  "x": 64.4,
+                  "y": -3.7,
+                  "z": -2.3
+                }
+              }
+            },
+            "L_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 39.785,
+                  "max": 67.471,
+                  "delta": 27.686
+                },
+                {
+                  "min": -24.408,
+                  "max": 6.925,
+                  "delta": 31.333
+                },
+                {
+                  "min": -1.821,
+                  "max": 9.09,
+                  "delta": 10.911
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 42.5,
+                  "y": 0.8,
+                  "z": -1.8
+                },
+                "quarter": {
+                  "x": 48.6,
+                  "y": 5.5,
+                  "z": 0.2
+                },
+                "half": {
+                  "x": 52,
+                  "y": 1.7,
+                  "z": 1.7
+                },
+                "threeQuarter": {
+                  "x": 67.5,
+                  "y": -13.5,
+                  "z": 9.1
+                },
+                "end": {
+                  "x": 42.5,
+                  "y": 0.8,
+                  "z": -1.8
+                }
+              }
+            },
+            "R_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 42.424,
+                  "max": 54.085,
+                  "delta": 11.662
+                },
+                {
+                  "min": -1.614,
+                  "max": 4.185,
+                  "delta": 5.799
+                },
+                {
+                  "min": -3.543,
+                  "max": 0.322,
+                  "delta": 3.865
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 44.1,
+                  "y": 0.6,
+                  "z": -0.7
+                },
+                "quarter": {
+                  "x": 51.7,
+                  "y": 3.4,
+                  "z": -0.1
+                },
+                "half": {
+                  "x": 45.7,
+                  "y": 2.9,
+                  "z": -3.4
+                },
+                "threeQuarter": {
+                  "x": 44.3,
+                  "y": 3.1,
+                  "z": -3.5
+                },
+                "end": {
+                  "x": 44.1,
+                  "y": 0.6,
+                  "z": -0.7
+                }
+              }
+            }
+          },
+          "inferredType": "walk",
+          "recipe": {
+            "type": "walk",
+            "duration": 1,
+            "footPushOffs": {
+              "left": {
+                "count": 1,
+                "events": [
+                  {
+                    "time": 0.767,
+                    "value": 67.5
+                  }
+                ],
+                "averageInterval": 0
+              },
+              "right": {
+                "count": 1,
+                "events": [
+                  {
+                    "time": 0.2,
+                    "value": 54.1
+                  }
+                ],
+                "averageInterval": 0
+              }
+            },
+            "guidance": {
+              "estimatedStepSeconds": 0.567,
+              "estimatedSteps": 2,
+              "lowerBody": {
+                "footPitchDelta": {
+                  "left": 29.041,
+                  "right": 23.53
+                },
+                "toeCurlDelta": {
+                  "left": 27.686,
+                  "right": 11.662
+                }
+              },
+              "upperBody": {
+                "upperArmSwingDelta": {
+                  "left": 3.149,
+                  "right": 21.745
+                },
+                "forearmFlexDelta": {
+                  "left": 7.795,
+                  "right": 6.295
+                }
+              }
+            }
+          }
+        }
+      ]
+    },
+    {
+      "file": "public\\robot\\reference_motion\\walk_turn_idle_reference.glb",
+      "format": "glb",
+      "nodeCount": 43,
+      "animations": [
+        {
+          "index": 0,
+          "name": "NlaTrack",
+          "duration": 2.375,
+          "keyframes": 57,
+          "root": {
+            "translation": null,
+            "rotation": [
+              {
+                "min": -90,
+                "max": -90,
+                "delta": 0
+              },
+              {
+                "min": 0,
+                "max": 0,
+                "delta": 0
+              },
+              {
+                "min": 87.407,
+                "max": 96.264,
+                "delta": 8.857
+              }
+            ]
+          },
+          "bones": {
+            "L_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": -13.68,
+                  "max": 1.357,
+                  "delta": 15.037
+                },
+                {
+                  "min": -15.982,
+                  "max": 15.009,
+                  "delta": 30.992
+                },
+                {
+                  "min": -84.828,
+                  "max": -76.466,
+                  "delta": 8.362
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -2.7,
+                  "y": -4.5,
+                  "z": -79.6
+                },
+                "quarter": {
+                  "x": -5.6,
+                  "y": 3.6,
+                  "z": -82
+                },
+                "half": {
+                  "x": -5.2,
+                  "y": -3.2,
+                  "z": -76.6
+                },
+                "threeQuarter": {
+                  "x": -1.3,
+                  "y": 3.2,
+                  "z": -83.2
+                },
+                "end": {
+                  "x": -2.7,
+                  "y": -4.5,
+                  "z": -79.6
+                }
+              }
+            },
+            "L_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 4.032,
+                  "max": 21.299,
+                  "delta": 17.267
+                },
+                {
+                  "min": -3.031,
+                  "max": 0.285,
+                  "delta": 3.316
+                },
+                {
+                  "min": -22.578,
+                  "max": -2.714,
+                  "delta": 19.865
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 9.9,
+                  "y": -0.1,
+                  "z": -9.4
+                },
+                "quarter": {
+                  "x": 10.5,
+                  "y": -0.2,
+                  "z": -10.1
+                },
+                "half": {
+                  "x": 14.3,
+                  "y": -0.9,
+                  "z": -14.5
+                },
+                "threeQuarter": {
+                  "x": 8.9,
+                  "y": 0,
+                  "z": -8.3
+                },
+                "end": {
+                  "x": 9.9,
+                  "y": -0.1,
+                  "z": -9.4
+                }
+              }
+            },
+            "L_Hand": {
+              "rotationRange": [
+                {
+                  "min": -0.746,
+                  "max": 5.68,
+                  "delta": 6.426
+                },
+                {
+                  "min": -0.957,
+                  "max": 9.101,
+                  "delta": 10.057
+                },
+                {
+                  "min": 5.247,
+                  "max": 10.61,
+                  "delta": 5.363
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 3.5,
+                  "y": -0.4,
+                  "z": 8.3
+                },
+                "quarter": {
+                  "x": 5.5,
+                  "y": 1.9,
+                  "z": 10.2
+                },
+                "half": {
+                  "x": 4,
+                  "y": 3.9,
+                  "z": 8.2
+                },
+                "threeQuarter": {
+                  "x": 2.4,
+                  "y": 3.4,
+                  "z": 7.2
+                },
+                "end": {
+                  "x": 3.5,
+                  "y": -0.4,
+                  "z": 8.3
+                }
+              }
+            },
+            "R_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": -11.901,
+                  "max": -4.511,
+                  "delta": 7.39
+                },
+                {
+                  "min": -18.439,
+                  "max": 15.103,
+                  "delta": 33.542
+                },
+                {
+                  "min": 79.443,
+                  "max": 90.167,
+                  "delta": 10.724
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -6.1,
+                  "y": -7.7,
+                  "z": 90.2
+                },
+                "quarter": {
+                  "x": -5.4,
+                  "y": 0.4,
+                  "z": 85.6
+                },
+                "half": {
+                  "x": -10.3,
+                  "y": -9.4,
+                  "z": 87.8
+                },
+                "threeQuarter": {
+                  "x": -8.3,
+                  "y": 2.7,
+                  "z": 83.5
+                },
+                "end": {
+                  "x": -6.1,
+                  "y": -7.7,
+                  "z": 90.2
+                }
+              }
+            },
+            "R_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 5.202,
+                  "max": 24.657,
+                  "delta": 19.456
+                },
+                {
+                  "min": -1.072,
+                  "max": 1.945,
+                  "delta": 3.017
+                },
+                {
+                  "min": 2.566,
+                  "max": 18,
+                  "delta": 15.434
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 9.2,
+                  "y": -0.9,
+                  "z": 5.8
+                },
+                "quarter": {
+                  "x": 12.3,
+                  "y": -0.6,
+                  "z": 8.3
+                },
+                "half": {
+                  "x": 13.3,
+                  "y": -0.5,
+                  "z": 9
+                },
+                "threeQuarter": {
+                  "x": 12.5,
+                  "y": -0.6,
+                  "z": 8.4
+                },
+                "end": {
+                  "x": 9.2,
+                  "y": -0.9,
+                  "z": 5.8
+                }
+              }
+            },
+            "R_Hand": {
+              "rotationRange": [
+                {
+                  "min": -7.091,
+                  "max": 0.717,
+                  "delta": 7.808
+                },
+                {
+                  "min": -4.058,
+                  "max": 8.463,
+                  "delta": 12.52
+                },
+                {
+                  "min": -7.372,
+                  "max": -1.86,
+                  "delta": 5.512
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -3.3,
+                  "y": 0.9,
+                  "z": -3.6
+                },
+                "quarter": {
+                  "x": -3.7,
+                  "y": 3.5,
+                  "z": -4.3
+                },
+                "half": {
+                  "x": -3.7,
+                  "y": 2.6,
+                  "z": -4.3
+                },
+                "threeQuarter": {
+                  "x": -3.6,
+                  "y": 4.8,
+                  "z": -4.2
+                },
+                "end": {
+                  "x": -3.3,
+                  "y": 0.9,
+                  "z": -3.6
+                }
+              }
+            },
+            "L_Foot": {
+              "rotationRange": [
+                {
+                  "min": 65.926,
+                  "max": 102.791,
+                  "delta": 36.866
+                },
+                {
+                  "min": -11.046,
+                  "max": 1.351,
+                  "delta": 12.398
+                },
+                {
+                  "min": 9.026,
+                  "max": 23.037,
+                  "delta": 14.011
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 95.2,
+                  "y": 1,
+                  "z": 14
+                },
+                "quarter": {
+                  "x": 88.9,
+                  "y": -4.7,
+                  "z": 9.7
+                },
+                "half": {
+                  "x": 94.1,
+                  "y": 1.4,
+                  "z": 16
+                },
+                "threeQuarter": {
+                  "x": 78.6,
+                  "y": -5.1,
+                  "z": 12
+                },
+                "end": {
+                  "x": 95.1,
+                  "y": 0.9,
+                  "z": 14
+                }
+              }
+            },
+            "R_Foot": {
+              "rotationRange": [
+                {
+                  "min": 63.325,
+                  "max": 103.458,
+                  "delta": 40.133
+                },
+                {
+                  "min": -6.429,
+                  "max": 11.716,
+                  "delta": 18.144
+                },
+                {
+                  "min": -18.607,
+                  "max": -3.436,
+                  "delta": 15.17
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 85.4,
+                  "y": 1.3,
+                  "z": -13.8
+                },
+                "quarter": {
+                  "x": 92.5,
+                  "y": -5.9,
+                  "z": -11.9
+                },
+                "half": {
+                  "x": 91.1,
+                  "y": 0.4,
+                  "z": -13.9
+                },
+                "threeQuarter": {
+                  "x": 94.2,
+                  "y": -6.4,
+                  "z": -12.4
+                },
+                "end": {
+                  "x": 85.4,
+                  "y": 1.3,
+                  "z": -13.8
+                }
+              }
+            },
+            "L_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 4.151,
+                  "max": 37.514,
+                  "delta": 33.363
+                },
+                {
+                  "min": -3.352,
+                  "max": -0.27,
+                  "delta": 3.082
+                },
+                {
+                  "min": -6.681,
+                  "max": -4.053,
+                  "delta": 2.627
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 4.2,
+                  "y": -0.8,
+                  "z": -4.2
+                },
+                "quarter": {
+                  "x": 22.8,
+                  "y": -1.7,
+                  "z": -4.8
+                },
+                "half": {
+                  "x": 4.3,
+                  "y": -0.6,
+                  "z": -4.4
+                },
+                "threeQuarter": {
+                  "x": 22.5,
+                  "y": -1.9,
+                  "z": -4.5
+                },
+                "end": {
+                  "x": 4.2,
+                  "y": -0.8,
+                  "z": -4.2
+                }
+              }
+            },
+            "R_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 3.671,
+                  "max": 30.957,
+                  "delta": 27.286
+                },
+                {
+                  "min": -1.01,
+                  "max": 1.448,
+                  "delta": 2.458
+                },
+                {
+                  "min": 2.507,
+                  "max": 4.375,
+                  "delta": 1.868
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 19.4,
+                  "y": 1,
+                  "z": 3
+                },
+                "quarter": {
+                  "x": 3.7,
+                  "y": 0.9,
+                  "z": 3.4
+                },
+                "half": {
+                  "x": 19.1,
+                  "y": 1,
+                  "z": 3.1
+                },
+                "threeQuarter": {
+                  "x": 3.8,
+                  "y": 1,
+                  "z": 3.1
+                },
+                "end": {
+                  "x": 19.4,
+                  "y": 1,
+                  "z": 3
+                }
+              }
+            }
+          },
+          "inferredType": "idle",
+          "recipe": {
+            "type": "idle",
+            "duration": 2.375,
+            "footPushOffs": {
+              "left": {
+                "count": 2,
+                "events": [
+                  {
+                    "time": 0.417,
+                    "value": 35.3
+                  },
+                  {
+                    "time": 1.583,
+                    "value": 37.5
+                  }
+                ],
+                "averageInterval": 1.166
+              },
+              "right": {
+                "count": 2,
+                "events": [
+                  {
+                    "time": 1,
+                    "value": 31
+                  },
+                  {
+                    "time": 2.167,
+                    "value": 29.6
+                  }
+                ],
+                "averageInterval": 1.167
+              }
+            },
+            "guidance": {
+              "armRestSamples": {
+                "leftUpperarm": {
+                  "x": -2.7,
+                  "y": -4.5,
+                  "z": -79.6
+                },
+                "leftForearm": {
+                  "x": 9.9,
+                  "y": -0.1,
+                  "z": -9.4
+                },
+                "rightUpperarm": {
+                  "x": -6.1,
+                  "y": -7.7,
+                  "z": 90.2
+                },
+                "rightForearm": {
+                  "x": 9.2,
+                  "y": -0.9,
+                  "z": 5.8
+                }
+              },
+              "keepIdleMotionSmall": true
+            }
+          }
+        },
+        {
+          "index": 1,
+          "name": "NlaTrack.001",
+          "duration": 3.875,
+          "keyframes": 93,
+          "root": {
+            "translation": null,
+            "rotation": [
+              {
+                "min": -90,
+                "max": -90,
+                "delta": 0
+              },
+              {
+                "min": 0,
+                "max": 0,
+                "delta": 0
+              },
+              {
+                "min": -174.924,
+                "max": 174.111,
+                "delta": 349.035
+              }
+            ]
+          },
+          "bones": {
+            "L_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": -25.649,
+                  "max": 22.952,
+                  "delta": 48.6
+                },
+                {
+                  "min": -18.326,
+                  "max": 26.678,
+                  "delta": 45.004
+                },
+                {
+                  "min": -150.315,
+                  "max": -124.315,
+                  "delta": 26
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -19.2,
+                  "y": 16.5,
+                  "z": -137.8
+                },
+                "quarter": {
+                  "x": 6.9,
+                  "y": 2.2,
+                  "z": -139.2
+                },
+                "half": {
+                  "x": -14.2,
+                  "y": -9.5,
+                  "z": -130.4
+                },
+                "threeQuarter": {
+                  "x": -7,
+                  "y": 12.5,
+                  "z": -136.6
+                },
+                "end": {
+                  "x": -17.6,
+                  "y": 18,
+                  "z": -137.9
+                }
+              }
+            },
+            "L_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 24.519,
+                  "max": 67.153,
+                  "delta": 42.634
+                },
+                {
+                  "min": 31.923,
+                  "max": 44.825,
+                  "delta": 12.902
+                },
+                {
+                  "min": -70.107,
+                  "max": -33.151,
+                  "delta": 36.955
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 61.5,
+                  "y": 35.4,
+                  "z": -56
+                },
+                "quarter": {
+                  "x": 43.6,
+                  "y": 43,
+                  "z": -48.2
+                },
+                "half": {
+                  "x": 45.2,
+                  "y": 33.5,
+                  "z": -49.4
+                },
+                "threeQuarter": {
+                  "x": 66.6,
+                  "y": 43.5,
+                  "z": -70.1
+                },
+                "end": {
+                  "x": 62.3,
+                  "y": 35.5,
+                  "z": -56.8
+                }
+              }
+            },
+            "L_Hand": {
+              "rotationRange": [
+                {
+                  "min": 1.179,
+                  "max": 14.849,
+                  "delta": 13.669
+                },
+                {
+                  "min": 1.901,
+                  "max": 15.869,
+                  "delta": 13.968
+                },
+                {
+                  "min": 6.425,
+                  "max": 24.515,
+                  "delta": 18.089
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 10.4,
+                  "y": 9.3,
+                  "z": 15.9
+                },
+                "quarter": {
+                  "x": 4.3,
+                  "y": 5.4,
+                  "z": 18.3
+                },
+                "half": {
+                  "x": 5.8,
+                  "y": 14.7,
+                  "z": 18
+                },
+                "threeQuarter": {
+                  "x": 1.7,
+                  "y": 2.6,
+                  "z": 21.4
+                },
+                "end": {
+                  "x": 10.3,
+                  "y": 8.3,
+                  "z": 15.5
+                }
+              }
+            },
+            "R_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": -7.105,
+                  "max": 17.766,
+                  "delta": 24.871
+                },
+                {
+                  "min": -19.698,
+                  "max": 27.036,
+                  "delta": 46.734
+                },
+                {
+                  "min": 132.423,
+                  "max": 149.506,
+                  "delta": 17.083
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 8.2,
+                  "y": -13,
+                  "z": 135.4
+                },
+                "quarter": {
+                  "x": 13.8,
+                  "y": 2.2,
+                  "z": 140.9
+                },
+                "half": {
+                  "x": 4.3,
+                  "y": 22.9,
+                  "z": 135.4
+                },
+                "threeQuarter": {
+                  "x": 5.9,
+                  "y": -4.8,
+                  "z": 138.9
+                },
+                "end": {
+                  "x": 9.4,
+                  "y": -14.4,
+                  "z": 134.2
+                }
+              }
+            },
+            "R_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 14.847,
+                  "max": 55.544,
+                  "delta": 40.697
+                },
+                {
+                  "min": -54.787,
+                  "max": -28.891,
+                  "delta": 25.895
+                },
+                {
+                  "min": 38.813,
+                  "max": 82.839,
+                  "delta": 44.025
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 39.5,
+                  "y": -41.6,
+                  "z": 66.5
+                },
+                "quarter": {
+                  "x": 15.2,
+                  "y": -30.4,
+                  "z": 39.3
+                },
+                "half": {
+                  "x": 41.3,
+                  "y": -42.6,
+                  "z": 68.4
+                },
+                "threeQuarter": {
+                  "x": 36.4,
+                  "y": -39.6,
+                  "z": 60.9
+                },
+                "end": {
+                  "x": 41.9,
+                  "y": -41.8,
+                  "z": 69.2
+                }
+              }
+            },
+            "R_Hand": {
+              "rotationRange": [
+                {
+                  "min": -1.323,
+                  "max": 33.293,
+                  "delta": 34.616
+                },
+                {
+                  "min": -15.286,
+                  "max": 1.2,
+                  "delta": 16.486
+                },
+                {
+                  "min": -22.346,
+                  "max": -4.599,
+                  "delta": 17.747
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 24.5,
+                  "y": -4.9,
+                  "z": -5.1
+                },
+                "quarter": {
+                  "x": 8,
+                  "y": -8.5,
+                  "z": -11
+                },
+                "half": {
+                  "x": -0.8,
+                  "y": -9.6,
+                  "z": -13.5
+                },
+                "threeQuarter": {
+                  "x": 10.2,
+                  "y": 1.1,
+                  "z": -11.2
+                },
+                "end": {
+                  "x": 24.1,
+                  "y": -3.7,
+                  "z": -4.8
+                }
+              }
+            },
+            "L_Foot": {
+              "rotationRange": [
+                {
+                  "min": 89.114,
+                  "max": 120.012,
+                  "delta": 30.898
+                },
+                {
+                  "min": -1.807,
+                  "max": 16.19,
+                  "delta": 17.997
+                },
+                {
+                  "min": 32.382,
+                  "max": 89.764,
+                  "delta": 57.382
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 101.1,
+                  "y": 14.9,
+                  "z": 35.7
+                },
+                "quarter": {
+                  "x": 103.1,
+                  "y": 9.1,
+                  "z": 44.5
+                },
+                "half": {
+                  "x": 104.5,
+                  "y": 1.5,
+                  "z": 53.9
+                },
+                "threeQuarter": {
+                  "x": 106.2,
+                  "y": 8.5,
+                  "z": 49.2
+                },
+                "end": {
+                  "x": 101.2,
+                  "y": 14.9,
+                  "z": 35.8
+                }
+              }
+            },
+            "R_Foot": {
+              "rotationRange": [
+                {
+                  "min": 93.652,
+                  "max": 132.33,
+                  "delta": 38.678
+                },
+                {
+                  "min": -15.539,
+                  "max": 11.458,
+                  "delta": 26.997
+                },
+                {
+                  "min": -64.52,
+                  "max": -30.952,
+                  "delta": 33.568
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 97.2,
+                  "y": 9.2,
+                  "z": -32.8
+                },
+                "quarter": {
+                  "x": 126.8,
+                  "y": -6.3,
+                  "z": -41.8
+                },
+                "half": {
+                  "x": 98.6,
+                  "y": 1.2,
+                  "z": -35.6
+                },
+                "threeQuarter": {
+                  "x": 122.4,
+                  "y": -2.7,
+                  "z": -39.5
+                },
+                "end": {
+                  "x": 98.1,
+                  "y": 8.9,
+                  "z": -33
+                }
+              }
+            },
+            "L_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": -1.541,
+                  "max": 42.936,
+                  "delta": 44.476
+                },
+                {
+                  "min": -32.046,
+                  "max": -0.822,
+                  "delta": 31.224
+                },
+                {
+                  "min": -0.582,
+                  "max": 30.127,
+                  "delta": 30.71
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 20.7,
+                  "y": -1.6,
+                  "z": 0.9
+                },
+                "quarter": {
+                  "x": 8.5,
+                  "y": -1.7,
+                  "z": 0.5
+                },
+                "half": {
+                  "x": 16,
+                  "y": -0.8,
+                  "z": 0.8
+                },
+                "threeQuarter": {
+                  "x": 10.2,
+                  "y": -1.7,
+                  "z": 0.8
+                },
+                "end": {
+                  "x": 22.5,
+                  "y": -8.2,
+                  "z": 2.2
+                }
+              }
+            },
+            "R_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 7.562,
+                  "max": 41.287,
+                  "delta": 33.725
+                },
+                {
+                  "min": -1.678,
+                  "max": 2.798,
+                  "delta": 4.475
+                },
+                {
+                  "min": -0.944,
+                  "max": 0.916,
+                  "delta": 1.86
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 35.7,
+                  "y": 2.2,
+                  "z": -0.2
+                },
+                "quarter": {
+                  "x": 14,
+                  "y": 2.1,
+                  "z": 0.6
+                },
+                "half": {
+                  "x": 39.6,
+                  "y": 2.4,
+                  "z": -0.5
+                },
+                "threeQuarter": {
+                  "x": 18.8,
+                  "y": 2.1,
+                  "z": 0.5
+                },
+                "end": {
+                  "x": 35.1,
+                  "y": 2.2,
+                  "z": -0.1
+                }
+              }
+            }
+          },
+          "inferredType": "turn",
+          "recipe": {
+            "type": "turn",
+            "duration": 3.875,
+            "footPushOffs": {
+              "left": {
+                "count": 1,
+                "events": [
+                  {
+                    "time": 1.625,
+                    "value": 42.9
+                  }
+                ],
+                "averageInterval": 0
+              },
+              "right": {
+                "count": 4,
+                "events": [
+                  {
+                    "time": 0.167,
+                    "value": 37.8
+                  },
+                  {
+                    "time": 1.875,
+                    "value": 41.3
+                  },
+                  {
+                    "time": 2.75,
+                    "value": 29.7
+                  },
+                  {
+                    "time": 3.417,
+                    "value": 35
+                  }
+                ],
+                "averageInterval": 1.083
+              }
+            },
+            "guidance": {
+              "estimatedStepCount": 5,
+              "rootTurnDegrees": 349
+            }
+          }
+        },
+        {
+          "index": 2,
+          "name": "NlaTrack.002",
+          "duration": 15.375,
+          "keyframes": 369,
+          "root": {
+            "translation": null,
+            "rotation": [
+              {
+                "min": -90,
+                "max": -90,
+                "delta": 0
+              },
+              {
+                "min": 0,
+                "max": 0,
+                "delta": 0
+              },
+              {
+                "min": 37.772,
+                "max": 47.048,
+                "delta": 9.275
+              }
+            ]
+          },
+          "bones": {
+            "L_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": 55.523,
+                  "max": 67.036,
+                  "delta": 11.513
+                },
+                {
+                  "min": 52.594,
+                  "max": 57.958,
+                  "delta": 5.364
+                },
+                {
+                  "min": 125.088,
+                  "max": 138.448,
+                  "delta": 13.36
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 65.1,
+                  "y": 55,
+                  "z": 126.3
+                },
+                "quarter": {
+                  "x": 64.3,
+                  "y": 56.1,
+                  "z": 127.2
+                },
+                "half": {
+                  "x": 55.5,
+                  "y": 54,
+                  "z": 138.4
+                },
+                "threeQuarter": {
+                  "x": 61.7,
+                  "y": 55.3,
+                  "z": 131.9
+                },
+                "end": {
+                  "x": 65,
+                  "y": 55,
+                  "z": 126.4
+                }
+              }
+            },
+            "L_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 55.976,
+                  "max": 60.771,
+                  "delta": 4.795
+                },
+                {
+                  "min": 53.342,
+                  "max": 60.255,
+                  "delta": 6.914
+                },
+                {
+                  "min": -66.617,
+                  "max": -63.522,
+                  "delta": 3.095
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 57.2,
+                  "y": 59.4,
+                  "z": -65.7
+                },
+                "quarter": {
+                  "x": 57,
+                  "y": 59.5,
+                  "z": -65.6
+                },
+                "half": {
+                  "x": 59.1,
+                  "y": 54.7,
+                  "z": -64.8
+                },
+                "threeQuarter": {
+                  "x": 57.6,
+                  "y": 57.2,
+                  "z": -65
+                },
+                "end": {
+                  "x": 57.3,
+                  "y": 59.4,
+                  "z": -65.8
+                }
+              }
+            },
+            "R_Upperarm": {
+              "rotationRange": [
+                {
+                  "min": -37.488,
+                  "max": -33.081,
+                  "delta": 4.407
+                },
+                {
+                  "min": 33.63,
+                  "max": 37.33,
+                  "delta": 3.7
+                },
+                {
+                  "min": -179.031,
+                  "max": -175.032,
+                  "delta": 3.999
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": -36.9,
+                  "y": 34.5,
+                  "z": -176.8
+                },
+                "quarter": {
+                  "x": -36.4,
+                  "y": 34.7,
+                  "z": -175.7
+                },
+                "half": {
+                  "x": -35.1,
+                  "y": 35.6,
+                  "z": -176.1
+                },
+                "threeQuarter": {
+                  "x": -34.3,
+                  "y": 34.7,
+                  "z": -176.9
+                },
+                "end": {
+                  "x": -36.9,
+                  "y": 34.5,
+                  "z": -176.8
+                }
+              }
+            },
+            "R_Forearm": {
+              "rotationRange": [
+                {
+                  "min": 48.467,
+                  "max": 70.181,
+                  "delta": 21.714
+                },
+                {
+                  "min": -71.625,
+                  "max": -57.142,
+                  "delta": 14.483
+                },
+                {
+                  "min": 76.196,
+                  "max": 96.07,
+                  "delta": 19.874
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 53.6,
+                  "y": -61.7,
+                  "z": 85
+                },
+                "quarter": {
+                  "x": 48.5,
+                  "y": -57.1,
+                  "z": 77.1
+                },
+                "half": {
+                  "x": 54.6,
+                  "y": -63.3,
+                  "z": 79.8
+                },
+                "threeQuarter": {
+                  "x": 54.2,
+                  "y": -62.9,
+                  "z": 79.3
+                },
+                "end": {
+                  "x": 53.7,
+                  "y": -61.7,
+                  "z": 84.9
+                }
+              }
+            },
+            "R_Hand": {
+              "rotationRange": [
+                {
+                  "min": 27.318,
+                  "max": 28.538,
+                  "delta": 1.22
+                },
+                {
+                  "min": 6.702,
+                  "max": 9.422,
+                  "delta": 2.721
+                },
+                {
+                  "min": -14.083,
+                  "max": -5.299,
+                  "delta": 8.784
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 28.5,
+                  "y": 9.4,
+                  "z": -5.3
+                },
+                "quarter": {
+                  "x": 28.1,
+                  "y": 8.3,
+                  "z": -8.9
+                },
+                "half": {
+                  "x": 27.3,
+                  "y": 6.7,
+                  "z": -14.1
+                },
+                "threeQuarter": {
+                  "x": 27.3,
+                  "y": 6.7,
+                  "z": -14.1
+                },
+                "end": {
+                  "x": 28.5,
+                  "y": 9.4,
+                  "z": -5.3
+                }
+              }
+            },
+            "L_Foot": {
+              "rotationRange": [
+                {
+                  "min": 85.71,
+                  "max": 105.071,
+                  "delta": 19.361
+                },
+                {
+                  "min": 0.633,
+                  "max": 27.382,
+                  "delta": 26.749
+                },
+                {
+                  "min": 37.662,
+                  "max": 72.718,
+                  "delta": 35.056
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 103.3,
+                  "y": 25.4,
+                  "z": 38
+                },
+                "quarter": {
+                  "x": 102.1,
+                  "y": 26.8,
+                  "z": 39.4
+                },
+                "half": {
+                  "x": 90,
+                  "y": 14.9,
+                  "z": 48.4
+                },
+                "threeQuarter": {
+                  "x": 90.9,
+                  "y": 4.8,
+                  "z": 71.4
+                },
+                "end": {
+                  "x": 103.3,
+                  "y": 25.4,
+                  "z": 38
+                }
+              }
+            },
+            "R_Foot": {
+              "rotationRange": [
+                {
+                  "min": 84.546,
+                  "max": 128.198,
+                  "delta": 43.652
+                },
+                {
+                  "min": -14.184,
+                  "max": 29.27,
+                  "delta": 43.453
+                },
+                {
+                  "min": -41.27,
+                  "max": -27.349,
+                  "delta": 13.92
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 86.1,
+                  "y": 27.6,
+                  "z": -36.4
+                },
+                "quarter": {
+                  "x": 84.8,
+                  "y": 26.4,
+                  "z": -34.1
+                },
+                "half": {
+                  "x": 119.8,
+                  "y": -7.9,
+                  "z": -29.6
+                },
+                "threeQuarter": {
+                  "x": 109.2,
+                  "y": -5.9,
+                  "z": -31.8
+                },
+                "end": {
+                  "x": 86.1,
+                  "y": 27.6,
+                  "z": -36.4
+                }
+              }
+            },
+            "L_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 1.64,
+                  "max": 22.861,
+                  "delta": 21.221
+                },
+                {
+                  "min": -45.105,
+                  "max": -23.171,
+                  "delta": 21.934
+                },
+                {
+                  "min": -7.936,
+                  "max": 1.616,
+                  "delta": 9.553
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 1.8,
+                  "y": -23.9,
+                  "z": -7.8
+                },
+                "quarter": {
+                  "x": 1.8,
+                  "y": -24.1,
+                  "z": -7.9
+                },
+                "half": {
+                  "x": 6.8,
+                  "y": -25.1,
+                  "z": -5.6
+                },
+                "threeQuarter": {
+                  "x": 15.2,
+                  "y": -37.1,
+                  "z": 0.2
+                },
+                "end": {
+                  "x": 1.8,
+                  "y": -23.9,
+                  "z": -7.7
+                }
+              }
+            },
+            "R_ToeBase": {
+              "rotationRange": [
+                {
+                  "min": 10.347,
+                  "max": 72.457,
+                  "delta": 62.11
+                },
+                {
+                  "min": -3.751,
+                  "max": 6.53,
+                  "delta": 10.281
+                },
+                {
+                  "min": -1.909,
+                  "max": 1.07,
+                  "delta": 2.979
+                }
+              ],
+              "samples": {
+                "start": {
+                  "x": 71.5,
+                  "y": -1,
+                  "z": -1.9
+                },
+                "quarter": {
+                  "x": 70.4,
+                  "y": -2.3,
+                  "z": -1.4
+                },
+                "half": {
+                  "x": 21.1,
+                  "y": -2.8,
+                  "z": -0.9
+                },
+                "threeQuarter": {
+                  "x": 28.5,
+                  "y": -2.9,
+                  "z": -0.5
+                },
+                "end": {
+                  "x": 71.6,
+                  "y": -1,
+                  "z": -1.9
+                }
+              }
+            }
+          },
+          "inferredType": "walk",
+          "recipe": {
+            "type": "walk",
+            "duration": 15.375,
+            "footPushOffs": {
+              "left": {
+                "count": 4,
+                "events": [
+                  {
+                    "time": 9.292,
+                    "value": 22.7
+                  },
+                  {
+                    "time": 9.875,
+                    "value": 22.5
+                  },
+                  {
+                    "time": 10.667,
+                    "value": 21.9
+                  },
+                  {
+                    "time": 12.25,
+                    "value": 17.3
+                  }
+                ],
+                "averageInterval": 0.986
+              },
+              "right": {
+                "count": 7,
+                "events": [
+                  {
+                    "time": 0.333,
+                    "value": 72.3
+                  },
+                  {
+                    "time": 1.083,
+                    "value": 72.4
+                  },
+                  {
+                    "time": 1.458,
+                    "value": 72.5
+                  },
+                  {
+                    "time": 2.417,
+                    "value": 71.3
+                  },
+                  {
+                    "time": 3.042,
+                    "value": 70.7
+                  },
+                  {
+                    "time": 3.917,
+                    "value": 70.4
+                  },
+                  {
+                    "time": 15.167,
+                    "value": 71.2
+                  }
+                ],
+                "averageInterval": 2.472
+              }
+            },
+            "guidance": {
+              "estimatedStepSeconds": 1.483,
+              "estimatedSteps": 11,
+              "lowerBody": {
+                "footPitchDelta": {
+                  "left": 19.361,
+                  "right": 43.652
+                },
+                "toeCurlDelta": {
+                  "left": 21.221,
+                  "right": 62.11
+                }
+              },
+              "upperBody": {
+                "upperArmSwingDelta": {
+                  "left": 11.513,
+                  "right": 4.407
+                },
+                "forearmFlexDelta": {
+                  "left": 4.795,
+                  "right": 21.714
+                }
+              }
+            }
+          }
+        }
+      ]
+    }
+  ],
+  "coachingReport": {
+    "generatedAt": "2026-06-09T02:54:03.002Z",
+    "iterationsRequested": 1,
+    "referenceFiles": [
+      "public\\robot\\reference_motion\\Dance.glb",
+      "public\\robot\\reference_motion\\Lead Jab.fbx",
+      "public\\robot\\reference_motion\\Long Step Forward.fbx",
+      "public\\robot\\reference_motion\\Sayin_whats_up.glb",
+      "public\\robot\\reference_motion\\Standard Walk.fbx",
+      "public\\robot\\reference_motion\\Walking Turn 180.fbx",
+      "public\\robot\\reference_motion\\walk_turn_idle_reference.glb"
+    ],
+    "clipInventory": [
+      {
+        "file": "Dance.glb",
+        "index": 0,
+        "name": "NlaTrack",
+        "inferredType": "idle",
+        "intent": "dance",
+        "duration": 2.875,
+        "keyframes": 69
+      },
+      {
+        "file": "Lead Jab.fbx",
+        "index": 0,
+        "name": "mixamo.com",
+        "inferredType": "walk",
+        "intent": "jab",
+        "duration": 1.833,
+        "keyframes": 56
+      },
+      {
+        "file": "Long Step Forward.fbx",
+        "index": 0,
+        "name": "mixamo.com",
+        "inferredType": "walk",
+        "intent": "longStep",
+        "duration": 1,
+        "keyframes": 31
+      },
+      {
+        "file": "Sayin_whats_up.glb",
+        "index": 0,
+        "name": "NlaTrack",
+        "inferredType": "walk",
+        "intent": "wave",
+        "duration": 9.083,
+        "keyframes": 218
+      },
+      {
+        "file": "Standard Walk.fbx",
+        "index": 0,
+        "name": "mixamo.com",
+        "inferredType": "walk",
+        "intent": "walk",
+        "duration": 1.167,
+        "keyframes": 36
+      },
+      {
+        "file": "Walking Turn 180.fbx",
+        "index": 0,
+        "name": "mixamo.com",
+        "inferredType": "walk",
+        "intent": "turn",
+        "duration": 1,
+        "keyframes": 31
+      },
+      {
+        "file": "walk_turn_idle_reference.glb",
+        "index": 0,
+        "name": "NlaTrack",
+        "inferredType": "idle",
+        "intent": "idle",
+        "duration": 2.375,
+        "keyframes": 57
+      },
+      {
+        "file": "walk_turn_idle_reference.glb",
+        "index": 1,
+        "name": "NlaTrack.001",
+        "inferredType": "turn",
+        "intent": "turn",
+        "duration": 3.875,
+        "keyframes": 93
+      },
+      {
+        "file": "walk_turn_idle_reference.glb",
+        "index": 2,
+        "name": "NlaTrack.002",
+        "inferredType": "walk",
+        "intent": "walk",
+        "duration": 15.375,
+        "keyframes": 369
+      }
+    ],
+    "recommendedProfile": {
+      "walk": {
+        "duration": 14.886,
+        "stridePhaseSpeed": 5.899,
+        "footPitchDelta": 31.957,
+        "upperArmSwingDelta": 8.426,
+        "forearmFlexDelta": 12.799,
+        "toeCurlDelta": 41.694
+      },
+      "turn": {
+        "duration": 3.776,
+        "detectedSteps": 5
+      },
+      "idle": {
+        "duration": 2.375,
+        "keepMotionSmall": true
+      },
+      "wave": {
+        "references": 1,
+        "averageDuration": 9.083
+      },
+      "dance": {
+        "references": 1,
+        "averageDuration": 2.875
+      },
+      "longStep": {
+        "references": 1,
+        "duration": 1,
+        "footPitchDelta": 43.825,
+        "toeCurlDelta": 40.692
+      },
+      "jab": {
+        "references": 1,
+        "averageDuration": 1.833,
+        "leadArmReachDelta": 46.996,
+        "forearmSnapDelta": 0
+      },
+      "longStepJab": {
+        "references": 1,
+        "averageDuration": 1.417
+      }
+    },
+    "gradingNotes": [
+      "This is an objective motion report, not canned playback.",
+      "Use the profile values to tune procedural skills, then verify visually.",
+      "A future scoring loop can compare Johnny-generated samples against these targets frame-by-frame."
+    ],
+    "objective": {
+      "goal": "Make Johnny procedural motion as close as possible to the provided reference animations without playing canned animation clips.",
+      "passThreshold": 92,
+      "weights": {
+        "walk": {
+          "duration": 0.8,
+          "stridePhaseSpeed": 1.2,
+          "footPitchDelta": 0.9,
+          "toeCurlDelta": 0.9,
+          "upperArmSwingDelta": 1,
+          "forearmFlexDelta": 1
+        },
+        "turn": {
+          "duration": 1,
+          "detectedSteps": 1.1
+        },
+        "idle": {
+          "duration": 0.6
+        },
+        "wave": {
+          "averageDuration": 0.8
+        },
+        "dance": {
+          "averageDuration": 0.8
+        },
+        "longStep": {
+          "duration": 0.8,
+          "footPitchDelta": 0.8,
+          "toeCurlDelta": 0.7
+        },
+        "jab": {
+          "averageDuration": 0.8,
+          "leadArmReachDelta": 1.2,
+          "forearmSnapDelta": 1
+        },
+        "longStepJab": {
+          "averageDuration": 0.8
+        }
+      },
+      "currentScore": {
+        "overall": 79.7,
+        "passThreshold": 92,
+        "passes": false,
+        "skillScores": {
+          "walk": {
+            "score": 53.1,
+            "metrics": {
+              "duration": {
+                "current": 15.126,
+                "target": 8.271,
+                "error": 6.855,
+                "score": 17.1
+              },
+              "stridePhaseSpeed": {
+                "current": 5.759,
+                "target": 9.745,
+                "error": -3.986,
+                "score": 59.1
+              },
+              "footPitchDelta": {
+                "current": 31.736,
+                "target": 38.043,
+                "error": -6.307,
+                "score": 83.4
+              },
+              "toeCurlDelta": {
+                "current": 41.68,
+                "target": 42.077,
+                "error": -0.397,
+                "score": 99.1
+              },
+              "upperArmSwingDelta": {
+                "current": 8.197,
+                "target": 14.731,
+                "error": -6.534,
+                "score": 55.6
+              },
+              "forearmFlexDelta": {
+                "current": 13.023,
+                "target": 6.627,
+                "error": 6.396,
+                "score": 3.5
+              }
+            }
+          },
+          "turn": {
+            "score": 72.9,
+            "metrics": {
+              "duration": {
+                "current": 3.825,
+                "target": 2.438,
+                "error": 1.387,
+                "score": 43.1
+              },
+              "detectedSteps": {
+                "current": 5,
+                "target": 5,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "idle": {
+            "score": 100,
+            "metrics": {
+              "duration": {
+                "current": 2.375,
+                "target": 2.375,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "wave": {
+            "score": 100,
+            "metrics": {
+              "averageDuration": {
+                "current": 9.083,
+                "target": 9.083,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "dance": {
+            "score": 100,
+            "metrics": {
+              "averageDuration": {
+                "current": 2.875,
+                "target": 2.875,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "longStep": {
+            "score": 100,
+            "metrics": {
+              "duration": {
+                "current": 1,
+                "target": 1,
+                "error": 0,
+                "score": 100
+              },
+              "footPitchDelta": {
+                "current": 43.825,
+                "target": 43.825,
+                "error": 0,
+                "score": 100
+              },
+              "toeCurlDelta": {
+                "current": 40.692,
+                "target": 40.692,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "jab": {
+            "score": 100,
+            "metrics": {
+              "averageDuration": {
+                "current": 1.833,
+                "target": 1.833,
+                "error": 0,
+                "score": 100
+              },
+              "leadArmReachDelta": {
+                "current": 46.996,
+                "target": 46.996,
+                "error": 0,
+                "score": 100
+              },
+              "forearmSnapDelta": {
+                "current": 0,
+                "target": 0,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "longStepJab": {
+            "score": 100,
+            "metrics": {
+              "averageDuration": {
+                "current": 1.417,
+                "target": 1.417,
+                "error": 0,
+                "score": 100
+              }
+            }
+          }
+        }
+      },
+      "trainedScore": {
+        "overall": 80.4,
+        "passThreshold": 92,
+        "passes": false,
+        "skillScores": {
+          "walk": {
+            "score": 54.7,
+            "metrics": {
+              "duration": {
+                "current": 14.886,
+                "target": 8.271,
+                "error": 6.615,
+                "score": 20
+              },
+              "stridePhaseSpeed": {
+                "current": 5.899,
+                "target": 9.745,
+                "error": -3.846,
+                "score": 60.5
+              },
+              "footPitchDelta": {
+                "current": 31.957,
+                "target": 38.043,
+                "error": -6.086,
+                "score": 84
+              },
+              "toeCurlDelta": {
+                "current": 41.694,
+                "target": 42.077,
+                "error": -0.383,
+                "score": 99.1
+              },
+              "upperArmSwingDelta": {
+                "current": 8.426,
+                "target": 14.731,
+                "error": -6.305,
+                "score": 57.2
+              },
+              "forearmFlexDelta": {
+                "current": 12.799,
+                "target": 6.627,
+                "error": 6.172,
+                "score": 6.9
+              }
+            }
+          },
+          "turn": {
+            "score": 73.9,
+            "metrics": {
+              "duration": {
+                "current": 3.776,
+                "target": 2.438,
+                "error": 1.338,
+                "score": 45.1
+              },
+              "detectedSteps": {
+                "current": 5,
+                "target": 5,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "idle": {
+            "score": 100,
+            "metrics": {
+              "duration": {
+                "current": 2.375,
+                "target": 2.375,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "wave": {
+            "score": 100,
+            "metrics": {
+              "averageDuration": {
+                "current": 9.083,
+                "target": 9.083,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "dance": {
+            "score": 100,
+            "metrics": {
+              "averageDuration": {
+                "current": 2.875,
+                "target": 2.875,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "longStep": {
+            "score": 100,
+            "metrics": {
+              "duration": {
+                "current": 1,
+                "target": 1,
+                "error": 0,
+                "score": 100
+              },
+              "footPitchDelta": {
+                "current": 43.825,
+                "target": 43.825,
+                "error": 0,
+                "score": 100
+              },
+              "toeCurlDelta": {
+                "current": 40.692,
+                "target": 40.692,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "jab": {
+            "score": 100,
+            "metrics": {
+              "averageDuration": {
+                "current": 1.833,
+                "target": 1.833,
+                "error": 0,
+                "score": 100
+              },
+              "leadArmReachDelta": {
+                "current": 46.996,
+                "target": 46.996,
+                "error": 0,
+                "score": 100
+              },
+              "forearmSnapDelta": {
+                "current": 0,
+                "target": 0,
+                "error": 0,
+                "score": 100
+              }
+            }
+          },
+          "longStepJab": {
+            "score": 100,
+            "metrics": {
+              "averageDuration": {
+                "current": 1.417,
+                "target": 1.417,
+                "error": 0,
+                "score": 100
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

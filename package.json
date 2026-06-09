@@ -12,7 +12,11 @@
     "five-v2:assets:validate": "node scripts/five-v2-assets/validate-assets.ts",
     "five-v2:check-legacy": "node scripts/five-v2-assets/check-no-legacy-five-assets.ts",
     "five-v2:check": "npm run five-v2:assets:validate && npm run five-v2:check-legacy",
-    "check:five-v2": "npm run five-v2:check"
+    "check:five-v2": "npm run five-v2:check",
+    "motion:analyze": "node scripts/analyze-reference-motion.mjs",
+    "motion:coach": "node scripts/coach-reference-motion.mjs",
+    "motion:train": "node scripts/coach-reference-motion.mjs --iterations=250",
+    "motion:overnight": "node scripts/overnight-motion-training.mjs"
   },
   "dependencies": {
     "@vitejs/plugin-react": "^5.0.0",

@@ -1,0 +1,11 @@
+{
+  "status": "idle",
+  "iteration": 0,
+  "totalIterations": 0,
+  "currentScore": 0,
+  "trainedScore": 0,
+  "passThreshold": 92,
+  "captures": 0,
+  "currentSkill": "walk",
+  "message": "Motion training is idle"
+}

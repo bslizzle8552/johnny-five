@@ -1,0 +1,42 @@
+{
+  "walk": {
+    "duration": 8.271,
+    "stridePhaseSpeed": 9.745,
+    "footPitchDelta": 38.043,
+    "upperArmSwingDelta": 14.731,
+    "forearmFlexDelta": 6.627,
+    "toeCurlDelta": 42.077
+  },
+  "turn": {
+    "duration": 2.438,
+    "detectedSteps": 5
+  },
+  "idle": {
+    "duration": 2.375,
+    "keepMotionSmall": true
+  },
+  "wave": {
+    "references": 1,
+    "averageDuration": 9.083
+  },
+  "dance": {
+    "references": 1,
+    "averageDuration": 2.875
+  },
+  "longStep": {
+    "references": 1,
+    "duration": 1,
+    "footPitchDelta": 43.825,
+    "toeCurlDelta": 40.692
+  },
+  "jab": {
+    "references": 1,
+    "averageDuration": 1.833,
+    "leadArmReachDelta": 46.996,
+    "forearmSnapDelta": 0
+  },
+  "longStepJab": {
+    "references": 1,
+    "averageDuration": 1.417
+  }
+}

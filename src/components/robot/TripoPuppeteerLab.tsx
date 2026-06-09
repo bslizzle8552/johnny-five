@@ -4,6 +4,7 @@ import { OrbitControls } from 'three/examples/jsm/controls/OrbitControls.js';
 import { GLTFLoader, type GLTF } from 'three/examples/jsm/loaders/GLTFLoader.js';
 import { validateMotionFrame, type MotionJudgement } from './motionValidators';
 import { withBasePath } from './assetPaths';
+import referenceMotionProfile from './referenceMotionProfile.json';
 
 type BoneMap = Record<string, THREE.Bone>;
 type Axis = 'x' | 'y' | 'z';
@@ -51,15 +52,42 @@ type BrainFrame = {
 type SequenceFrame = {
   label: string;
   modelYaw: number;
+  x?: number;
   z: number;
   rotations: PoseRotations;
+};
+
+type WalkTargetOptions = {
+  elapsedSeconds: number;
+  duration: number;
+  fromX: number;
+  fromZ: number;
+  toX: number;
+  toZ: number;
+  weight: number;
+  label: string;
+};
+
+type TrainingProgress = {
+  status: string;
+  startedAt?: string;
+  updatedAt?: string;
+  deadline?: string;
+  iteration?: number;
+  totalIterations?: number;
+  currentScore?: number;
+  trainedScore?: number;
+  passThreshold?: number;
+  captures?: number;
+  currentSkill?: string;
+  message?: string;
 };
 
 const tripoSourcePath = withBasePath('/robot/processed/walking_optimized.glb');
 const defaultModelYaw = -90;
 const probeAmplitude = 32;
 const probeSpeed = 3.4;
-const sequenceDuration = 12.5;
+const sequenceDuration = 15.8;
 const testerSlotSeconds = 1.45;
 const axes: Axis[] = ['x', 'y', 'z'];
 const lockedLimits: BoneLimits = {
@@ -76,14 +104,14 @@ const defaultLimits: BoneLimits = {
 };
 
 const standingPose: PoseRotations = {
-  L_Clavicle: { x: 0, y: -1, z: -12 },
-  L_Upperarm: { x: -18, y: -2, z: -88 },
-  L_Forearm: { x: 34, y: 0, z: 1 },
-  L_Hand: { x: 2, y: 0, z: -2 },
-  R_Clavicle: { x: 0, y: 1, z: 12 },
-  R_Upperarm: { x: -18, y: 2, z: 88 },
-  R_Forearm: { x: 34, y: 0, z: -1 },
-  R_Hand: { x: 2, y: 0, z: 2 },
+  L_Clavicle: { x: 0, y: -1, z: -5 },
+  L_Upperarm: { x: -8, y: -3, z: -76 },
+  L_Forearm: { x: 10, y: 0, z: -4 },
+  L_Hand: { x: 1, y: 0, z: 3 },
+  R_Clavicle: { x: 0, y: 1, z: 5 },
+  R_Upperarm: { x: -8, y: 4, z: 86 },
+  R_Forearm: { x: 10, y: 0, z: 7 },
+  R_Hand: { x: 1, y: 0, z: -2 },
   Spine01: { x: -2, y: 0, z: 0 },
   Spine02: { x: 1, y: 0, z: 0 },
   Head: { x: 1, y: 0, z: 0 },
@@ -457,7 +485,7 @@ function plantedStepProgress(progress: number, stepCount: number) {
   const scaled = bounded * stepCount;
   const stepIndex = Math.floor(scaled);
   const stepPhase = scaled - stepIndex;
-  const transfer = easeWindow(stepPhase, 0.36, 0.82);
+  const transfer = easeWindow(stepPhase, 0.44, 0.86);
   return (stepIndex + transfer) / stepCount;
 }
 
@@ -501,12 +529,12 @@ function walkPose(stridePhase: number, walkWeight: number) {
   const bodyOverStance = (leftStance ? -1 : 1) * Math.sin(contact * Math.PI) * walkWeight;
   const stanceHip = stanceDrift * 12 - compression * 1.8 + toePush * 1.8;
   const swingHip = swingReach * 19 - swingLift * 1.8;
-  const swingKnee = 14 * walkWeight + swingLift * 42 + swingRecovery * 6;
+  const swingKnee = 10 * walkWeight + swingLift * 36 + swingRecovery * 4;
   const stanceKnee = compression * 8 + toePush * 4 + heelSettle * 2;
   const stanceFoot = -stanceDrift * 5 - heelSettle * 5 + compression * 2 + toePush * 3.5;
-  const swingFoot = swingKnee * 0.38 - swingLift * 12 - swingReach * 3 - swingRecovery * 6;
-  const stanceToe = toePush * 5 - heelSettle * 2;
-  const swingToe = -swingLift * 5 + swingRecovery * 4;
+  const swingFoot = swingKnee * 0.28 - swingLift * 10 - swingReach * 2 - swingRecovery * 8;
+  const stanceToe = toePush * 3.5 - heelSettle * 1.5;
+  const swingToe = -swingLift * 3.5 + swingRecovery * 1.2;
   const stanceAnkleRoll = bodyOverStance * -1.1;
   const swingAnkleRoll = bodyOverStance * 0.6;
   const armSwing = Math.sin(stridePhase) * walkWeight;
@@ -538,12 +566,12 @@ function walkPose(stridePhase: number, walkWeight: number) {
 
   addRotation(pose, 'L_Clavicle', { z: -armSwing * 0.25 });
   addRotation(pose, 'R_Clavicle', { z: -armSwing * 0.25 });
-  addRotation(pose, 'L_Upperarm', { x: -armSwing * 8 - armBend, y: -armSwing * 0.35, z: -armSwing * 0.25 });
-  addRotation(pose, 'R_Upperarm', { x: armSwing * 8 - armBend, y: -armSwing * 0.35, z: -armSwing * 0.25 });
-  addRotation(pose, 'L_Forearm', { x: 5 + Math.max(0, -armSwing) * 6 + armBend * 2, z: armSwing * 0.7 });
-  addRotation(pose, 'R_Forearm', { x: 5 + Math.max(0, armSwing) * 6 + armBend * 2, z: armSwing * -0.7 });
-  addRotation(pose, 'L_Hand', { x: armSwing * -0.7, y: armSwing * 0.5, z: armSwing * -1.2 });
-  addRotation(pose, 'R_Hand', { x: armSwing * 0.7, y: armSwing * 0.5, z: armSwing * -1.2 });
+  addRotation(pose, 'L_Upperarm', { x: -armSwing * referenceMotionProfile.walk.upperArmSwingDelta - armBend, y: -armSwing * 0.25, z: -armSwing * 0.18 });
+  addRotation(pose, 'R_Upperarm', { x: armSwing * referenceMotionProfile.walk.upperArmSwingDelta - armBend, y: -armSwing * 0.25, z: -armSwing * 0.18 });
+  addRotation(pose, 'L_Forearm', { x: 1.5 + Math.max(0, -armSwing) * 2.4 + armBend, z: armSwing * 0.22 });
+  addRotation(pose, 'R_Forearm', { x: 1.5 + Math.max(0, armSwing) * 2.4 + armBend, z: armSwing * -0.22 });
+  addRotation(pose, 'L_Hand', { x: armSwing * -0.35, y: armSwing * 0.3, z: armSwing * -0.55 });
+  addRotation(pose, 'R_Hand', { x: armSwing * 0.35, y: armSwing * 0.3, z: armSwing * -0.55 });
 
   return clampPose(pose);
 }
@@ -561,11 +589,11 @@ function livingIdlePose(elapsedSeconds: number, attention = 0) {
     Spine01: { x: -2 + breathe * 0.7, y: lookSlow * 1.2, z: weightShift * 0.8 },
     Spine02: { x: 1 + breathe * 0.45, z: weightShift * 0.5 },
     L_Upperarm: { x: handFidget * 0.8, z: weightShift * 0.7 },
-    L_Forearm: { x: 3 + Math.max(0, handFidget) * 2 },
-    L_Hand: { z: handFidget * 1.4 },
+    L_Forearm: { x: 1 + Math.max(0, handFidget) * 1.2 },
+    L_Hand: { z: handFidget * 0.7 },
     R_Upperarm: { x: -handFidget * 0.7, z: -weightShift * 0.6 },
-    R_Forearm: { x: 3 + Math.max(0, -handFidget) * 2 },
-    R_Hand: { z: Math.sin(elapsedSeconds * 2.1 + 2.2) * 1.4 },
+    R_Forearm: { x: 1 + Math.max(0, -handFidget) * 1.2 },
+    R_Hand: { z: Math.sin(elapsedSeconds * 2.1 + 2.2) * 0.7 },
     L_Thigh: { x: weightShift * 0.8, z: weightShift * 0.45 },
     R_Thigh: { x: -weightShift * 0.8, z: -weightShift * 0.45 },
   }));
@@ -598,7 +626,7 @@ function softTurnPose(elapsedSeconds: number, turnWeight: number, side = 1) {
 
 function turnStepPose(progress: number, side = 1) {
   const pose = mergePose(standingPose, {});
-  const stepCount = 4;
+  const stepCount = referenceMotionProfile.turn.detectedSteps;
   const scaled = THREE.MathUtils.clamp(progress, 0, 0.999) * stepCount;
   const stepIndex = Math.floor(scaled);
   const stepPhase = scaled - stepIndex;
@@ -635,12 +663,43 @@ function turnStepPose(progress: number, side = 1) {
   addRotation(pose, 'R_Clavicle', { z: torsoCounter * -0.7 });
   addRotation(pose, 'L_Upperarm', { x: (leftSteps ? -lift : lift) * 5, y: side * -0.8, z: -side * torsoCounter * 0.8 });
   addRotation(pose, 'R_Upperarm', { x: (leftSteps ? lift : -lift) * 5, y: side * -0.8, z: -side * torsoCounter * 0.8 });
-  addRotation(pose, 'L_Forearm', { x: 5 + (leftSteps ? lift : 1 - lift) * 5, z: side * torsoCounter * 0.6 });
-  addRotation(pose, 'R_Forearm', { x: 5 + (leftSteps ? 1 - lift : lift) * 5, z: side * -torsoCounter * 0.6 });
-  addRotation(pose, 'L_Hand', { y: side * torsoCounter * 0.5, z: side * -torsoCounter * 1 });
-  addRotation(pose, 'R_Hand', { y: side * torsoCounter * 0.5, z: side * -torsoCounter * 1 });
+  addRotation(pose, 'L_Forearm', { x: 2 + (leftSteps ? lift : 1 - lift) * 2.5, z: side * torsoCounter * 0.3 });
+  addRotation(pose, 'R_Forearm', { x: 2 + (leftSteps ? 1 - lift : lift) * 2.5, z: side * -torsoCounter * 0.3 });
+  addRotation(pose, 'L_Hand', { y: side * torsoCounter * 0.25, z: side * -torsoCounter * 0.45 });
+  addRotation(pose, 'R_Hand', { y: side * torsoCounter * 0.25, z: side * -torsoCounter * 0.45 });
 
   return clampPose(pose);
+}
+
+function getWalkStepCount(fromX: number, fromZ: number, toX: number, toZ: number) {
+  const distance = Math.hypot(toX - fromX, toZ - fromZ);
+  return THREE.MathUtils.clamp(Math.round(distance / 0.17) * 2, 2, 12);
+}
+
+function createWalkTargetFrame({
+  elapsedSeconds,
+  duration,
+  fromX,
+  fromZ,
+  toX,
+  toZ,
+  weight,
+  label,
+}: WalkTargetOptions): BrainFrame {
+  const rawProgress = THREE.MathUtils.clamp(elapsedSeconds / duration, 0, 1);
+  const stepCount = getWalkStepCount(fromX, fromZ, toX, toZ);
+  const progress = plantedStepProgress(rawProgress, stepCount);
+  const pose = walkPose(rawProgress * stepCount * Math.PI, weight);
+  addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.82) * 5 });
+
+  return {
+    label,
+    modelYaw: yawToward(fromX, fromZ, toX, toZ),
+    x: THREE.MathUtils.lerp(fromX, toX, progress),
+    z: THREE.MathUtils.lerp(fromZ, toZ, progress),
+    prop: { held: false, ...floorPropHome },
+    rotations: clampPose(pose),
+  };
 }
 
 function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
@@ -686,20 +745,22 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
   }
 
   if (cycle < 12.6) {
-    const rawProgress = (cycle - 7.4) / 5.2;
-    const stepCount = 4;
-    const progress = plantedStepProgress(rawProgress, stepCount);
-    const pose = walkPose(rawProgress * stepCount * Math.PI, 0.62);
-    addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.7) * 7 });
-    addRotation(pose, 'Spine01', { z: Math.sin(elapsedSeconds * 6.4) * 1.4 });
+    const frame = createWalkTargetFrame({
+      elapsedSeconds: cycle - 7.4,
+      duration: 5.2,
+      fromX: homeX,
+      fromZ: homeZ,
+      toX: 0.16,
+      toZ: 0.38,
+      weight: 0.62,
+      label: 'Brain: wandering closer',
+    });
+    addRotation(frame.rotations, 'Head', { y: Math.sin(elapsedSeconds * 0.7) * 3 });
+    addRotation(frame.rotations, 'Spine01', { z: Math.sin(elapsedSeconds * 6.4) * 1.4 });
 
     return {
-      label: 'Brain: wandering closer',
-      modelYaw: yawToward(homeX, homeZ, 0.16, 0.38),
-      x: THREE.MathUtils.lerp(homeX, 0.16, progress),
-      z: THREE.MathUtils.lerp(homeZ, 0.38, progress),
+      ...frame,
       prop: propOnFloor,
-      rotations: clampPose(pose),
     };
   }
 
@@ -798,36 +859,37 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
   }
 
   if (cycle < 33.5) {
-    const rawProgress = (cycle - 27.1) / 6.4;
-    const stepCount = 5;
-    const progress = plantedStepProgress(rawProgress, stepCount);
-    const pose = walkPose(rawProgress * stepCount * Math.PI, 0.66);
-    addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.82) * 5 });
-
     return {
-      label: 'Brain: wandering across screen',
-      modelYaw: wanderYaw,
-      x: THREE.MathUtils.lerp(propStandTarget.x, wanderX, progress),
-      z: THREE.MathUtils.lerp(propStandTarget.z, -0.3, progress),
+      ...createWalkTargetFrame({
+        elapsedSeconds: cycle - 27.1,
+        duration: 6.4,
+        fromX: propStandTarget.x,
+        fromZ: propStandTarget.z,
+        toX: wanderX,
+        toZ: -0.3,
+        weight: 0.66,
+        label: 'Brain: wandering across screen',
+      }),
       prop: propOnFloor,
-      rotations: clampPose(pose),
     };
   }
 
   if (cycle < 36) {
-    const rawProgress = (cycle - 33.5) / 2.5;
-    const stepCount = 2;
-    const progress = plantedStepProgress(rawProgress, stepCount);
-    const pose = walkPose(rawProgress * stepCount * Math.PI, 0.45);
-    addRotation(pose, 'Head', { y: 10 });
+    const frame = createWalkTargetFrame({
+      elapsedSeconds: cycle - 33.5,
+      duration: 2.5,
+      fromX: wanderX,
+      fromZ: -0.3,
+      toX: chairApproachTarget.x,
+      toZ: chairApproachTarget.z,
+      weight: 0.45,
+      label: 'Brain: approaching the chair',
+    });
+    addRotation(frame.rotations, 'Head', { y: 10 });
 
     return {
-      label: 'Brain: approaching the chair',
-      modelYaw: yawToward(wanderX, -0.3, chairApproachTarget.x, chairApproachTarget.z),
-      x: THREE.MathUtils.lerp(wanderX, chairApproachTarget.x, progress),
-      z: THREE.MathUtils.lerp(-0.3, chairApproachTarget.z, progress),
+      ...frame,
       prop: propOnFloor,
-      rotations: clampPose(pose),
     };
   }
 
@@ -885,24 +947,28 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
     };
   }
 
-  const rawProgress = (cycle - 46.1) / 9.9;
-  const progress = plantedStepProgress(rawProgress, 6);
-  const pose = walkPose(rawProgress * 6 * Math.PI, 0.48);
-  addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.7) * 8 });
+  const frame = createWalkTargetFrame({
+    elapsedSeconds: cycle - 46.1,
+    duration: 9.9,
+    fromX: chairSeatTarget.x,
+    fromZ: chairSeatTarget.z,
+    toX: homeX,
+    toZ: homeZ,
+    weight: 0.48,
+    label: 'Brain: settling back in',
+  });
+  addRotation(frame.rotations, 'Head', { y: Math.sin(elapsedSeconds * 0.7) * 8 });
 
   return {
-    label: 'Brain: settling back in',
+    ...frame,
     modelYaw: defaultModelYaw,
-    x: THREE.MathUtils.lerp(chairSeatTarget.x, homeX, progress),
-    z: THREE.MathUtils.lerp(chairSeatTarget.z, homeZ, progress),
     prop: propOnFloor,
-    rotations: clampPose(pose),
   };
 }
 
 function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
   const t = THREE.MathUtils.clamp(elapsedSeconds, 0, sequenceDuration);
-  const stridePhase = elapsedSeconds * 7.8;
+  const stridePhase = elapsedSeconds * referenceMotionProfile.walk.stridePhaseSpeed;
 
   if (t < 1.4) {
     return {
@@ -913,8 +979,8 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
     };
   }
 
-  if (t < 5.2) {
-    const progress = plantedStepProgress((t - 1.4) / 3.8, 8);
+  if (t < 6.7) {
+    const progress = plantedStepProgress((t - 1.4) / 5.3, 8);
 
     return {
       label: 'Sequence: walking toward camera',
@@ -924,7 +990,7 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
     };
   }
 
-  if (t < 6.4) {
+  if (t < 7.45) {
     return {
       label: 'Sequence: settling before turn',
       modelYaw: defaultModelYaw,
@@ -933,9 +999,9 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
     };
   }
 
-  if (t < 7.65) {
-    const rawProgress = (t - 6.4) / 1.25;
-    const progress = steppedProgress(rawProgress, 4);
+  if (t < 9.45) {
+    const rawProgress = (t - 7.45) / 2;
+    const progress = steppedProgress(rawProgress, referenceMotionProfile.turn.detectedSteps);
 
     return {
       label: 'Sequence: stepping through turn',
@@ -945,7 +1011,7 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
     };
   }
 
-  const progress = plantedStepProgress((t - 7.65) / (sequenceDuration - 7.65), 10);
+  const progress = plantedStepProgress((t - 9.45) / (sequenceDuration - 9.45), 10);
 
   return {
     label: 'Sequence: walking away',
@@ -990,6 +1056,7 @@ export function TripoPuppeteerLab() {
   const [autoTester, setAutoTester] = useState<AutoTesterState>({ running: false, boneName: '', axis: 'x' });
   const [boneProfiles, setBoneProfiles] = useState<Record<string, BoneProfile>>({});
   const [brainRunning, setBrainRunning] = useState(false);
+  const [trainingProgress, setTrainingProgress] = useState<TrainingProgress | null>(null);
   const [motionJudgement, setMotionJudgement] = useState<MotionJudgement>({
     passed: true,
     label: 'Motion judge: waiting for rig',
@@ -1026,6 +1093,34 @@ export function TripoPuppeteerLab() {
       skeletonHelperRef.current.visible = showSkeleton;
     }
   }, [showSkeleton]);
+
+  useEffect(() => {
+    let cancelled = false;
+
+    const loadTrainingProgress = async () => {
+      try {
+        const response = await fetch(`/motion-training-progress.json?t=${Date.now()}`, { cache: 'no-store' });
+        if (!response.ok) {
+          return;
+        }
+        const nextProgress = await response.json() as TrainingProgress;
+        if (!cancelled) {
+          setTrainingProgress(nextProgress);
+        }
+      } catch {
+        if (!cancelled) {
+          setTrainingProgress(null);
+        }
+      }
+    };
+
+    loadTrainingProgress();
+    const interval = window.setInterval(loadTrainingProgress, 5000);
+    return () => {
+      cancelled = true;
+      window.clearInterval(interval);
+    };
+  }, []);
 
   useEffect(() => {
     const mount = mountRef.current;
@@ -1111,13 +1206,14 @@ export function TripoPuppeteerLab() {
         const sequenceFrame = sequenceElapsed === null ? null : getSequenceFrame(sequenceElapsed);
         const brainStart = brainStartRef.current;
         const brainFrame = brainStart === null ? null : getBrainFrame(elapsedTime - brainStart, brainSeedRef.current);
-        const activePose = sequenceFrame?.rotations ?? brainFrame?.rotations ?? poseRef.current;
-        const activeYaw = sequenceFrame?.modelYaw ?? brainFrame?.modelYaw ?? modelYawRef.current;
-        const activeX = brainFrame?.x ?? 0;
+        const standingRestPose = clampPose(standingPose);
+        const activePose = sequenceFrame?.rotations ?? brainFrame?.rotations ?? standingRestPose;
+        const activeYaw = sequenceFrame?.modelYaw ?? brainFrame?.modelYaw ?? defaultModelYaw;
+        const activeX = sequenceFrame?.x ?? brainFrame?.x ?? 0;
         const activeY = brainFrame?.y ?? 0;
-        const activeZ = sequenceFrame?.z ?? brainFrame?.z ?? 0;
+        const activeZ = sequenceFrame?.z ?? brainFrame?.z ?? -0.85;
         const activeProp = brainFrame?.prop ?? { held: false, ...floorPropHome };
-        const activeLabel = sequenceFrame?.label ?? brainFrame?.label ?? 'Manual pose';
+        const activeLabel = sequenceFrame?.label ?? brainFrame?.label ?? 'Standing idle';
         const autoTesterStart = autoTesterStartRef.current;
         const testerSlot = autoTesterStart === null ? null : Math.floor((elapsedTime - autoTesterStart) / testerSlotSeconds);
         let testerProbe: ProbeState | null = null;
@@ -1428,6 +1524,37 @@ export function TripoPuppeteerLab() {
         <div className="tripo-status" aria-live="polite">
           {status}
         </div>
+        {trainingProgress && trainingProgress.status !== 'idle' ? (
+          <aside className="motion-training-panel" aria-label="Johnny training progress">
+            <div>
+              <span>{trainingProgress.status}</span>
+              <strong>{Math.round(trainingProgress.trainedScore ?? trainingProgress.currentScore ?? 0)}%</strong>
+            </div>
+            <progress
+              max={trainingProgress.totalIterations ?? 1}
+              value={trainingProgress.iteration ?? 0}
+            />
+            <p>{trainingProgress.message ?? 'Training motion profile against references'}</p>
+            <dl>
+              <div>
+                <dt>Iteration</dt>
+                <dd>{trainingProgress.iteration ?? 0}/{trainingProgress.totalIterations ?? '?'}</dd>
+              </div>
+              <div>
+                <dt>Target</dt>
+                <dd>{trainingProgress.passThreshold ?? 92}%</dd>
+              </div>
+              <div>
+                <dt>Captures</dt>
+                <dd>{trainingProgress.captures ?? 0}</dd>
+              </div>
+              <div>
+                <dt>Focus</dt>
+                <dd>{trainingProgress.currentSkill ?? 'walk'}</dd>
+              </div>
+            </dl>
+          </aside>
+        ) : null}
       </section>
 
     </main>
