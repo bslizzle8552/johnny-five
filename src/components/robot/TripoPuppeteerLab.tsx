@@ -78,12 +78,12 @@ const defaultLimits: BoneLimits = {
 const standingPose: PoseRotations = {
   L_Clavicle: { x: 0, y: -1, z: -8 },
   L_Upperarm: { x: -8, y: -2, z: -62 },
-  L_Forearm: { x: 12, y: 0, z: 1 },
-  L_Hand: { x: 0, y: 0, z: -2 },
+  L_Forearm: { x: 24, y: 0, z: 2 },
+  L_Hand: { x: 1, y: 0, z: -4 },
   R_Clavicle: { x: 0, y: 1, z: 8 },
   R_Upperarm: { x: -8, y: 2, z: 62 },
-  R_Forearm: { x: 12, y: 0, z: -1 },
-  R_Hand: { x: 0, y: 0, z: 2 },
+  R_Forearm: { x: 24, y: 0, z: -2 },
+  R_Hand: { x: 1, y: 0, z: 4 },
   Spine01: { x: -2, y: 0, z: 0 },
   Spine02: { x: 1, y: 0, z: 0 },
   Head: { x: 1, y: 0, z: 0 },
@@ -471,7 +471,7 @@ function mergePose(basePose: PoseRotations, overlayPose: Record<string, Partial<
   return merged;
 }
 
-function walkPose(stridePhase: number, walkWeight: number, waveWeight: number) {
+function walkPose(stridePhase: number, walkWeight: number) {
   const pose = mergePose(standingPose, {});
   const cycle = THREE.MathUtils.euclideanModulo(stridePhase / (Math.PI * 2), 1);
   const leftStance = cycle < 0.5;
@@ -496,7 +496,8 @@ function walkPose(stridePhase: number, walkWeight: number, waveWeight: number) {
   const swingToe = -swingLift * 5 + swingRecovery * 4;
   const stanceAnkleRoll = bodyOverStance * -1.6;
   const swingAnkleRoll = bodyOverStance * 0.9;
-  const waveArc = Math.sin(stridePhase * 1.35) * waveWeight;
+  const armSwing = Math.sin(stridePhase) * walkWeight;
+  const armLift = Math.max(0, swing) * walkWeight;
 
   addRotation(pose, 'Spine01', { x: swing * 0.8 - compression * 0.7, y: bodyOverStance * 1.2, z: bodyOverStance * 2.5 });
   addRotation(pose, 'Spine02', { x: compression * 0.45, z: bodyOverStance * 1.2 });
@@ -522,16 +523,14 @@ function walkPose(stridePhase: number, walkWeight: number, waveWeight: number) {
     addRotation(pose, 'L_ToeBase', { x: swingToe });
   }
 
-  addRotation(pose, 'L_Upperarm', { x: (leftStance ? -swing : swing) * 9, z: (leftStance ? -1 : 1) * swing * 4 });
-  addRotation(pose, 'R_Upperarm', { x: (leftStance ? swing : -swing) * 9, z: (leftStance ? -1 : 1) * swing * 4 });
-  addRotation(pose, 'L_Forearm', { x: Math.max(0, leftStance ? swing : -swing) * 5 });
-
-  if (waveWeight > 0) {
-    addRotation(pose, 'R_Clavicle', { z: -18 * waveWeight });
-    addRotation(pose, 'R_Upperarm', { x: -48 * waveWeight, z: -90 * waveWeight });
-    addRotation(pose, 'R_Forearm', { x: 64 * waveWeight });
-    addRotation(pose, 'R_Hand', { x: waveArc * 18, y: waveArc * 6, z: waveArc * 32 });
-  }
+  addRotation(pose, 'L_Clavicle', { z: -armSwing * 1.8 });
+  addRotation(pose, 'R_Clavicle', { z: -armSwing * 1.8 });
+  addRotation(pose, 'L_Upperarm', { x: -armSwing * 13 - armLift * 1.4, y: -armSwing * 1.5, z: -armSwing * 4 });
+  addRotation(pose, 'R_Upperarm', { x: armSwing * 13 - armLift * 1.4, y: -armSwing * 1.5, z: -armSwing * 4 });
+  addRotation(pose, 'L_Forearm', { x: 9 + Math.max(0, -armSwing) * 11 + armLift * 3, z: armSwing * 2.2 });
+  addRotation(pose, 'R_Forearm', { x: 9 + Math.max(0, armSwing) * 11 + armLift * 3, z: armSwing * -2.2 });
+  addRotation(pose, 'L_Hand', { x: armSwing * -2, y: armSwing * 2.5, z: armSwing * -5 });
+  addRotation(pose, 'R_Hand', { x: armSwing * 2, y: armSwing * 2.5, z: armSwing * -5 });
 
   return clampPose(pose);
 }
@@ -584,7 +583,7 @@ function softTurnPose(elapsedSeconds: number, turnWeight: number, side = 1) {
   return clampPose(pose);
 }
 
-function turnStepPose(progress: number, side = 1, waveWeight = 0) {
+function turnStepPose(progress: number, side = 1) {
   const pose = mergePose(standingPose, {});
   const stepCount = 4;
   const scaled = THREE.MathUtils.clamp(progress, 0, 0.999) * stepCount;
@@ -596,7 +595,6 @@ function turnStepPose(progress: number, side = 1, waveWeight = 0) {
   const stepYaw = side * (8 + place * 9);
   const supportYaw = side * -4;
   const torsoCounter = side * (1 - Math.abs(0.5 - stepPhase) * 2);
-  const waveArc = Math.sin(progress * Math.PI * 5.4) * waveWeight;
 
   addRotation(pose, 'Spine01', { x: -lift * 0.8, y: side * 2.4, z: -torsoCounter * 2.4 });
   addRotation(pose, 'Spine02', { y: side * 1.4, z: -torsoCounter * 1.2 });
@@ -620,15 +618,14 @@ function turnStepPose(progress: number, side = 1, waveWeight = 0) {
     addRotation(pose, 'L_Foot', { x: 1.5, y: supportYaw * 0.35, z: -side * 1.2 });
   }
 
-  addRotation(pose, 'L_Upperarm', { x: (leftSteps ? -lift : lift) * 5, z: -62 - side * torsoCounter * 2 });
-  addRotation(pose, 'R_Upperarm', { x: (leftSteps ? lift : -lift) * 5, z: 62 - side * torsoCounter * 2 });
-
-  if (waveWeight > 0) {
-    addRotation(pose, 'R_Clavicle', { z: -14 * waveWeight });
-    addRotation(pose, 'R_Upperarm', { x: -42 * waveWeight, z: -78 * waveWeight });
-    addRotation(pose, 'R_Forearm', { x: 58 * waveWeight });
-    addRotation(pose, 'R_Hand', { x: waveArc * 12, y: waveArc * 5, z: waveArc * 24 });
-  }
+  addRotation(pose, 'L_Clavicle', { z: torsoCounter * -1.8 });
+  addRotation(pose, 'R_Clavicle', { z: torsoCounter * -1.8 });
+  addRotation(pose, 'L_Upperarm', { x: (leftSteps ? -lift : lift) * 8, y: side * -1.8, z: -side * torsoCounter * 3 });
+  addRotation(pose, 'R_Upperarm', { x: (leftSteps ? lift : -lift) * 8, y: side * -1.8, z: -side * torsoCounter * 3 });
+  addRotation(pose, 'L_Forearm', { x: 8 + (leftSteps ? lift : 1 - lift) * 8, z: side * torsoCounter * 2 });
+  addRotation(pose, 'R_Forearm', { x: 8 + (leftSteps ? 1 - lift : lift) * 8, z: side * -torsoCounter * 2 });
+  addRotation(pose, 'L_Hand', { y: side * torsoCounter * 2.5, z: side * -torsoCounter * 4 });
+  addRotation(pose, 'R_Hand', { y: side * torsoCounter * 2.5, z: side * -torsoCounter * 4 });
 
   return clampPose(pose);
 }
@@ -679,7 +676,7 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
     const rawProgress = (cycle - 7.4) / 5.2;
     const stepCount = 4;
     const progress = steppedProgress(rawProgress, stepCount);
-    const pose = walkPose(rawProgress * stepCount * Math.PI, 0.62, 0);
+    const pose = walkPose(rawProgress * stepCount * Math.PI, 0.62);
     addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.7) * 7 });
     addRotation(pose, 'Spine01', { z: Math.sin(elapsedSeconds * 6.4) * 1.4 });
 
@@ -791,7 +788,7 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
     const rawProgress = (cycle - 27.1) / 6.4;
     const stepCount = 5;
     const progress = steppedProgress(rawProgress, stepCount);
-    const pose = walkPose(rawProgress * stepCount * Math.PI, 0.66, 0);
+    const pose = walkPose(rawProgress * stepCount * Math.PI, 0.66);
     addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.82) * 5 });
 
     return {
@@ -808,7 +805,7 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
     const rawProgress = (cycle - 33.5) / 2.5;
     const stepCount = 2;
     const progress = steppedProgress(rawProgress, stepCount);
-    const pose = walkPose(rawProgress * stepCount * Math.PI, 0.45, 0);
+    const pose = walkPose(rawProgress * stepCount * Math.PI, 0.45);
     addRotation(pose, 'Head', { y: 10 });
 
     return {
@@ -877,7 +874,7 @@ function getBrainFrame(elapsedSeconds: number, seed: number): BrainFrame {
 
   const rawProgress = (cycle - 46.1) / 9.9;
   const progress = steppedProgress(rawProgress, 6);
-  const pose = walkPose(rawProgress * 6 * Math.PI, 0.48, 0);
+  const pose = walkPose(rawProgress * 6 * Math.PI, 0.48);
   addRotation(pose, 'Head', { y: Math.sin(elapsedSeconds * 0.7) * 8 });
 
   return {
@@ -905,22 +902,21 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
 
   if (t < 5.2) {
     const progress = easeInOut((t - 1.4) / 3.8);
-    const waveWeight = easeInOut((progress - 0.28) / 0.44);
 
     return {
-      label: 'Sequence: walking toward camera and waving',
+      label: 'Sequence: walking toward camera',
       modelYaw: defaultModelYaw,
       z: THREE.MathUtils.lerp(-0.85, 0.35, progress),
-      rotations: walkPose(stridePhase, 1, waveWeight),
+      rotations: walkPose(stridePhase, 1),
     };
   }
 
   if (t < 6.4) {
     return {
-      label: 'Sequence: waving hello',
+      label: 'Sequence: settling before turn',
       modelYaw: defaultModelYaw,
       z: 0.35,
-      rotations: walkPose(stridePhase, 0, 1),
+      rotations: walkPose(stridePhase, 0),
     };
   }
 
@@ -932,7 +928,7 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
       label: 'Sequence: stepping through turn',
       modelYaw: THREE.MathUtils.lerp(defaultModelYaw, defaultModelYaw + 180, progress),
       z: 0.35,
-      rotations: turnStepPose(rawProgress, 1, 1 - progress),
+      rotations: turnStepPose(rawProgress, 1),
     };
   }
 
@@ -942,7 +938,7 @@ function getSequenceFrame(elapsedSeconds: number): SequenceFrame {
     label: 'Sequence: walking away',
     modelYaw: defaultModelYaw + 180,
     z: THREE.MathUtils.lerp(0.35, -1.05, progress),
-    rotations: walkPose(stridePhase, 1, 0),
+    rotations: walkPose(stridePhase, 1),
   };
 }
 
@@ -1408,7 +1404,6 @@ export function TripoPuppeteerLab() {
     setStatus('Current bone values copied');
   };
 
-  const selectedProfile = selectedBone ? boneProfiles[selectedBone] : undefined;
 
   return (
     <main className="tripo-puppeteer johnny-rig-only">
@@ -1422,152 +1417,6 @@ export function TripoPuppeteerLab() {
         </div>
       </section>
 
-      <aside className="tripo-controls bone-lab-controls" aria-label="Bone controls">
-        <div className="tripo-control-heading">
-          <p>Digital puppeteer</p>
-          <h1>Bone calibration lab</h1>
-        </div>
-
-        <div className="bone-lab-toolbar">
-          <label className="bone-lab-toggle">
-            <input type="checkbox" checked={showSkeleton} onChange={(event) => setShowSkeleton(event.target.checked)} />
-            Skeleton
-          </label>
-          <button className={brainRunning ? 'is-active' : ''} type="button" onClick={toggleBrain}>
-            {brainRunning ? 'Stop brain' : 'Brain'}
-          </button>
-          <button className={sequencePlaying ? 'is-active' : ''} type="button" onClick={playSequence}>
-            Play sequence
-          </button>
-          <button className={autoTester.running ? 'is-active' : ''} type="button" onClick={toggleAutoTester}>
-            {autoTester.running ? 'Stop test' : 'Auto test'}
-          </button>
-          <button type="button" onClick={applyStandingPose}>
-            Stand
-          </button>
-          <button type="button" onClick={resetPose}>
-            Reset pose
-          </button>
-          <button type="button" onClick={copyPose}>
-            Copy values
-          </button>
-        </div>
-
-        <label className="bone-lab-field">
-          <span>Model yaw</span>
-          <input
-            max="180"
-            min="-180"
-            type="range"
-            value={modelYaw}
-            onChange={(event) => setModelYaw(Number(event.target.value))}
-          />
-          <input
-            max="180"
-            min="-180"
-            type="number"
-            value={modelYaw}
-            onChange={(event) => setModelYaw(Number(event.target.value))}
-          />
-        </label>
-
-        <section className={['motion-judge', motionJudgement.passed ? 'is-passing' : 'is-blocking'].join(' ')}>
-          <div>
-            <span>Motion judge</span>
-            <strong>{motionJudgement.passed ? 'Passing' : 'Blocked'}</strong>
-          </div>
-          <p>{motionJudgement.label}</p>
-          <ul>
-            {motionJudgement.results.slice(0, 5).map((item) => (
-              <li className={item.passed ? 'is-passing' : 'is-blocking'} key={item.id}>
-                <span>{item.passed ? 'Pass' : 'Fail'}</span>
-                <strong>{item.label}</strong>
-                <em>{item.detail}</em>
-              </li>
-            ))}
-          </ul>
-        </section>
-
-        <div className="bone-lab-probe">
-          <strong>{selectedBone || 'No bone selected'}</strong>
-          {selectedProfile ? (
-            <p>
-              {selectedProfile.side} {selectedProfile.region} · influence {selectedProfile.influence}
-            </p>
-          ) : null}
-          <div>
-            {(['x', 'y', 'z'] as Axis[]).map((axis) => (
-              <button
-                className={probe?.boneName === selectedBone && probe.axis === axis ? 'is-active' : ''}
-                disabled={!selectedBone}
-                key={axis}
-                type="button"
-                onClick={() => setProbe(selectedBone ? { boneName: selectedBone, axis } : null)}
-              >
-                Probe {axis.toUpperCase()}
-              </button>
-            ))}
-            <button type="button" onClick={() => setProbe(null)}>
-              Stop
-            </button>
-          </div>
-        </div>
-
-        <label className="bone-lab-search">
-          <span>{boneNames.length} bones</span>
-          <input placeholder="Filter bones" value={filter} onChange={(event) => setFilter(event.target.value)} />
-        </label>
-
-        <div className="bone-lab-list">
-          {filteredBoneNames.map((boneName) => {
-            const rotation = pose[boneName] ?? emptyRotation;
-            const profile = boneProfiles[boneName];
-            const limits = profile?.limits ?? getBoneLimits(boneName);
-
-            return (
-              <section
-                className={[
-                  boneName === selectedBone ? 'is-selected' : '',
-                  testerBoneBlocklist.test(boneName) ? 'is-locked' : 'is-brain-safe',
-                  'bone-row',
-                ].join(' ')}
-                key={boneName}
-              >
-                <button type="button" onClick={() => setSelectedBone(boneName)}>
-                  {boneName}
-                </button>
-                {profile ? (
-                  <p>
-                    {profile.side} {profile.region} · influence {profile.influence}
-                    {testerBoneBlocklist.test(boneName) ? ' · locked from brain/tester' : ' · brain-safe'}
-                  </p>
-                ) : null}
-                {(['x', 'y', 'z'] as Axis[]).map((axis) => (
-                  <label className="bone-axis" key={axis}>
-                    <span>{axis.toUpperCase()}</span>
-                    <input
-                      max={limits[axis].max}
-                      min={limits[axis].min}
-                      step="1"
-                      type="range"
-                      value={rotation[axis]}
-                      onChange={(event) => updateBoneAxis(boneName, axis, Number(event.target.value))}
-                    />
-                    <input
-                      max={limits[axis].max}
-                      min={limits[axis].min}
-                      step="1"
-                      type="number"
-                      value={rotation[axis]}
-                      onChange={(event) => updateBoneAxis(boneName, axis, Number(event.target.value))}
-                    />
-                  </label>
-                ))}
-              </section>
-            );
-          })}
-        </div>
-      </aside>
     </main>
   );
 }
