@@ -4978,7 +4978,7 @@
     }
   ],
   "coachingReport": {
-    "generatedAt": "2026-06-09T04:45:23.965Z",
+    "generatedAt": "2026-06-09T05:17:00.416Z",
     "iterationsRequested": 25,
     "referenceFiles": [
       "public\\robot\\reference_motion\\Dance.glb",
@@ -5074,15 +5074,15 @@
     ],
     "recommendedProfile": {
       "walk": {
-        "duration": 10.986,
-        "stridePhaseSpeed": 8.167,
-        "footPitchDelta": 35.545,
-        "upperArmSwingDelta": 12.144,
-        "forearmFlexDelta": 9.16,
-        "toeCurlDelta": 41.92
+        "duration": 8.728,
+        "stridePhaseSpeed": 9.479,
+        "footPitchDelta": 37.622,
+        "upperArmSwingDelta": 14.295,
+        "forearmFlexDelta": 7.053,
+        "toeCurlDelta": 42.051
       },
       "turn": {
-        "duration": 2.987,
+        "duration": 2.53,
         "detectedSteps": 5
       },
       "idle": {
@@ -5159,59 +5159,59 @@
         }
       },
       "currentScore": {
-        "overall": 80.4,
+        "overall": 96.7,
         "passThreshold": 92,
-        "passes": false,
+        "passes": true,
         "skillScores": {
           "walk": {
-            "score": 54.7,
+            "score": 92.4,
             "metrics": {
               "duration": {
-                "current": 14.886,
+                "current": 9.385,
                 "target": 8.271,
-                "error": 6.615,
-                "score": 20
+                "error": 1.114,
+                "score": 86.5
               },
               "stridePhaseSpeed": {
-                "current": 5.899,
+                "current": 9.097,
                 "target": 9.745,
-                "error": -3.846,
-                "score": 60.5
+                "error": -0.648,
+                "score": 93.4
               },
               "footPitchDelta": {
-                "current": 31.957,
+                "current": 37.018,
                 "target": 38.043,
-                "error": -6.086,
-                "score": 84
+                "error": -1.025,
+                "score": 97.3
               },
               "toeCurlDelta": {
-                "current": 41.694,
+                "current": 42.013,
                 "target": 42.077,
-                "error": -0.383,
-                "score": 99.1
+                "error": -0.064,
+                "score": 99.8
               },
               "upperArmSwingDelta": {
-                "current": 8.426,
+                "current": 13.669,
                 "target": 14.731,
-                "error": -6.305,
-                "score": 57.2
+                "error": -1.062,
+                "score": 92.8
               },
               "forearmFlexDelta": {
-                "current": 12.799,
+                "current": 7.666,
                 "target": 6.627,
-                "error": 6.172,
-                "score": 6.9
+                "error": 1.039,
+                "score": 84.3
               }
             }
           },
           "turn": {
-            "score": 73.9,
+            "score": 95.6,
             "metrics": {
               "duration": {
-                "current": 3.776,
+                "current": 2.663,
                 "target": 2.438,
-                "error": 1.338,
-                "score": 45.1
+                "error": 0.225,
+                "score": 90.8
               },
               "detectedSteps": {
                 "current": 5,
@@ -5314,59 +5314,59 @@
         }
       },
       "trainedScore": {
-        "overall": 92,
+        "overall": 98.6,
         "passThreshold": 92,
-        "passes": false,
+        "passes": true,
         "skillScores": {
           "walk": {
-            "score": 81.4,
+            "score": 96.9,
             "metrics": {
               "duration": {
-                "current": 10.986,
+                "current": 8.728,
                 "target": 8.271,
-                "error": 2.715,
-                "score": 67.2
+                "error": 0.457,
+                "score": 94.5
               },
               "stridePhaseSpeed": {
-                "current": 8.167,
+                "current": 9.479,
                 "target": 9.745,
-                "error": -1.578,
-                "score": 83.8
+                "error": -0.266,
+                "score": 97.3
               },
               "footPitchDelta": {
-                "current": 35.545,
+                "current": 37.622,
                 "target": 38.043,
-                "error": -2.498,
-                "score": 93.4
+                "error": -0.421,
+                "score": 98.9
               },
               "toeCurlDelta": {
-                "current": 41.92,
+                "current": 42.051,
                 "target": 42.077,
-                "error": -0.157,
-                "score": 99.6
+                "error": -0.026,
+                "score": 99.9
               },
               "upperArmSwingDelta": {
-                "current": 12.144,
+                "current": 14.295,
                 "target": 14.731,
-                "error": -2.587,
-                "score": 82.4
+                "error": -0.436,
+                "score": 97
               },
               "forearmFlexDelta": {
-                "current": 9.16,
+                "current": 7.053,
                 "target": 6.627,
-                "error": 2.533,
-                "score": 61.8
+                "error": 0.426,
+                "score": 93.6
               }
             }
           },
           "turn": {
-            "score": 89.3,
+            "score": 98.2,
             "metrics": {
               "duration": {
-                "current": 2.987,
+                "current": 2.53,
                 "target": 2.438,
-                "error": 0.549,
-                "score": 77.5
+                "error": 0.092,
+                "score": 96.2
               },
               "detectedSteps": {
                 "current": 5,

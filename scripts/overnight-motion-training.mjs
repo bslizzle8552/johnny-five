@@ -234,10 +234,8 @@ function writeMontage() {
 }
 
 function runCoach(iteration) {
-  const result = spawnSync(/^win/.test(process.platform) ? 'npm.cmd' : 'npm', [
-    'run',
-    'motion:coach',
-    '--',
+  const result = spawnSync(process.execPath, [
+    'scripts/coach-reference-motion.mjs',
     `--iterations=${cycleIterations}`,
   ], {
     cwd: process.cwd(),
@@ -285,7 +283,7 @@ async function main() {
     const skills = Object.entries(objective?.trainedScore?.skillScores ?? {});
     const weakest = skills.sort((a, b) => (a[1].score ?? 0) - (b[1].score ?? 0))[0]?.[0] ?? 'walk';
 
-    if (iteration === 1 || iteration % captureEvery === 0 || trainedScore >= passThreshold) {
+    if (iteration === 1 || iteration % captureEvery === 0) {
       try {
         const file = await captureMilestone(iteration, trainedScore);
         if (file) {
