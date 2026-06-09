@@ -1,14 +1,14 @@
 {
   "walk": {
-    "duration": 14.886,
-    "stridePhaseSpeed": 5.899,
-    "footPitchDelta": 31.957,
-    "upperArmSwingDelta": 8.426,
-    "forearmFlexDelta": 12.799,
-    "toeCurlDelta": 41.694
+    "duration": 10.986,
+    "stridePhaseSpeed": 8.167,
+    "footPitchDelta": 35.545,
+    "upperArmSwingDelta": 12.144,
+    "forearmFlexDelta": 9.16,
+    "toeCurlDelta": 41.92
   },
   "turn": {
-    "duration": 3.776,
+    "duration": 2.987,
     "detectedSteps": 5
   },
   "idle": {

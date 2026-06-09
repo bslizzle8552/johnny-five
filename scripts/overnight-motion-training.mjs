@@ -242,12 +242,18 @@ function runCoach(iteration) {
   ], {
     cwd: process.cwd(),
     encoding: 'utf8',
+    maxBuffer: 1024 * 1024 * 64,
     windowsHide: true,
   });
 
-  if (result.status !== 0) {
-    appendLog(`Coach failed at iteration ${iteration}: ${result.stderr || result.stdout}`);
+  if (result.error || result.status !== 0) {
+    const errorText = result.error instanceof Error ? result.error.message : '';
+    const outputText = result.stderr || result.stdout || '';
+    appendLog(`Coach failed at iteration ${iteration}: ${errorText || outputText || `exit ${result.status}`}`);
+    return false;
   }
+
+  return true;
 }
 
 async function main() {
@@ -272,7 +278,7 @@ async function main() {
   let iteration = 0;
   while (Date.now() < deadline.getTime()) {
     iteration += 1;
-    runCoach(iteration);
+    const coachPassed = runCoach(iteration);
     const objective = readObjective();
     const currentScore = objective?.currentScore?.overall ?? 0;
     const trainedScore = objective?.trainedScore?.overall ?? currentScore;
@@ -301,7 +307,9 @@ async function main() {
       passThreshold,
       captures: captures.length,
       currentSkill: weakest,
-      message: trainedScore >= passThreshold
+      message: !coachPassed
+        ? 'Coach cycle failed; retrying with existing profile data'
+        : trainedScore >= passThreshold
         ? 'Profile target is passing; continuing refinement until deadline'
         : `Training toward ${passThreshold}% target; weakest skill is ${weakest}`,
     });
